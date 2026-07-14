@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Alpha Clinic</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <!-- Custom Framework Stylesheet -->
+    <link href="css/framework.css" rel="stylesheet" />
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- Additional inline styles (can stay) -->
+    <style>
+      .impact-section {
+        background: var(--light);
+        border-radius: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+      }
+      .impact-item {
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        border-radius: 1.5rem;
+      }
+      .impact-item:hover {
+        background: #fff;
+        box-shadow: 0 12px 35px rgba(26, 61, 43, 0.1);
+        transform: translateY(-5px);
+      }
+      .impact-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1rem;
+        background: var(--primary);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 1.7rem;
+      }
+      .impact-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        font-family: "Roboto", sans-serif;
+        margin-bottom: 0.25rem;
+      }
+      .impact-label {
+        color: #555;
+        font-weight: 500;
+        font-size: 1rem;
+        letter-spacing: 0.03em;
+      }
+
+      .news-card {
+        border: none;
+        border-radius: 1rem;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .news-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(26, 61, 43, 0.12);
+      }
+      .news-img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+      }
+      .news-body {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .news-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        font-size: 0.85rem;
+      }
+      .news-date {
+        color: #777;
+      }
+      .news-category {
+        background: var(--light);
+        color: var(--primary);
+        padding: 0.2rem 0.8rem;
+        border-radius: 2rem;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .news-title {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--dark);
+        margin-bottom: 0.75rem;
+        line-height: 1.4;
+      }
+      .news-excerpt {
+        color: #666;
+        font-size: 0.92rem;
+        margin-bottom: 1rem;
+        flex: 1;
+      }
+      .news-link {
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: gap 0.2s;
+      }
+      .news-link:hover {
+        gap: 0.6rem;
+        color: #0a7a3c;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader Start -->
+    <div id="spinner">
+      <div class="preloader-overlay">
+        <div class="preloader-particles" aria-hidden="true">
+          <span
+            class="particle"
+            style="--x: 10%; --y: 20%; --d: 12s; --s: 0.8"
+          ></span>
+          <span
+            class="particle"
+            style="--x: 85%; --y: 75%; --d: 14s; --s: 1.1"
+          ></span>
+          <span
+            class="particle"
+            style="--x: 25%; --y: 65%; --d: 10s; --s: 0.9"
+          ></span>
+          <span
+            class="particle"
+            style="--x: 70%; --y: 15%; --d: 16s; --s: 1.3"
+          ></span>
+          <span
+            class="particle"
+            style="--x: 50%; --y: 50%; --d: 11s; --s: 0.7"
+          ></span>
+        </div>
+        <div class="preloader-content">
+          <div class="ecg-logo-stage">
+            <svg class="ecg-line" viewBox="0 0 200 60" fill="none">
+              <path
+                id="ecgPath"
+                d="M0 30 L 60 30 L 75 5 L 90 55 L 105 30 L 200 30"
+                stroke="url(#ecgGradient)"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+              <defs>
+                <linearGradient id="ecgGradient" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#0D9B4D" />
+                  <stop offset="100%" stop-color="#2EE6A5" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="logo-glow">
+              <div class="logo-circle">
+                <i class="fa fa-heartbeat heartbeat-icon"></i>
+              </div>
+            </div>
+          </div>
+          <h2 class="preloader-message">Preparing Exceptional Care</h2>
+          <div class="preloader-percent" id="preloaderPercent">0%</div>
+          <div class="preloader-progress">
+            <div class="preloader-progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Navbar Start -->
+    <nav class="site-nav" id="siteNav">
+      <div class="site-nav__inner">
+        <a href="index.html" class="site-nav__brand">
+          <i class="fa fa-heartbeat"></i>
+          <span>Alpha Clinic</span>
+        </a>
+        <button
+          type="button"
+          class="site-nav__toggle"
+          id="siteNavToggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="site-nav__menu" id="siteNavMenu">
+          <a href="index.html" class="site-nav__link is-active">Home</a>
+          <a href="about.html" class="site-nav__link">About</a>
+          <a href="service.html" class="site-nav__link">Service</a>
+          <div class="site-nav__dropdown">
+            <a href="#" class="site-nav__link"
+              >Pages
+              <i
+                class="fa fa-chevron-down"
+                style="font-size: 0.7rem; margin-left: 0.35rem"
+              ></i
+            ></a>
+            <div class="site-nav__dropdown-menu">
+              <a href="feature.html">Feature</a>
+              <a href="team.html">Our Doctor</a>
+              <a href="appointment.html">Appointment</a>
+              <a href="testimonial.html">Testimonial</a>
+              <a href="404.html">404 Page</a>
+            </div>
+          </div>
+          <a href="contact.html" class="site-nav__link">Contact</a>
+          <a href="appointment.html" class="site-nav__cta"
+            >Appointment <i class="fa fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <div class="container-fluid header p-0 mb-5" id="hero">
+      <div class="hero-bg-layers" aria-hidden="true">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-bg-pattern"></div>
+      </div>
+      <div class="row g-0 align-items-center flex-column-reverse flex-lg-row">
+        <div class="col-lg-6 hero-left-col wow fadeIn" data-wow-delay="0.1s">
+          <div class="hero-copy p-5">
+            <h1 class="display-4 hero-tagline is-visible" id="heroTagline">
+              Strong Hearts. Healthier Lives.
+            </h1>
+            <p class="hero-subline is-visible" id="heroSubline">
+              Expert cardiology care focused on prevention, precision, and
+              lasting wellbeing.
+            </p>
+            <div class="row g-4">
+              <div class="col-sm-4">
+                <div class="border-start border-light ps-4">
+                  <h2 class="text-white mb-1" data-toggle="counter-up">123</h2>
+                  <p class="text-light mb-0">Expert Doctors</p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="border-start border-light ps-4">
+                  <h2 class="text-white mb-1" data-toggle="counter-up">1234</h2>
+                  <p class="text-light mb-0">Medical Stuff</p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="border-start border-light ps-4">
+                  <h2 class="text-white mb-1" data-toggle="counter-up">
+                    12345
+                  </h2>
+                  <p class="text-light mb-0">Total Patients</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-right-col wow fadeIn" data-wow-delay="0.5s">
+          <div class="hero-carousel-wrapper">
+            <div class="hero-floating-cards">
+              <div class="floating-card floating-card--top-left">
+                <i class="fa fa-clock text-primary"></i
+                ><span>24/7 Emergency</span>
+              </div>
+              <div class="floating-card floating-card--top-right">
+                <i class="fa fa-star text-primary"></i
+                ><span>98% Satisfaction</span>
+              </div>
+              <div class="floating-card floating-card--bottom-left">
+                <i class="fa fa-user-md text-primary"></i
+                ><span>250+ Specialists</span>
+              </div>
+            </div>
+            <div
+              class="header-carousel"
+              data-autoplay="true"
+              data-interval="4500"
+            >
+              <div class="carousel-viewport">
+                <div
+                  class="carousel-slide active"
+                  data-tagline="Strong Hearts. Healthier Lives."
+                  data-subline="Expert cardiology care focused on prevention, precision, and lasting wellbeing."
+                  data-dept="Cardiology"
+                  data-dept-desc="Advanced Heart & Vascular Care"
+                >
+                  <img class="img-fluid" src="img/carousel-1.jpg" alt="" />
+                </div>
+                <div
+                  class="carousel-slide"
+                  data-tagline="Clarity For Every Mind."
+                  data-subline="Advanced neurology support that listens closely and treats with compassion."
+                  data-dept="Neurology"
+                  data-dept-desc="Brain, Spine & Nervous System"
+                >
+                  <img class="img-fluid" src="img/carousel-2.jpg" alt="" />
+                </div>
+                <div
+                  class="carousel-slide"
+                  data-tagline="Breathe Easier. Live Fuller."
+                  data-subline="Pulmonary care designed to restore comfort, strength, and everyday confidence."
+                  data-dept="Pulmonary"
+                  data-dept-desc="Lung Health & Respiratory Care"
+                >
+                  <img class="img-fluid" src="img/carousel-3.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-info-card">
+                <h4 class="dept-name">Cardiology</h4>
+                <p class="dept-desc">Advanced Heart & Vascular Care</p>
+                <div class="accent-line"></div>
+              </div>
+              <div class="carousel-nav">
+                <button
+                  type="button"
+                  class="carousel-prev"
+                  aria-label="Previous"
+                >
+                  <i class="fa fa-chevron-left"></i>
+                </button>
+                <button type="button" class="carousel-next" aria-label="Next">
+                  <i class="fa fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="carousel-dots"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hero End -->
+
+    <!-- About Start -->
+    <div class="container-xxl py-5 about-section">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.15s">
+            <div class="d-flex flex-column about-images">
+              <img
+                class="img-fluid rounded-4 shadow-lg"
+                src="img/about-1.jpg"
+                alt="Modern hospital corridor"
+              />
+              <img
+                class="img-fluid rounded-4 shadow-lg bg-white p-2"
+                src="img/about-2.jpg"
+                alt="Doctor consulting with patient"
+                style="margin-top: -25%; width: 55%"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+            <p
+              class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium"
+            >
+              About Us
+            </p>
+            <h1 class="mb-4 display-5 fw-bold">
+              Why You Should Trust Us? Get Know About Us!
+            </h1>
+            <p>
+              Alpha Clinic is a leading multidisciplinary medical center
+              committed to delivering compassionate, evidence‑based care. For
+              over two decades, we have combined advanced technology with a
+              human touch to treat every patient like family.
+            </p>
+            <p class="mb-4">
+              Our board‑certified physicians, modern operating suites, and
+              integrated diagnostic services ensure that you receive a precise
+              diagnosis and an effective treatment plan — all under one roof.
+            </p>
+            <p>
+              <i class="far fa-check-circle text-primary me-3"></i>Quality
+              health care
+            </p>
+            <p>
+              <i class="far fa-check-circle text-primary me-3"></i>Only
+              Qualified Doctors
+            </p>
+            <p>
+              <i class="far fa-check-circle text-primary me-3"></i>Medical
+              Research Professionals
+            </p>
+            <a
+              class="btn btn-primary rounded-pill py-3 px-5 mt-4 shadow-sm"
+              href="about.html"
+              >Read More</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5 bg-light-subtle">
+      <div class="container">
+        <div
+          class="text-center mx-auto mb-5 wow fadeInUp"
+          data-wow-delay="0.1s"
+          style="max-width: 600px"
+        >
+          <p
+            class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium"
+          >
+            Services
+          </p>
+          <h1 class="display-5 fw-bold">Health Care Solutions</h1>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4">
+                <i class="fa fa-heartbeat text-white"></i>
+              </div>
+              <h4 class="mb-3">Cardiology</h4>
+              <p class="mb-4">
+                Comprehensive heart care including ECG, echocardiography, stress
+                testing, and interventional procedures to keep your heart
+                strong.
+              </p>
+              <a
+                class="btn btn-link p-0 fw-semibold text-primary"
+                href="service.html"
+                >Read More <i class="fa fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4">
+                <i class="fa fa-x-ray text-white"></i>
+              </div>
+              <h4 class="mb-3">Pulmonary</h4>
+              <p class="mb-4">
+                Advanced lung function testing, bronchoscopy, and respiratory
+                therapy for asthma, COPD, and other pulmonary conditions.
+              </p>
+              <a
+                class="btn btn-link p-0 fw-semibold text-primary"
+                href="service.html"
+                >Read More <i class="fa fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4">
+                <i class="fa fa-brain text-white"></i>
+              </div>
+              <h4 class="mb-3">Neurology</h4>
+              <p class="mb-4">
+                Expert diagnosis and management of neurological disorders, from
+                migraines and epilepsy to stroke and multiple sclerosis.
+              </p>
+              <a
+                class="btn btn-link p-0 fw-semibold text-primary"
+                href="service.html"
+                >Read More <i class="fa fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.15s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4">
+                <i class="fa fa-wheelchair text-white"></i>
+              </div>
+              <h4 class="mb-3">Orthopedics</h4>
+              <p class="mb-4">
+                Joint replacement, sports injury rehabilitation, and spinal
+                surgery backed by the latest robotic‑assisted techniques.
+              </p>
+              <a
+                class="btn btn-link p-0 fw-semibold text-primary"
+                href="service.html"
+                >Read More <i class="fa fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.25s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4">
+                <i class="fa fa-tooth text-white"></i>
+              </div>
+              <h4 class="mb-3">Dental Surgery</h4>
+              <p class="mb-4">
+                Complete oral health care from routine cleanings to advanced
+                implantology and cosmetic dentistry.
+              </p>
+              <a
+                class="btn btn-link p-0 fw-semibold text-primary"
+                href="service.html"
+                >Read More <i class="fa fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.35s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4">
+                <i class="fa fa-vials text-white"></i>
+              </div>
+              <h4 class="mb-3">Laboratory</h4>
+              <p class="mb-4">
+                State‑of‑the‑art pathology and diagnostic labs offering rapid,
+                accurate results to guide your treatment.
+              </p>
+              <a
+                class="btn btn-link p-0 fw-semibold text-primary"
+                href="service.html"
+                >Read More <i class="fa fa-arrow-right ms-2"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Feature Start -->
+    <div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
+      <div class="container feature px-lg-0">
+        <div class="row g-0 mx-lg-0">
+          <div
+            class="col-lg-6 feature-text py-5 wow fadeIn"
+            data-wow-delay="0.1s"
+          >
+            <div class="p-lg-5 ps-lg-0">
+              <p
+                class="d-inline-block border rounded-pill text-light py-1 px-4"
+              >
+                Features
+              </p>
+              <h1 class="text-white mb-4 display-5 fw-bold">Why Choose Us</h1>
+              <p class="text-white mb-4 pb-2">
+                We combine compassionate care with cutting‑edge technology to
+                deliver exceptional health outcomes. Our patient‑centered
+                approach ensures you feel heard, respected, and empowered at
+                every step of your journey.
+              </p>
+              <div class="row g-4">
+                <div class="col-6">
+                  <div class="d-flex align-items-center">
+                    <div
+                      class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white icon-box"
+                      style="width: 55px; height: 55px"
+                    >
+                      <i class="fa fa-user-md text-primary"></i>
+                    </div>
+                    <div class="ms-4">
+                      <p class="text-white mb-2">Experience</p>
+                      <h5 class="text-white mb-0">Doctors</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="d-flex align-items-center">
+                    <div
+                      class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white icon-box"
+                      style="width: 55px; height: 55px"
+                    >
+                      <i class="fa fa-check text-primary"></i>
+                    </div>
+                    <div class="ms-4">
+                      <p class="text-white mb-2">Quality</p>
+                      <h5 class="text-white mb-0">Services</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="d-flex align-items-center">
+                    <div
+                      class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white icon-box"
+                      style="width: 55px; height: 55px"
+                    >
+                      <i class="fa fa-comment-medical text-primary"></i>
+                    </div>
+                    <div class="ms-4">
+                      <p class="text-white mb-2">Positive</p>
+                      <h5 class="text-white mb-0">Consultation</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="d-flex align-items-center">
+                    <div
+                      class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white icon-box"
+                      style="width: 55px; height: 55px"
+                    >
+                      <i class="fa fa-headphones text-primary"></i>
+                    </div>
+                    <div class="ms-4">
+                      <p class="text-white mb-2">24 Hours</p>
+                      <h5 class="text-white mb-0">Support</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-6 pe-lg-0 wow fadeIn"
+            data-wow-delay="0.5s"
+            style="min-height: 400px"
+          >
+            <div class="position-relative h-100">
+              <img
+                class="position-absolute img-fluid w-100 h-100 rounded-4 shadow-lg"
+                src="img/feature.jpg"
+                style="object-fit: cover"
+                alt="Medical team in discussion"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Feature End -->
+
+    <!-- Impact Statistics Start -->
+    <div class="container-xxl py-5 impact-section">
+      <div class="container">
+        <div class="row g-4 justify-content-center">
+          <div class="col-sm-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="impact-item">
+              <div class="impact-icon"><i class="fa fa-calendar-alt"></i></div>
+              <div class="impact-number" data-toggle="counter-up">25</div>
+              <div class="impact-label">Years Experience</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="impact-item">
+              <div class="impact-icon"><i class="fa fa-user-md"></i></div>
+              <div class="impact-number" data-toggle="counter-up">850</div>
+              <div class="impact-label">Expert Doctors</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="impact-item">
+              <div class="impact-icon"><i class="fa fa-smile"></i></div>
+              <div class="impact-number" data-toggle="counter-up">120</div>
+              <div class="impact-label">K Happy Patients</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="impact-item">
+              <div class="impact-icon"><i class="fa fa-award"></i></div>
+              <div class="impact-number" data-toggle="counter-up">45</div>
+              <div class="impact-label">Award Winning</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Impact Statistics End -->
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5 doctors-section">
+      <div class="container">
+        <!-- Section header -->
+        <div
+          class="text-center mx-auto mb-5 wow fadeInUp"
+          data-wow-delay="0.1s"
+          style="max-width: 650px"
+        >
+          <p
+            class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium"
+          >
+            Meet Our Experts
+          </p>
+          <h1 class="display-5 fw-bold">Our Experienced Medical Specialists</h1>
+          <p class="text-muted">
+            At Alpha Clinic, our specialists combine decades of experience,
+            compassion, and innovative technology to deliver exceptional patient
+            care tailored to your unique needs.
+          </p>
+        </div>
+
+        <!-- Dynamic editorial grid -->
+        <div class="doctors-grid">
+          <!-- 1. Featured Doctor (large) -->
+          <div
+            class="doctor-card doctor-card--featured wow fadeInUp"
+            data-wow-delay="0.15s"
+          >
+            <div class="doctor-card__image">
+              <img src="img/team-1.jpg" alt="Dr. Sarah Johnson" />
+              <div class="doctor-card__badge">25+ Years</div>
+              <div class="doctor-card__availability available">
+                ● Available Today
+              </div>
+            </div>
+            <div class="doctor-card__body">
+              <h3>Dr. Sarah Johnson</h3>
+              <p class="doctor-card__dept">Cardiology</p>
+              <p class="doctor-card__desc">
+                Leading cardiologist with extensive experience in interventional
+                cardiology and preventive heart care.
+              </p>
+              <a href="#" class="doctor-card__profile">
+                View Full Profile <i class="fa fa-arrow-right"></i>
+              </a>
+              <div class="doctor-card__social">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Dr. Michael Chen -->
+          <div class="doctor-card wow fadeInUp" data-wow-delay="0.2s">
+            <div class="doctor-card__image">
+              <img src="img/team-2.jpg" alt="Dr. Michael Chen" />
+              <div class="doctor-card__badge">18+ Years</div>
+              <div class="doctor-card__availability available">
+                ● Available Today
+              </div>
+            </div>
+            <div class="doctor-card__body">
+              <h3>Dr. Michael Chen</h3>
+              <p class="doctor-card__dept">Neurology</p>
+              <p class="doctor-card__desc">
+                Expert in neurological disorders with a focus on stroke
+                management and advanced neuroimaging.
+              </p>
+              <a href="#" class="doctor-card__profile">
+                View Full Profile <i class="fa fa-arrow-right"></i>
+              </a>
+              <div class="doctor-card__social">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Dr. Emily Davis -->
+          <div class="doctor-card wow fadeInUp" data-wow-delay="0.25s">
+            <div class="doctor-card__image">
+              <img src="img/team-3.jpg" alt="Dr. Emily Davis" />
+              <div class="doctor-card__badge">15+ Years</div>
+              <div class="doctor-card__availability available">
+                ● Available Today
+              </div>
+            </div>
+            <div class="doctor-card__body">
+              <h3>Dr. Emily Davis</h3>
+              <p class="doctor-card__dept">Pulmonary</p>
+              <p class="doctor-card__desc">
+                Specialist in respiratory medicine, treating asthma, COPD, and
+                complex lung conditions.
+              </p>
+              <a href="#" class="doctor-card__profile">
+                View Full Profile <i class="fa fa-arrow-right"></i>
+              </a>
+              <div class="doctor-card__social">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Dr. Robert Wilson -->
+          <div class="doctor-card wow fadeInUp" data-wow-delay="0.3s">
+            <div class="doctor-card__image">
+              <img src="img/team-4.jpg" alt="Dr. Robert Wilson" />
+              <div class="doctor-card__badge">20+ Years</div>
+              <div class="doctor-card__availability">● Available Next Week</div>
+            </div>
+            <div class="doctor-card__body">
+              <h3>Dr. Robert Wilson</h3>
+              <p class="doctor-card__dept">Orthopedics</p>
+              <p class="doctor-card__desc">
+                Orthopedic surgeon specializing in joint replacement, sports
+                injuries, and minimally invasive procedures.
+              </p>
+              <a href="#" class="doctor-card__profile">
+                View Full Profile <i class="fa fa-arrow-right"></i>
+              </a>
+              <div class="doctor-card__social">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /doctors-grid -->
+      </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- Appointment Start -->
+    <div class="container-xxl py-5 bg-light">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <p
+              class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium"
+            >
+              Appointment
+            </p>
+            <h1 class="mb-4 display-5 fw-bold">
+              Make An Appointment To Visit Our Doctor
+            </h1>
+            <p class="mb-4">
+              Scheduling your visit is simple and fast. Choose a convenient date
+              and time, and our patient coordinator will confirm your
+              appointment within one business hour.
+            </p>
+            <div
+              class="bg-white rounded-4 d-flex align-items-center p-4 mb-4 shadow-sm"
+            >
+              <div
+                class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-primary text-white"
+                style="width: 55px; height: 55px"
+              >
+                <i class="fa fa-phone-alt"></i>
+              </div>
+              <div class="ms-4">
+                <p class="mb-1 text-muted">Call Us Now</p>
+                <h5 class="mb-0">+012 345 6789</h5>
+              </div>
+            </div>
+            <div
+              class="bg-white rounded-4 d-flex align-items-center p-4 shadow-sm"
+            >
+              <div
+                class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-primary text-white"
+                style="width: 55px; height: 55px"
+              >
+                <i class="fa fa-envelope-open"></i>
+              </div>
+              <div class="ms-4">
+                <p class="mb-1 text-muted">Mail Us Now</p>
+                <h5 class="mb-0">info@alphaclinic.com</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="bg-white rounded-4 p-5 shadow-sm h-100">
+              <form>
+                <div class="row g-3">
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control border-0 bg-light rounded-pill px-4"
+                      placeholder="Your Name"
+                      style="height: 55px"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="email"
+                      class="form-control border-0 bg-light rounded-pill px-4"
+                      placeholder="Your Email"
+                      style="height: 55px"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control border-0 bg-light rounded-pill px-4"
+                      placeholder="Your Mobile"
+                      style="height: 55px"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <select
+                      class="form-select border-0 bg-light rounded-pill px-4"
+                      style="height: 55px"
+                    >
+                      <option selected>Choose Doctor</option>
+                      <option value="1">Dr. Sarah Johnson</option>
+                      <option value="2">Dr. Michael Chen</option>
+                      <option value="3">Dr. Emily Davis</option>
+                      <option value="4">Dr. Robert Wilson</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="date"
+                      class="form-control border-0 bg-light rounded-pill px-4"
+                      style="height: 55px"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="time"
+                      class="form-control border-0 bg-light rounded-pill px-4"
+                      style="height: 55px"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <textarea
+                      class="form-control border-0 bg-light rounded-4 px-4 py-3"
+                      rows="5"
+                      placeholder="Describe your problem"
+                    ></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button
+                      class="btn btn-primary w-100 py-3 rounded-pill fw-semibold shadow-sm"
+                      type="submit"
+                    >
+                      Book Appointment
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Appointment End -->
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div
+          class="text-center mx-auto mb-5 wow fadeInUp"
+          data-wow-delay="0.1s"
+          style="max-width: 600px"
+        >
+          <p
+            class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium"
+          >
+            Testimonial
+          </p>
+          <h1 class="display-5 fw-bold">What Say Our Patients!</h1>
+        </div>
+        <div class="testimonial-carousel wow fadeInUp" data-wow-delay="0.15s">
+          <div class="carousel-track">
+            <div class="carousel-item">
+              <div class="testimonial-item text-center">
+                <img
+                  class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4 shadow-sm"
+                  src="img/testimonial-1.jpg"
+                  alt="Patient portrait"
+                  style="width: 100px; height: 100px"
+                />
+                <div class="testimonial-text rounded-4 text-center p-4">
+                  <p>
+                    “The cardiac team at Alpha Clinic saved my life. After my
+                    bypass surgery, the follow‑up care was exceptional.”
+                  </p>
+                  <h5 class="mb-1">James Anderson</h5>
+                  <span class="fst-italic">Cardiac Patient</span>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="testimonial-item text-center">
+                <img
+                  class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4 shadow-sm"
+                  src="img/testimonial-2.jpg"
+                  alt="Patient portrait"
+                  style="width: 100px; height: 100px"
+                />
+                <div class="testimonial-text rounded-4 text-center p-4">
+                  <p>
+                    “I brought my mother for a neurological consultation. The
+                    specialists were incredibly thorough and kind.”
+                  </p>
+                  <h5 class="mb-1">Laura Martínez</h5>
+                  <span class="fst-italic">Family Member</span>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="testimonial-item text-center">
+                <img
+                  class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4 shadow-sm"
+                  src="img/testimonial-3.jpg"
+                  alt="Patient portrait"
+                  style="width: 100px; height: 100px"
+                />
+                <div class="testimonial-text rounded-4 text-center p-4">
+                  <p>
+                    “My pulmonary rehab was personalized and the results were
+                    beyond my expectations.”
+                  </p>
+                  <h5 class="mb-1">David Okonkwo</h5>
+                  <span class="fst-italic">Pulmonary Patient</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button type="button" class="carousel-prev" aria-label="Previous">
+              <i class="fa fa-arrow-left"></i>
+            </button>
+            <button type="button" class="carousel-next" aria-label="Next">
+              <i class="fa fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Latest News Start -->
+    <div class="container-xxl py-5 bg-light">
+      <div class="container">
+        <div
+          class="text-center mx-auto mb-5 wow fadeInUp"
+          data-wow-delay="0.1s"
+          style="max-width: 600px"
+        >
+          <p
+            class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium"
+          >
+            Blog
+          </p>
+          <h1 class="display-5 fw-bold">Latest News & Health Tips</h1>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <article class="news-card">
+              <img
+                src="img/blog-1.jpg"
+                alt="Healthy heart habits"
+                class="news-img"
+              />
+              <div class="news-body">
+                <div class="news-meta">
+                  <span class="news-date"
+                    ><i class="far fa-calendar-alt me-1"></i> 15 Jun 2025</span
+                  ><span class="news-category">Heart Health</span>
+                </div>
+                <h5 class="news-title">
+                  5 Daily Habits That Keep Your Heart Strong
+                </h5>
+                <p class="news-excerpt">
+                  Small consistent changes in your lifestyle can dramatically
+                  improve cardiovascular health…
+                </p>
+                <a href="#" class="news-link"
+                  >Read More <i class="fa fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <article class="news-card">
+              <img
+                src="img/blog-2.jpg"
+                alt="Migraine treatment"
+                class="news-img"
+              />
+              <div class="news-body">
+                <div class="news-meta">
+                  <span class="news-date"
+                    ><i class="far fa-calendar-alt me-1"></i> 28 May 2025</span
+                  ><span class="news-category">Neurology</span>
+                </div>
+                <h5 class="news-title">
+                  Understanding Migraines: New Treatment Options
+                </h5>
+                <p class="news-excerpt">
+                  Discover how modern neurology is offering faster relief for
+                  chronic migraine sufferers…
+                </p>
+                <a href="#" class="news-link"
+                  >Read More <i class="fa fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <article class="news-card">
+              <img
+                src="img/blog-3.jpg"
+                alt="Preventive health checkup"
+                class="news-img"
+              />
+              <div class="news-body">
+                <div class="news-meta">
+                  <span class="news-date"
+                    ><i class="far fa-calendar-alt me-1"></i> 10 Apr 2025</span
+                  ><span class="news-category">Wellness</span>
+                </div>
+                <h5 class="news-title">
+                  The Role of Regular Checkups in Preventive Care
+                </h5>
+                <p class="news-excerpt">
+                  Early detection saves lives. Here's why you should never skip
+                  your annual health screening…
+                </p>
+                <a href="#" class="news-link"
+                  >Read More <i class="fa fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Latest News End -->
+
+    <!-- Footer Start -->
+    <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
+      <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
+      <div class="site-footer__inner">
+        <div class="site-footer__grid">
+          <div>
+            <a href="index.html" class="site-footer__brand"
+              ><i class="fa fa-heartbeat"></i><span>Alpha Clinic</span></a
+            >
+            <p class="site-footer__about">
+              Compassionate care, modern medicine, and a team dedicated to your
+              lasting wellbeing.
+            </p>
+            <div class="site-footer__social">
+              <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h5 class="site-footer__title">Services</h5>
+            <ul class="site-footer__links">
+              <li><a href="service.html">Cardiology</a></li>
+              <li><a href="service.html">Pulmonary</a></li>
+              <li><a href="service.html">Neurology</a></li>
+              <li><a href="service.html">Orthopedics</a></li>
+              <li><a href="service.html">Laboratory</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="site-footer__title">Explore</h5>
+            <ul class="site-footer__links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="service.html">Our Services</a></li>
+              <li><a href="appointment.html">Appointment</a></li>
+              <li><a href="team.html">Our Doctors</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="site-footer__title">Stay Connected</h5>
+            <ul class="site-footer__contact">
+              <li>
+                <i class="fa fa-map-marker-alt"></i
+                ><span>No 10, Lagos, Nigeria</span>
+              </li>
+              <li><i class="fa fa-phone-alt"></i><span>09051106189</span></li>
+              <li>
+                <i class="fa fa-envelope"></i><span>info@alphaclinic.com</span>
+              </li>
+            </ul>
+            <form class="site-footer__newsletter" onsubmit="return false;">
+              <input
+                type="email"
+                placeholder="Your email"
+                aria-label="Email for newsletter"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span
+          >&copy; <a href="index.html">Alpha Clinic</a>. All rights
+          reserved.</span
+        >
+        <span>Crafted for better care</span>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a
+      href="#"
+      class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Hero parallax & info card update -->
+    <script>
+      (function () {
+        const hero = document.getElementById("hero");
+        if (!hero) return;
+        const carousel = hero.querySelector(".header-carousel");
+        if (!carousel) return;
+        let ticking = false;
+        function updateParallax() {
+          const rect = hero.getBoundingClientRect();
+          const scrolled = -rect.top;
+          const speed = 0.03;
+          const yOffset = scrolled * speed;
+          carousel.style.transform = `translateY(${yOffset}px)`;
+          ticking = false;
+        }
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (!ticking) {
+              requestAnimationFrame(updateParallax);
+              ticking = true;
+            }
+          },
+          { passive: true },
+        );
+      })();
+    </script>
+    <script>
+      (function () {
+        const carousel = document.querySelector(".header-carousel");
+        if (!carousel) return;
+        const infoCard = carousel.querySelector(".carousel-info-card");
+        if (!infoCard) return;
+        const deptName = infoCard.querySelector(".dept-name");
+        const deptDesc = infoCard.querySelector(".dept-desc");
+        function updateInfoCard() {
+          const activeSlide = carousel.querySelector(".carousel-slide.active");
+          if (!activeSlide) return;
+          deptName.textContent = activeSlide.dataset.dept || "";
+          deptDesc.textContent = activeSlide.dataset.deptDesc || "";
+        }
+        updateInfoCard();
+        const viewport = carousel.querySelector(".carousel-viewport");
+        if (viewport) {
+          const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+              if (
+                mutation.type === "attributes" &&
+                mutation.attributeName === "class"
+              ) {
+                updateInfoCard();
+              }
+            });
+          });
+          viewport
+            .querySelectorAll(".carousel-slide")
+            .forEach(function (slide) {
+              observer.observe(slide, { attributes: true });
+            });
+        }
+      })();
+    </script>
+  </body>
+</html>

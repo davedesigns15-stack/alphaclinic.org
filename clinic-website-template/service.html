@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="utf-8">
+ <title>Alpha Clinic</title>
+ <meta content="width=device-width, initial-scale=1.0" name="viewport">
+ <meta content="" name="keywords">
+ <meta content="" name="description">
+
+ <!-- Favicon -->
+ <link href="img/favicon.ico" rel="icon">
+
+ <!-- Google Web Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+ <!-- Icon Font Stylesheet -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+ <!-- Libraries Stylesheet -->
+ <link href="lib/animate/animate.min.css" rel="stylesheet">
+ <!-- Custom Framework Stylesheet -->
+ <link href="css/framework.css" rel="stylesheet">
+
+ <!-- Main Stylesheet -->
+ <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!-- Preloader Start -->
+<div id="spinner">
+  <div class="preloader-overlay">
+    <!-- Floating medical particles -->
+    <div class="preloader-particles" aria-hidden="true">
+      <span class="particle" style="--x:10%;--y:20%;--d:12s;--s:0.8;"></span>
+      <span class="particle" style="--x:85%;--y:75%;--d:14s;--s:1.1;"></span>
+      <span class="particle" style="--x:25%;--y:65%;--d:10s;--s:0.9;"></span>
+      <span class="particle" style="--x:70%;--y:15%;--d:16s;--s:1.3;"></span>
+      <span class="particle" style="--x:50%;--y:50%;--d:11s;--s:0.7;"></span>
+    </div>
+
+    <div class="preloader-content">
+      <!-- ECG / Logo morph container -->
+      <div class="ecg-logo-stage">
+        <svg class="ecg-line" viewBox="0 0 200 60" fill="none">
+          <path
+            id="ecgPath"
+            d="M0 30 L 60 30 L 75 5 L 90 55 L 105 30 L 200 30"
+            stroke="url(#ecgGradient)"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"
+          />
+          <defs>
+            <linearGradient id="ecgGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#0D9B4D" />
+              <stop offset="100%" stop-color="#2EE6A5" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <!-- Heartbeat icon – now with a pulsating beat animation -->
+        <div class="logo-glow">
+          <div class="logo-circle">
+            <i class="fa fa-heartbeat heartbeat-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="preloader-message">Preparing Exceptional Care</h2>
+      <div class="preloader-percent" id="preloaderPercent">0%</div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Preloader End -->
+
+
+ <!-- Navbar Start -->
+ <nav class="site-nav" id="siteNav">
+ <div class="site-nav__inner">
+ <a href="index.html" class="site-nav__brand">
+ <i class="fa fa-heartbeat"></i>
+ <span>Alpha Clinic</span>
+ </a>
+ <button type="button" class="site-nav__toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false">
+ <i class="fa fa-bars"></i>
+ </button>
+ <div class="site-nav__menu" id="siteNavMenu">
+ <a href="index.html" class="site-nav__link">Home</a>
+ <a href="about.html" class="site-nav__link">About</a>
+ <a href="service.html" class="site-nav__link is-active">Service</a>
+ <div class="site-nav__dropdown">
+ <a href="#" class="site-nav__link">Pages <i class="fa fa-chevron-down" style="font-size:0.7rem;margin-left:0.35rem;"></i></a>
+ <div class="site-nav__dropdown-menu">
+ <a href="feature.html">Feature</a>
+ <a href="team.html">Our Doctor</a>
+ <a href="appointment.html">Appointment</a>
+ <a href="testimonial.html">Testimonial</a>
+ <a href="404.html">404 Page</a>
+ </div>
+ </div>
+ <a href="contact.html" class="site-nav__link">Contact</a>
+ <a href="appointment.html" class="site-nav__cta">Appointment <i class="fa fa-arrow-right"></i></a>
+ </div>
+ </div>
+ </nav>
+ <!-- Navbar End -->
+
+
+
+ <!-- Page Header Start -->
+ <div class="container-fluid page-header py-5 mb-5" id="servicesPageHeader">
+   <!-- Layered premium overlays -->
+   <div class="page-header-overlay" aria-hidden="true"></div>
+   <div class="page-header-glow" aria-hidden="true"></div>
+
+   <!-- Floating ambient light particles -->
+   <div class="page-header-particles" aria-hidden="true">
+     <span class="ph-particle" style="--x:15%;--y:40%;--d:14s;--s:0.7;"></span>
+     <span class="ph-particle" style="--x:80%;--y:25%;--d:18s;--s:1.0;"></span>
+     <span class="ph-particle" style="--x:50%;--y:70%;--d:12s;--s:0.6;"></span>
+     <span class="ph-particle" style="--x:30%;--y:80%;--d:16s;--s:0.8;"></span>
+   </div>
+
+   <!-- Very faint medical pattern -->
+   <div class="page-header-pattern" aria-hidden="true"></div>
+
+   <!-- Subtle decorative glowing circles (extra details) -->
+   <div class="page-header-decor" aria-hidden="true">
+     <span class="decor-circle" style="--x:10%;--y:20%;--s:1.2;"></span>
+     <span class="decor-circle" style="--x:90%;--y:80%;--s:0.8;"></span>
+   </div>
+
+   <div class="container py-5 position-relative" style="z-index: 2;">
+     <!-- Small badge -->
+     <p class="page-header-badge">
+       <i class="fa fa-stethoscope me-1"></i> Our Healthcare Services
+     </p>
+
+     <!-- Main heading -->
+     <h1 class="display-3 text-white mb-3 page-header-title" id="servicesTitle">
+       Comprehensive Medical Services
+       <span class="d-lg-block">Designed Around Your Health</span>
+     </h1>
+
+     <!-- Supporting paragraph -->
+     <p class="page-header-subtitle">
+       Alpha Clinic provides advanced, patient‑centered healthcare services
+       delivered by experienced medical professionals, ensuring you receive
+       the best possible care at every step of your journey.
+     </p>
+
+     <!-- Modern glassmorphism breadcrumb -->
+     <nav aria-label="breadcrumb">
+       <ol class="breadcrumb-glass">
+         <li class="breadcrumb-glass__item">
+           <a href="index.html" class="breadcrumb-glass__link">
+             <i class="fa fa-home me-1"></i> Home
+           </a>
+           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
+         </li>
+         <li class="breadcrumb-glass__item">
+           <span class="breadcrumb-glass__link is-disabled">Pages</span>
+           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
+         </li>
+         <li class="breadcrumb-glass__item">
+           <span class="breadcrumb-glass__link is-active">Services</span>
+         </li>
+       </ol>
+     </nav>
+   </div>
+ </div>
+ <!-- Page Header End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5 bg-light-subtle">
+      <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+          <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">Services</p>
+          <h1 class="display-5 fw-bold">Health Care Solutions</h1>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4"><i class="fa fa-heartbeat text-white"></i></div>
+              <h4 class="mb-3">Cardiology</h4>
+              <p class="mb-4">Comprehensive heart care including ECG, echocardiography, stress testing, and interventional procedures to keep your heart strong.</p>
+              <a class="btn btn-link p-0 fw-semibold text-primary" href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4"><i class="fa fa-x-ray text-white"></i></div>
+              <h4 class="mb-3">Pulmonary</h4>
+              <p class="mb-4">Advanced lung function testing, bronchoscopy, and respiratory therapy for asthma, COPD, and other pulmonary conditions.</p>
+              <a class="btn btn-link p-0 fw-semibold text-primary" href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4"><i class="fa fa-brain text-white"></i></div>
+              <h4 class="mb-3">Neurology</h4>
+              <p class="mb-4">Expert diagnosis and management of neurological disorders, from migraines and epilepsy to stroke and multiple sclerosis.</p>
+              <a class="btn btn-link p-0 fw-semibold text-primary" href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.15s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4"><i class="fa fa-wheelchair text-white"></i></div>
+              <h4 class="mb-3">Orthopedics</h4>
+              <p class="mb-4">Joint replacement, sports injury rehabilitation, and spinal surgery backed by the latest robotic‑assisted techniques.</p>
+              <a class="btn btn-link p-0 fw-semibold text-primary" href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.25s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4"><i class="fa fa-tooth text-white"></i></div>
+              <h4 class="mb-3">Dental Surgery</h4>
+              <p class="mb-4">Complete oral health care from routine cleanings to advanced implantology and cosmetic dentistry.</p>
+              <a class="btn btn-link p-0 fw-semibold text-primary" href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.35s">
+            <div class="service-card bg-white rounded-4 p-5 h-100 shadow-sm">
+              <div class="service-icon mb-4"><i class="fa fa-vials text-white"></i></div>
+              <h4 class="mb-3">Laboratory</h4>
+              <p class="mb-4">State‑of‑the‑art pathology and diagnostic labs offering rapid, accurate results to guide your treatment.</p>
+              <a class="btn btn-link p-0 fw-semibold text-primary" href="service.html">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Service End -->
+
+
+<!-- Why Choose Our Services Start -->
+<div class="container-xxl py-5 why-services-section">
+  <div class="container">
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 650px;">
+      <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">Why Choose Our Services</p>
+      <h1 class="display-5 fw-bold">Exceptional Care, Every Step of the Way</h1>
+      <p class="text-muted">
+        From advanced diagnostics to compassionate follow‑up, every Alpha Clinic
+        service is designed with your health, comfort, and confidence in mind.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Card 1: Expert Specialists -->
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.15s">
+        <div class="why-card h-100 p-5 rounded-4 bg-white shadow-sm">
+          <div class="why-card__icon mb-4">
+            <i class="fa fa-user-md"></i>
+          </div>
+          <h3 class="mb-3">Expert Specialists</h3>
+          <p class="mb-0">
+            Our team of board‑certified physicians, surgeons, and nurses bring
+            decades of experience across every medical specialty, ensuring you
+            receive the most accurate diagnosis and effective treatment.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2: Advanced Technology -->
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.25s">
+        <div class="why-card h-100 p-5 rounded-4 bg-white shadow-sm">
+          <div class="why-card__icon mb-4">
+            <i class="fa fa-microscope"></i>
+          </div>
+          <h3 class="mb-3">Advanced Technology</h3>
+          <p class="mb-0">
+            We invest in the latest medical equipment — from robotic‑assisted
+            surgery to AI‑powered imaging — so you benefit from faster, safer,
+            and more precise care.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: Personalized Care -->
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.35s">
+        <div class="why-card h-100 p-5 rounded-4 bg-white shadow-sm">
+          <div class="why-card__icon mb-4">
+            <i class="fa fa-heart"></i>
+          </div>
+          <h3 class="mb-3">Personalized Care</h3>
+          <p class="mb-0">
+            Every treatment plan is tailored to your unique health profile and
+            personal preferences, because we believe healthcare is never
+            one‑size‑fits‑all.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Why Choose Our Services End -->
+
+
+<!-- Service Process Start -->
+<div class="container-xxl py-5 process-section" id="serviceProcess">
+  <div class="container">
+    <!-- Section header -->
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 650px;">
+      <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">Simple &amp; Seamless Care</p>
+      <h1 class="display-5 fw-bold">How Our Healthcare Process Works</h1>
+      <p class="text-muted">
+        Every patient receives personalized care through a smooth, transparent
+        and professional treatment process. Here’s what you can expect at
+        Alpha Clinic.
+      </p>
+    </div>
+
+    <!-- Process track (relative container for the animated line) -->
+    <div class="process-track">
+      <!-- Animated connecting line (desktop only) -->
+      <div class="process-line" aria-hidden="true"></div>
+
+      <!-- Steps -->
+      <div class="process-steps">
+        <!-- Step 1 -->
+        <div class="process-step wow fadeInUp" data-wow-delay="0.15s">
+          <div class="process-step__icon">
+            <i class="fa fa-calendar-check"></i>
+            <span class="process-step__number">1</span>
+          </div>
+          <div class="process-step__body">
+            <h4>Book an Appointment</h4>
+            <p>Schedule your consultation quickly online or by phone.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step wow fadeInUp" data-wow-delay="0.25s">
+          <div class="process-step__icon">
+            <i class="fa fa-user-md"></i>
+            <span class="process-step__number">2</span>
+          </div>
+          <div class="process-step__body">
+            <h4>Meet Our Specialists</h4>
+            <p>Consult experienced doctors who carefully assess your health concerns.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step wow fadeInUp" data-wow-delay="0.35s">
+          <div class="process-step__icon">
+            <i class="fa fa-stethoscope"></i>
+            <span class="process-step__number">3</span>
+          </div>
+          <div class="process-step__body">
+            <h4>Diagnosis &amp; Medical Evaluation</h4>
+            <p>Receive comprehensive medical examinations and accurate diagnostic testing.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step wow fadeInUp" data-wow-delay="0.45s">
+          <div class="process-step__icon">
+            <i class="fa fa-heartbeat"></i>
+            <span class="process-step__number">4</span>
+          </div>
+          <div class="process-step__body">
+            <h4>Personalized Treatment</h4>
+            <p>Receive a customized treatment plan designed specifically for your healthcare needs.</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="process-step wow fadeInUp" data-wow-delay="0.55s">
+          <div class="process-step__icon">
+            <i class="fa fa-home"></i>
+            <span class="process-step__number">5</span>
+          </div>
+          <div class="process-step__body">
+            <h4>Recovery &amp; Follow‑Up</h4>
+            <p>Continue your recovery with ongoing medical support, monitoring and follow‑up consultations.</p>
+          </div>
+        </div>
+      </div><!-- /process-steps -->
+    </div><!-- /process-track -->
+  </div>
+</div>
+<!-- Service Process End -->
+
+
+<!-- FAQ Start -->
+<div class="container-xxl py-5 faq-section">
+  <div class="container">
+    <!-- Section header -->
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 650px;">
+      <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">Questions &amp; Answers</p>
+      <h1 class="display-5 fw-bold">Frequently Asked Questions</h1>
+      <p class="text-muted">
+        Alpha Clinic believes in transparent communication. Here are answers to
+        some of the most common questions our patients ask – so you can prepare
+        for your visit with confidence.
+      </p>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="faq-accordion mx-auto" style="max-width: 800px;">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item">
+        <button class="faq-question" id="faq-btn-1" aria-expanded="true" aria-controls="faq-answer-1">
+          <span>How do I book an appointment?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1" style="max-height: 200px;">
+          <p>Appointments can be scheduled online, by phone or by visiting our hospital reception during working hours.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <button class="faq-question" id="faq-btn-2" aria-expanded="false" aria-controls="faq-answer-2">
+          <span>Do you accept walk‑in patients?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2">
+          <p>Yes. Walk‑in patients are welcome, although appointments are recommended to reduce waiting time.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <button class="faq-question" id="faq-btn-3" aria-expanded="false" aria-controls="faq-answer-3">
+          <span>Is your emergency department available 24/7?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3">
+          <p>Yes. Our emergency department operates around the clock to provide immediate medical attention whenever it is needed.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item">
+        <button class="faq-question" id="faq-btn-4" aria-expanded="false" aria-controls="faq-answer-4">
+          <span>Do you accept health insurance?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-btn-4">
+          <p>Yes. We work with selected insurance providers. Patients are encouraged to contact us for specific insurance information.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="faq-item">
+        <button class="faq-question" id="faq-btn-5" aria-expanded="false" aria-controls="faq-answer-5">
+          <span>Can I choose my preferred doctor?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-btn-5">
+          <p>Yes. Depending on availability, patients may request consultations with their preferred specialist.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 6 -->
+      <div class="faq-item">
+        <button class="faq-question" id="faq-btn-6" aria-expanded="false" aria-controls="faq-answer-6">
+          <span>How do I receive my laboratory or diagnostic results?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-btn-6">
+          <p>Results can be collected securely from the hospital or accessed through approved communication channels provided by Alpha Clinic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FAQ End -->
+
+ <!-- Testimonial Start -->
+ <div class="container-xxl py-5">
+ <div class="container">
+ <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+ <p class="d-inline-block border rounded-pill py-1 px-4">Testimonial</p>
+ <h1>What Say Our Patients!</h1>
+ </div>
+ <div class="testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+ <div class="carousel-track">
+ <div class="carousel-item">
+ <div class="testimonial-item text-center">
+ <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
+ <div class="testimonial-text rounded text-center p-4">
+ <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+ <h5 class="mb-1">Patient Name</h5>
+ <span class="fst-italic">Profession</span>
+ </div>
+ </div>
+ </div>
+ <div class="carousel-item">
+ <div class="testimonial-item text-center">
+ <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
+ <div class="testimonial-text rounded text-center p-4">
+ <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+ <h5 class="mb-1">Patient Name</h5>
+ <span class="fst-italic">Profession</span>
+ </div>
+ </div>
+ </div>
+ <div class="carousel-item">
+ <div class="testimonial-item text-center">
+ <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
+ <div class="testimonial-text rounded text-center p-4">
+ <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+ <h5 class="mb-1">Patient Name</h5>
+ <span class="fst-italic">Profession</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="carousel-nav">
+ <button type="button" class="carousel-prev" aria-label="Previous"><i class="fa fa-arrow-left"></i></button>
+ <button type="button" class="carousel-next" aria-label="Next"><i class="fa fa-arrow-right"></i></button>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!-- Testimonial End -->
+ <!-- Footer Start -->
+ <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
+ <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
+ <div class="site-footer__inner">
+ <div class="site-footer__grid">
+ <div>
+ <a href="index.html" class="site-footer__brand">
+ <i class="fa fa-heartbeat"></i>
+ <span>Alpha Clinic</span>
+ </a>
+ <p class="site-footer__about">Compassionate care, modern medicine, and a team dedicated to your lasting wellbeing.</p>
+ <div class="site-footer__social">
+ <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+ <a href="" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+ <a href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+ <a href="" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+ </div>
+ </div>
+ <div>
+ <h5 class="site-footer__title">Services</h5>
+ <ul class="site-footer__links">
+ <li><a href="service.html">Cardiology</a></li>
+ <li><a href="service.html">Pulmonary</a></li>
+ <li><a href="service.html">Neurology</a></li>
+ <li><a href="service.html">Orthopedics</a></li>
+ <li><a href="service.html">Laboratory</a></li>
+ </ul>
+ </div>
+ <div>
+ <h5 class="site-footer__title">Explore</h5>
+ <ul class="site-footer__links">
+ <li><a href="about.html">About Us</a></li>
+ <li><a href="contact.html">Contact Us</a></li>
+ <li><a href="service.html">Our Services</a></li>
+ <li><a href="appointment.html">Appointment</a></li>
+ <li><a href="team.html">Our Doctors</a></li>
+ </ul>
+ </div>
+ <div>
+ <h5 class="site-footer__title">Stay Connected</h5>
+ <ul class="site-footer__contact">
+ <li><i class="fa fa-map-marker-alt"></i><span>123 Street, New York, USA</span></li>
+ <li><i class="fa fa-phone-alt"></i><span>+012 345 67890</span></li>
+ <li><i class="fa fa-envelope"></i><span>info@alphaclinic.com</span></li>
+ </ul>
+ <form class="site-footer__newsletter" onsubmit="return false;">
+ <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+ <button type="submit">Subscribe</button>
+ </form>
+ </div>
+ </div>
+ </div>
+ <div class="site-footer__bottom">
+ <span>&copy; <a href="index.html">Alpha Clinic</a>. All rights reserved.</span>
+ <span>Crafted for better care</span>
+ </div>
+ </footer>
+ <!-- Footer End -->
+
+
+ <!-- Back to Top -->
+ <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+ <!-- JavaScript Libraries -->
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="lib/wow/wow.min.js"></script>
+ <script src="lib/easing/easing.min.js"></script>
+ <script src="lib/waypoints/waypoints.min.js"></script>
+ <script src="lib/counterup/counterup.min.js"></script>
+ <!-- Main Javascript -->
+ <script src="js/main.js"></script>
+
+ <!-- FAQ Accordion Script -->
+<script>
+  (function() {
+    const accordion = document.querySelector('.faq-accordion');
+    if (!accordion) return;
+
+    const items = accordion.querySelectorAll('.faq-item');
+
+    items.forEach(item => {
+      const button = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      // Set initial open state based on aria-expanded
+      if (button.getAttribute('aria-expanded') === 'true') {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+
+      button.addEventListener('click', () => {
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+        // Close all other items (optional: only one open at a time)
+        items.forEach(otherItem => {
+          const otherBtn = otherItem.querySelector('.faq-question');
+          const otherAns = otherItem.querySelector('.faq-answer');
+          if (otherBtn !== button) {
+            otherBtn.setAttribute('aria-expanded', 'false');
+            otherAns.style.maxHeight = '0';
+          }
+        });
+
+        // Toggle current
+        button.setAttribute('aria-expanded', !isOpen);
+        answer.style.maxHeight = !isOpen ? answer.scrollHeight + 'px' : '0';
+      });
+    });
+  })();
+</script>
+</body>
+
+</html>

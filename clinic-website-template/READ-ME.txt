@@ -1,0 +1,4 @@
+=>  Site Name        : Alpha Clinic
+=>  Author           : HTML Codex
+=>  Author Website   : https://htmlcodex.com
+=>  About HTML Codex : HTML Codex publishes free HTML sites, landing pages, email layouts and snippets. Read more at https://htmlcodex.com/about-us

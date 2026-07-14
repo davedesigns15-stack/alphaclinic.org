@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="utf-8">
+ <title>Alpha Clinic</title>
+ <meta content="width=device-width, initial-scale=1.0" name="viewport">
+ <meta content="" name="keywords">
+ <meta content="" name="description">
+
+ <!-- Favicon -->
+ <link href="img/favicon.ico" rel="icon">
+
+ <!-- Google Web Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+ <!-- Icon Font Stylesheet -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+ <!-- Libraries Stylesheet -->
+ <link href="lib/animate/animate.min.css" rel="stylesheet">
+ <!-- Custom Framework Stylesheet -->
+ <link href="css/framework.css" rel="stylesheet">
+
+ <!-- Main Stylesheet -->
+ <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+ <!-- Navbar Start -->
+ <nav class="site-nav" id="siteNav">
+ <div class="site-nav__inner">
+ <a href="index.html" class="site-nav__brand">
+ <i class="fa fa-heartbeat"></i>
+ <span>Alpha Clinic</span>
+ </a>
+ <button type="button" class="site-nav__toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false">
+ <i class="fa fa-bars"></i>
+ </button>
+ <div class="site-nav__menu" id="siteNavMenu">
+ <a href="index.html" class="site-nav__link">Home</a>
+ <a href="about.html" class="site-nav__link is-active">About</a>
+ <a href="service.html" class="site-nav__link">Service</a>
+ <div class="site-nav__dropdown">
+ <a href="#" class="site-nav__link">Pages <i class="fa fa-chevron-down" style="font-size:0.7rem;margin-left:0.35rem;"></i></a>
+ <div class="site-nav__dropdown-menu">
+ <a href="feature.html">Feature</a>
+ <a href="team.html">Our Doctor</a>
+ <a href="appointment.html">Appointment</a>
+ <a href="testimonial.html">Testimonial</a>
+ <a href="404.html">404 Page</a>
+ </div>
+ </div>
+ <a href="contact.html" class="site-nav__link">Contact</a>
+ <a href="appointment.html" class="site-nav__cta">Appointment <i class="fa fa-arrow-right"></i></a>
+ </div>
+ </div>
+ </nav>
+ <!-- Navbar End -->
+
+<!-- Preloader Start -->
+<div id="spinner">
+  <div class="preloader-overlay">
+    <!-- Floating medical particles -->
+    <div class="preloader-particles" aria-hidden="true">
+      <span class="particle" style="--x:10%;--y:20%;--d:12s;--s:0.8;"></span>
+      <span class="particle" style="--x:85%;--y:75%;--d:14s;--s:1.1;"></span>
+      <span class="particle" style="--x:25%;--y:65%;--d:10s;--s:0.9;"></span>
+      <span class="particle" style="--x:70%;--y:15%;--d:16s;--s:1.3;"></span>
+      <span class="particle" style="--x:50%;--y:50%;--d:11s;--s:0.7;"></span>
+    </div>
+
+    <div class="preloader-content">
+      <!-- ECG / Logo morph container -->
+      <div class="ecg-logo-stage">
+        <svg class="ecg-line" viewBox="0 0 200 60" fill="none">
+          <path
+            id="ecgPath"
+            d="M0 30 L 60 30 L 75 5 L 90 55 L 105 30 L 200 30"
+            stroke="url(#ecgGradient)"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"
+          />
+          <defs>
+            <linearGradient id="ecgGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#0D9B4D" />
+              <stop offset="100%" stop-color="#2EE6A5" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <!-- Heartbeat icon – now with a pulsating beat animation -->
+        <div class="logo-glow">
+          <div class="logo-circle">
+            <i class="fa fa-heartbeat heartbeat-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="preloader-message">Preparing Exceptional Care</h2>
+      <div class="preloader-percent" id="preloaderPercent">0%</div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Preloader End -->
+
+
+ <!-- Page Header Start -->
+ <div class="container-fluid page-header py-5 mb-5" id="aboutPageHeader">
+   <!-- Layered premium overlays -->
+   <div class="page-header-overlay" aria-hidden="true"></div>
+   <div class="page-header-glow" aria-hidden="true"></div>
+
+   <!-- Floating ambient light particles -->
+   <div class="page-header-particles" aria-hidden="true">
+     <span class="ph-particle" style="--x:15%;--y:40%;--d:14s;--s:0.7;"></span>
+     <span class="ph-particle" style="--x:80%;--y:25%;--d:18s;--s:1.0;"></span>
+     <span class="ph-particle" style="--x:50%;--y:70%;--d:12s;--s:0.6;"></span>
+     <span class="ph-particle" style="--x:30%;--y:80%;--d:16s;--s:0.8;"></span>
+   </div>
+
+   <!-- Very faint medical pattern -->
+   <div class="page-header-pattern" aria-hidden="true"></div>
+
+   <div class="container py-5 position-relative" style="z-index: 2;">
+     <h1 class="display-3 text-white mb-4 page-header-title" id="pageHeaderTitle">
+       About Us
+     </h1>
+
+     <!-- Modern glassmorphism breadcrumb -->
+     <nav aria-label="breadcrumb">
+       <ol class="breadcrumb-glass">
+         <li class="breadcrumb-glass__item">
+           <a href="index.html" class="breadcrumb-glass__link">
+             <i class="fa fa-home me-1"></i> Home
+           </a>
+           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
+         </li>
+         <li class="breadcrumb-glass__item">
+           <span class="breadcrumb-glass__link is-disabled">Pages</span>
+           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
+         </li>
+         <li class="breadcrumb-glass__item">
+           <span class="breadcrumb-glass__link is-active">About</span>
+         </li>
+       </ol>
+     </nav>
+   </div>
+ </div>
+ <!-- Page Header End -->
+
+
+ <!-- About Start -->
+ <div class="container-xxl py-5">
+ <div class="container">
+ <div class="row g-5">
+ <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+ <div class="d-flex flex-column">
+ <img class="img-fluid rounded w-75 align-self-end" src="img/about-1.jpg" alt="">
+ <img class="img-fluid rounded w-50 bg-white pt-3 pe-3" src="img/about-2.jpg" alt="" style="margin-top: -25%;">
+ </div>
+ </div>
+ <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+ <p class="d-inline-block border rounded-pill py-1 px-4">About Us</p>
+ <h1 class="mb-4">Why You Should Trust Us? Get Know About Us!</h1>
+ <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+ <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.</p>
+ <p><i class="far fa-check-circle text-primary me-3"></i>Quality health care</p>
+ <p><i class="far fa-check-circle text-primary me-3"></i>Only Qualified Doctors</p>
+ <p><i class="far fa-check-circle text-primary me-3"></i>Medical Research Professionals</p>
+ <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!-- About End -->
+
+ <!-- Mission Vision Core Values Start -->
+<div class="container-xxl py-5 mission-section">
+  <div class="container">
+    <!-- Section header -->
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+      <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">Who We Are</p>
+      <h1 class="display-5 fw-bold">Our Mission, Vision &amp; Core Values</h1>
+      <p class="text-muted">
+        At Alpha Clinic, our philosophy is rooted in a commitment to clinical
+        excellence, compassionate care, and continuous innovation. These
+        principles guide every decision we make.
+      </p>
+    </div>
+
+    <!-- Cards row -->
+    <div class="row g-4">
+      <!-- Mission Card -->
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.15s">
+        <div class="mv-card card-mission h-100 p-5 rounded-4 bg-white shadow-sm">
+          <div class="icon-box mb-4">
+            <i class="fa fa-bullseye"></i>
+          </div>
+          <h3 class="mb-3">Mission</h3>
+          <p>
+            To provide world‑class healthcare with compassion, precision, and
+            integrity, ensuring every patient receives personalised treatment
+            that restores hope and improves quality of life.
+          </p>
+        </div>
+      </div>
+
+      <!-- Vision Card -->
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.25s">
+        <div class="mv-card card-vision h-100 p-5 rounded-4 bg-white shadow-sm">
+          <div class="icon-box mb-4">
+            <i class="fa fa-eye"></i>
+          </div>
+          <h3 class="mb-3">Vision</h3>
+          <p>
+            To be the most trusted healthcare institution, pioneering advanced
+            medical solutions, fostering a culture of empathy and innovation,
+            and setting new standards for patient‑centred care.
+          </p>
+        </div>
+      </div>
+
+      <!-- Core Values Card -->
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.35s">
+        <div class="mv-card card-values h-100 p-5 rounded-4 bg-white shadow-sm">
+          <div class="icon-box mb-4">
+            <i class="fa fa-heart"></i>
+          </div>
+          <h3 class="mb-3">Core Values</h3>
+          <div class="values-chips d-flex flex-wrap gap-2">
+            <span class="badge-chip">Compassion</span>
+            <span class="badge-chip">Excellence</span>
+            <span class="badge-chip">Integrity</span>
+            <span class="badge-chip">Innovation</span>
+            <span class="badge-chip">Respect</span>
+            <span class="badge-chip">Patient First</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Mission Vision Core Values End -->
+
+ <!-- Feature Start -->
+ <div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
+ <div class="container feature px-lg-0">
+ <div class="row g-0 mx-lg-0">
+ <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
+ <div class="p-lg-5 ps-lg-0">
+ <p class="d-inline-block border rounded-pill text-light py-1 px-4">Features</p>
+ <h1 class="text-white mb-4">Why Choose Us</h1>
+ <p class="text-white mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
+ <div class="row g-4">
+ <div class="col-6">
+ <div class="d-flex align-items-center">
+ <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+ <i class="fa fa-user-md text-primary"></i>
+ </div>
+ <div class="ms-4">
+ <p class="text-white mb-2">Experience</p>
+ <h5 class="text-white mb-0">Doctors</h5>
+ </div>
+ </div>
+ </div>
+ <div class="col-6">
+ <div class="d-flex align-items-center">
+ <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+ <i class="fa fa-check text-primary"></i>
+ </div>
+ <div class="ms-4">
+ <p class="text-white mb-2">Quality</p>
+ <h5 class="text-white mb-0">Services</h5>
+ </div>
+ </div>
+ </div>
+ <div class="col-6">
+ <div class="d-flex align-items-center">
+ <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+ <i class="fa fa-comment-medical text-primary"></i>
+ </div>
+ <div class="ms-4">
+ <p class="text-white mb-2">Positive</p>
+ <h5 class="text-white mb-0">Consultation</h5>
+ </div>
+ </div>
+ </div>
+ <div class="col-6">
+ <div class="d-flex align-items-center">
+ <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+ <i class="fa fa-headphones text-primary"></i>
+ </div>
+ <div class="ms-4">
+ <p class="text-white mb-2">24 Hours</p>
+ <h5 class="text-white mb-0">Support</h5>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+ <div class="position-relative h-100">
+ <img class="position-absolute img-fluid w-100 h-100" src="img/feature.jpg" style="object-fit: cover;" alt="">
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!-- Feature End -->
+
+
+<!-- Medical Facilities Start -->
+<div class="container-xxl py-5 facilities-section">
+  <div class="container">
+    <!-- Section header -->
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 650px;">
+      <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">World-Class Healthcare</p>
+      <h1 class="display-5 fw-bold">Our Medical Facilities</h1>
+      <p class="text-muted">
+        Alpha Clinic combines advanced technology, modern facilities, and
+        compassionate care to provide exceptional healthcare. Every space is
+        designed with your comfort, safety, and recovery in mind.
+      </p>
+    </div>
+
+    <!-- Dynamic facilities grid – 3 equal columns -->
+    <div class="facilities-grid">
+
+      <!-- 1. Emergency Department -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.1s">
+        <div class="facility-card__number" aria-hidden="true">01</div>
+        <div class="facility-icon"><i class="fa fa-ambulance"></i></div>
+        <h3>Emergency Department</h3>
+        <p>Fully equipped 24/7 trauma centre with rapid response teams, advanced resuscitation bays, and dedicated critical care corridors.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 2. Advanced Diagnostic Laboratory -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.15s">
+        <div class="facility-card__number" aria-hidden="true">02</div>
+        <div class="facility-icon"><i class="fa fa-vials"></i></div>
+        <h3>Advanced Diagnostic Lab</h3>
+        <p>State‑of‑the‑art pathology and molecular diagnostics delivering rapid, accurate results.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 3. Digital Imaging -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.2s">
+        <div class="facility-card__number" aria-hidden="true">03</div>
+        <div class="facility-icon"><i class="fa fa-x-ray"></i></div>
+        <h3>Digital Imaging</h3>
+        <p>MRI, CT Scan &amp; X‑Ray with high‑resolution imaging and AI‑assisted diagnostics.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 4. Cardiology & Heart Care Center -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.25s">
+        <div class="facility-card__number" aria-hidden="true">04</div>
+        <div class="facility-icon"><i class="fa fa-heartbeat"></i></div>
+        <h3>Cardiology &amp; Heart Care</h3>
+        <p>Comprehensive cardiac care from preventive screening to interventional procedures.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 5. Intensive Care Unit (ICU) -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.3s">
+        <div class="facility-card__number" aria-hidden="true">05</div>
+        <div class="facility-icon"><i class="fa fa-procedures"></i></div>
+        <h3>Intensive Care Unit (ICU)</h3>
+        <p>Multidisciplinary critical care with 1:1 nursing, advanced monitoring, and infection‑controlled isolation suites.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 6. Modern Operating Theatres -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.35s">
+        <div class="facility-card__number" aria-hidden="true">06</div>
+        <div class="facility-icon"><i class="fa fa-syringe"></i></div>
+        <h3>Operating Theatres</h3>
+        <p>Laminar‑flow modular theatres equipped for minimally invasive and robotic‑assisted surgeries.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 7. Private Patient Rooms -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.4s">
+        <div class="facility-card__number" aria-hidden="true">07</div>
+        <div class="facility-icon"><i class="fa fa-bed"></i></div>
+        <h3>Private Patient Rooms</h3>
+        <p>Spacious, light‑filled ensuite rooms with smart beds, entertainment systems, and family zones.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 8. 24/7 Emergency Ambulance Services (icon fixed) -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.45s">
+        <div class="facility-card__number" aria-hidden="true">08</div>
+        <div class="facility-icon"><i class="fa fa-ambulance"></i></div>
+        <h3>24/7 Ambulance Services</h3>
+        <p>GPS‑enabled advanced life support ambulances with paramedic teams, available round‑the‑clock.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 9. Pharmacy Services (NEW) -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.5s">
+        <div class="facility-card__number" aria-hidden="true">09</div>
+        <div class="facility-icon"><i class="fa fa-prescription"></i></div>
+        <h3>Pharmacy Services</h3>
+        <p>On‑site fully stocked pharmacy with expert pharmacists, providing prescription and over‑the‑counter medications.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 10. Rehabilitation Center (NEW) -->
+      <div class="facility-card wow fadeInUp" data-wow-delay="0.55s">
+        <div class="facility-card__number" aria-hidden="true">10</div>
+        <div class="facility-icon"><i class="fa fa-walking"></i></div>
+        <h3>Rehabilitation Center</h3>
+        <p>Dedicated physiotherapy and occupational therapy suites for post‑surgery recovery and long‑term rehabilitation.</p>
+        <span class="facility-link">Learn More <i class="fa fa-arrow-right"></i></span>
+      </div>
+
+    </div><!-- /facilities-grid -->
+  </div>
+</div>
+<!-- Medical Facilities End -->
+
+
+<!-- Team Start -->
+<div class="container-xxl py-5 doctors-section">
+  <div class="container">
+    <!-- Section header -->
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 650px;">
+      <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">Meet Our Experts</p>
+      <h1 class="display-5 fw-bold">Our Experienced Medical Specialists</h1>
+      <p class="text-muted">
+        At Alpha Clinic, our specialists combine decades of experience,
+        compassion, and innovative technology to deliver exceptional patient
+        care tailored to your unique needs.
+      </p>
+    </div>
+
+    <!-- Dynamic editorial grid -->
+    <div class="doctors-grid">
+      <!-- 1. Featured Doctor (large) -->
+      <div class="doctor-card doctor-card--featured wow fadeInUp" data-wow-delay="0.15s">
+        <div class="doctor-card__image">
+          <img src="img/team-1.jpg" alt="Dr. Sarah Johnson" />
+          <div class="doctor-card__badge">25+ Years</div>
+          <div class="doctor-card__availability available">● Available Today</div>
+        </div>
+        <div class="doctor-card__body">
+          <h3>Dr. Sarah Johnson</h3>
+          <p class="doctor-card__dept">Cardiology</p>
+          <p class="doctor-card__desc">
+            Leading cardiologist with extensive experience in interventional
+            cardiology and preventive heart care.
+          </p>
+          <a href="#" class="doctor-card__profile">
+            View Full Profile <i class="fa fa-arrow-right"></i>
+          </a>
+          <div class="doctor-card__social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Dr. Michael Chen -->
+      <div class="doctor-card wow fadeInUp" data-wow-delay="0.2s">
+        <div class="doctor-card__image">
+          <img src="img/team-2.jpg" alt="Dr. Michael Chen" />
+          <div class="doctor-card__badge">18+ Years</div>
+          <div class="doctor-card__availability available">● Available Today</div>
+        </div>
+        <div class="doctor-card__body">
+          <h3>Dr. Michael Chen</h3>
+          <p class="doctor-card__dept">Neurology</p>
+          <p class="doctor-card__desc">
+            Expert in neurological disorders with a focus on stroke management
+            and advanced neuroimaging.
+          </p>
+          <a href="#" class="doctor-card__profile">
+            View Full Profile <i class="fa fa-arrow-right"></i>
+          </a>
+          <div class="doctor-card__social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Dr. Emily Davis -->
+      <div class="doctor-card wow fadeInUp" data-wow-delay="0.25s">
+        <div class="doctor-card__image">
+          <img src="img/team-3.jpg" alt="Dr. Emily Davis" />
+          <div class="doctor-card__badge">15+ Years</div>
+          <div class="doctor-card__availability available">● Available Today</div>
+        </div>
+        <div class="doctor-card__body">
+          <h3>Dr. Emily Davis</h3>
+          <p class="doctor-card__dept">Pulmonary</p>
+          <p class="doctor-card__desc">
+            Specialist in respiratory medicine, treating asthma, COPD, and
+            complex lung conditions.
+          </p>
+          <a href="#" class="doctor-card__profile">
+            View Full Profile <i class="fa fa-arrow-right"></i>
+          </a>
+          <div class="doctor-card__social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Dr. Robert Wilson -->
+      <div class="doctor-card wow fadeInUp" data-wow-delay="0.3s">
+        <div class="doctor-card__image">
+          <img src="img/team-4.jpg" alt="Dr. Robert Wilson" />
+          <div class="doctor-card__badge">20+ Years</div>
+          <div class="doctor-card__availability">● Available Next Week</div>
+        </div>
+        <div class="doctor-card__body">
+          <h3>Dr. Robert Wilson</h3>
+          <p class="doctor-card__dept">Orthopedics</p>
+          <p class="doctor-card__desc">
+            Orthopedic surgeon specializing in joint replacement, sports
+            injuries, and minimally invasive procedures.
+          </p>
+          <a href="#" class="doctor-card__profile">
+            View Full Profile <i class="fa fa-arrow-right"></i>
+          </a>
+          <div class="doctor-card__social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /doctors-grid -->
+  </div>
+</div>
+<!-- Team End -->
+
+
+ <!-- Patient Care Journey Start -->
+<div class="container-xxl py-5 journey-section" id="patientJourney">
+  <div class="container">
+    <!-- Section header -->
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 650px;">
+      <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">Your Healthcare Experience</p>
+      <h1 class="display-5 fw-bold">Your Journey to Better Health</h1>
+      <p class="text-muted">
+        Every patient receives personalized care through a seamless,
+        compassionate, and professional healthcare process. Here is what you can
+        expect from your first appointment to full recovery.
+      </p>
+    </div>
+
+    <!-- Journey track (relative container for the animated line) -->
+    <div class="journey-track">
+
+      <!-- Animated connecting line (desktop only) -->
+      <div class="journey-line" aria-hidden="true"></div>
+
+      <!-- Steps container -->
+      <div class="journey-steps">
+
+        <!-- Step 1 -->
+        <div class="journey-step wow fadeInUp" data-wow-delay="0.2s">
+          <div class="journey-step__icon">
+            <i class="fa fa-calendar-check"></i>
+            <span class="journey-step__number">01</span>
+          </div>
+          <h4>Book an Appointment</h4>
+          <p>Schedule your visit quickly through our simple appointment system – online, by phone, or in person.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="journey-step wow fadeInUp" data-wow-delay="0.3s">
+          <div class="journey-step__icon">
+            <i class="fa fa-user-md"></i>
+            <span class="journey-step__number">02</span>
+          </div>
+          <h4>Meet Our Specialists</h4>
+          <p>Consult experienced healthcare professionals who carefully understand your medical needs and history.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="journey-step wow fadeInUp" data-wow-delay="0.4s">
+          <div class="journey-step__icon">
+            <i class="fa fa-stethoscope"></i>
+            <span class="journey-step__number">03</span>
+          </div>
+          <h4>Diagnosis &amp; Medical Evaluation</h4>
+          <p>Receive accurate diagnoses using advanced technology and thorough medical assessments.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="journey-step wow fadeInUp" data-wow-delay="0.5s">
+          <div class="journey-step__icon">
+            <i class="fa fa-heartbeat"></i>
+            <span class="journey-step__number">04</span>
+          </div>
+          <h4>Personalized Treatment</h4>
+          <p>Benefit from treatment plans tailored specifically to your health condition and recovery goals.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="journey-step wow fadeInUp" data-wow-delay="0.6s">
+          <div class="journey-step__icon">
+            <i class="fa fa-home"></i>
+            <span class="journey-step__number">05</span>
+          </div>
+          <h4>Recovery &amp; Follow‑Up Care</h4>
+          <p>Continue your recovery with ongoing monitoring, support and follow‑up consultations.</p>
+        </div>
+
+      </div><!-- /journey-steps -->
+    </div><!-- /journey-track -->
+  </div>
+</div>
+<!-- Patient Care Journey End -->
+
+ <!-- Footer Start -->
+ <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
+ <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
+ <div class="site-footer__inner">
+ <div class="site-footer__grid">
+ <div>
+ <a href="index.html" class="site-footer__brand">
+ <i class="fa fa-heartbeat"></i>
+ <span>Alpha Clinic</span>
+ </a>
+ <p class="site-footer__about">Compassionate care, modern medicine, and a team dedicated to your lasting wellbeing.</p>
+ <div class="site-footer__social">
+ <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+ <a href="" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+ <a href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+ <a href="" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+ </div>
+ </div>
+ <div>
+ <h5 class="site-footer__title">Services</h5>
+ <ul class="site-footer__links">
+ <li><a href="service.html">Cardiology</a></li>
+ <li><a href="service.html">Pulmonary</a></li>
+ <li><a href="service.html">Neurology</a></li>
+ <li><a href="service.html">Orthopedics</a></li>
+ <li><a href="service.html">Laboratory</a></li>
+ </ul>
+ </div>
+ <div>
+ <h5 class="site-footer__title">Explore</h5>
+ <ul class="site-footer__links">
+ <li><a href="about.html">About Us</a></li>
+ <li><a href="contact.html">Contact Us</a></li>
+ <li><a href="service.html">Our Services</a></li>
+ <li><a href="appointment.html">Appointment</a></li>
+ <li><a href="team.html">Our Doctors</a></li>
+ </ul>
+ </div>
+ <div>
+ <h5 class="site-footer__title">Stay Connected</h5>
+ <ul class="site-footer__contact">
+ <li><i class="fa fa-map-marker-alt"></i><span>No 10, Lagos, Nigeria</span></li>
+ <li><i class="fa fa-phone-alt"></i><span>09051106189</span></li>
+ <li><i class="fa fa-envelope"></i><span>info@alphaclinic.com</span></li>
+ </ul>
+ <form class="site-footer__newsletter" onsubmit="return false;">
+ <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+ <button type="submit">Subscribe</button>
+ </form>
+ </div>
+ </div>
+ </div>
+ <div class="site-footer__bottom">
+ <span>&copy; <a href="index.html">Alpha Clinic</a>. All rights reserved.</span>
+ <span>Crafted for better care</span>
+ </div>
+ </footer>
+ <!-- Footer End -->
+
+
+ <!-- Back to Top -->
+ <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+ <!-- JavaScript Libraries -->
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="lib/wow/wow.min.js"></script>
+ <script src="lib/easing/easing.min.js"></script>
+ <script src="lib/waypoints/waypoints.min.js"></script>
+ <script src="lib/counterup/counterup.min.js"></script>
+ <!-- Main Javascript -->
+ <script src="js/main.js"></script>
+
+ <!-- Page Header Animation -->
+ <script>
+   (function() {
+     const header = document.getElementById('aboutPageHeader');
+     if (!header) return;
+
+     const glow = header.querySelector('.page-header-glow');
+     if (glow && window.innerWidth > 768) {
+       header.addEventListener('mousemove', function(e) {
+         const rect = header.getBoundingClientRect();
+         const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+         const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+         glow.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+       });
+     }
+   })();
+ </script>
+</body>
+
+</html>

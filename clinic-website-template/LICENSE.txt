@@ -1,0 +1,8 @@
+=> ALPHA CLINIC — SITE LICENSE NOTES
+
+This project is based on work originally published by HTML Codex.
+Credit: HTML Codex (https://htmlcodex.com)
+
+You may customize and use this site for your clinic.
+Please retain author credit where required by the original license,
+or obtain a credit-removal license from the original publisher.

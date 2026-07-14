@@ -28,58 +28,6 @@
 </head>
 
 <body>
-
-    <!-- Preloader Start -->
-<div id="spinner">
-  <div class="preloader-overlay">
-    <!-- Floating medical particles -->
-    <div class="preloader-particles" aria-hidden="true">
-      <span class="particle" style="--x:10%;--y:20%;--d:12s;--s:0.8;"></span>
-      <span class="particle" style="--x:85%;--y:75%;--d:14s;--s:1.1;"></span>
-      <span class="particle" style="--x:25%;--y:65%;--d:10s;--s:0.9;"></span>
-      <span class="particle" style="--x:70%;--y:15%;--d:16s;--s:1.3;"></span>
-      <span class="particle" style="--x:50%;--y:50%;--d:11s;--s:0.7;"></span>
-    </div>
-
-    <div class="preloader-content">
-      <!-- ECG / Logo morph container -->
-      <div class="ecg-logo-stage">
-        <svg class="ecg-line" viewBox="0 0 200 60" fill="none">
-          <path
-            id="ecgPath"
-            d="M0 30 L 60 30 L 75 5 L 90 55 L 105 30 L 200 30"
-            stroke="url(#ecgGradient)"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            fill="none"
-          />
-          <defs>
-            <linearGradient id="ecgGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#0D9B4D" />
-              <stop offset="100%" stop-color="#2EE6A5" />
-            </linearGradient>
-          </defs>
-        </svg>
-
-        <!-- Heartbeat icon – now with a pulsating beat animation -->
-        <div class="logo-glow">
-          <div class="logo-circle">
-            <i class="fa fa-heartbeat heartbeat-icon"></i>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="preloader-message">Preparing Exceptional Care</h2>
-      <div class="preloader-percent" id="preloaderPercent">0%</div>
-      <div class="preloader-progress">
-        <div class="preloader-progress-fill" id="progressFill"></div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Preloader End -->
-
     
  <!-- Navbar Start -->
  <nav class="site-nav" id="siteNav">
@@ -95,16 +43,23 @@
  <a href="index.html" class="site-nav__link">Home</a>
  <a href="about.html" class="site-nav__link">About</a>
  <a href="service.html" class="site-nav__link">Service</a>
- <div class="site-nav__dropdown">
- <a href="#" class="site-nav__link is-active">Pages <i class="fa fa-chevron-down" style="font-size:0.7rem;margin-left:0.35rem;"></i></a>
- <div class="site-nav__dropdown-menu">
- <a href="feature.html">Feature</a>
- <a href="team.html">Our Doctor</a>
- <a href="appointment.html">Appointment</a>
- <a href="testimonial.html">Testimonial</a>
- <a href="404.html">404 Page</a>
- </div>
- </div>
+         <div class="site-nav__dropdown">
+            <a href="#" class="site-nav__link"
+              >Pages
+              <i
+                class="fa fa-chevron-down"
+                style="font-size: 0.7rem; margin-left: 0.35rem"
+              ></i
+            ></a>
+            <div class="site-nav__dropdown-menu">
+              <!-- <a href="feature.html">Feature</a> -->
+              <a href="team.html">Our Doctors</a>
+              <!-- <a href="appointment.html">Appointment</a> -->
+              <a href="testimonial.html">Testimonial</a>
+              <!-- <a href="404.html">404 Page</a> -->
+            </div>
+          </div>
+
  <a href="contact.html" class="site-nav__link">Contact</a>
  <a href="appointment.html" class="site-nav__cta">Appointment <i class="fa fa-arrow-right"></i></a>
  </div>
@@ -115,161 +70,231 @@
 
 
  <!-- Page Header Start -->
- <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
- <div class="container py-5">
- <h1 class="display-3 text-white mb-3 animated slideInDown">Doctors</h1>
- <nav aria-label="breadcrumb animated slideInDown">
- <ol class="breadcrumb text-uppercase mb-0">
- <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
- <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
- <li class="breadcrumb-item text-primary active" aria-current="page">Doctors</li>
- </ol>
- </nav>
- </div>
+ <div class="container-fluid page-header py-5 mb-5" id="teamPageHeader">
+   <!-- Layered premium overlays -->
+   <div class="page-header-overlay" aria-hidden="true"></div>
+   <div class="page-header-glow" aria-hidden="true"></div>
+
+   <!-- Floating ambient light particles -->
+   <div class="page-header-particles" aria-hidden="true">
+     <span class="ph-particle" style="--x:15%;--y:40%;--d:14s;--s:0.7;"></span>
+     <span class="ph-particle" style="--x:80%;--y:25%;--d:18s;--s:1.0;"></span>
+     <span class="ph-particle" style="--x:50%;--y:70%;--d:12s;--s:0.6;"></span>
+     <span class="ph-particle" style="--x:30%;--y:80%;--d:16s;--s:0.8;"></span>
+   </div>
+
+   <!-- Very faint medical pattern -->
+   <div class="page-header-pattern" aria-hidden="true"></div>
+
+   <!-- Subtle decorative glowing circles -->
+   <div class="page-header-decor" aria-hidden="true">
+     <span class="decor-circle" style="--x:10%;--y:20%;--s:1.2;"></span>
+     <span class="decor-circle" style="--x:90%;--y:80%;--s:0.8;"></span>
+   </div>
+
+   <div class="container py-5 position-relative" style="z-index: 2;">
+     <!-- Small badge -->
+     <p class="page-header-badge">
+       <i class="fa fa-user-md me-1"></i> Meet Our Specialists
+     </p>
+
+     <!-- Main heading -->
+     <h1 class="display-3 text-white mb-3 page-header-title" id="teamTitle">
+       Our Dedicated Medical Team
+     </h1>
+
+     <!-- Supporting paragraph -->
+     <p class="page-header-subtitle">
+       Alpha Clinic is home to some of the finest medical professionals in the
+       country. Our doctors combine decades of experience with compassionate
+       care to help you live your healthiest life.
+     </p>
+
+     <!-- Modern glassmorphism breadcrumb -->
+     <nav aria-label="breadcrumb">
+       <ol class="breadcrumb-glass">
+         <li class="breadcrumb-glass__item">
+           <a href="index.html" class="breadcrumb-glass__link">
+             <i class="fa fa-home me-1"></i> Home
+           </a>
+           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
+         </li>
+         <li class="breadcrumb-glass__item">
+           <span class="breadcrumb-glass__link is-disabled">Pages</span>
+           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
+         </li>
+         <li class="breadcrumb-glass__item">
+           <span class="breadcrumb-glass__link is-active">Doctors</span>
+         </li>
+       </ol>
+     </nav>
+   </div>
  </div>
  <!-- Page Header End -->
 
 
- <!-- Team Start -->
- <div class="container-xxl py-5">
- <div class="container">
- <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
- <p class="d-inline-block border rounded-pill py-1 px-4">Doctors</p>
- <h1>Our Experience Doctors</h1>
- </div>
- <div class="row g-4">
- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
- <div class="team-item position-relative rounded overflow-hidden">
- <div class="overflow-hidden">
- <img class="img-fluid" src="img/team-1.jpg" alt="">
- </div>
- <div class="team-text bg-light text-center p-4">
- <h5>Doctor Name</h5>
- <p class="text-primary">Department</p>
- <div class="team-social text-center">
- <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
- <div class="team-item position-relative rounded overflow-hidden">
- <div class="overflow-hidden">
- <img class="img-fluid" src="img/team-2.jpg" alt="">
- </div>
- <div class="team-text bg-light text-center p-4">
- <h5>Doctor Name</h5>
- <p class="text-primary">Department</p>
- <div class="team-social text-center">
- <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
- <div class="team-item position-relative rounded overflow-hidden">
- <div class="overflow-hidden">
- <img class="img-fluid" src="img/team-3.jpg" alt="">
- </div>
- <div class="team-text bg-light text-center p-4">
- <h5>Doctor Name</h5>
- <p class="text-primary">Department</p>
- <div class="team-social text-center">
- <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
- <div class="team-item position-relative rounded overflow-hidden">
- <div class="overflow-hidden">
- <img class="img-fluid" src="img/team-4.jpg" alt="">
- </div>
- <div class="team-text bg-light text-center p-4">
- <h5>Doctor Name</h5>
- <p class="text-primary">Department</p>
- <div class="team-social text-center">
- <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
- <div class="team-item position-relative rounded overflow-hidden">
- <div class="overflow-hidden">
- <img class="img-fluid" src="img/team-2.jpg" alt="">
- </div>
- <div class="team-text bg-light text-center p-4">
- <h5>Doctor Name</h5>
- <p class="text-primary">Department</p>
- <div class="team-social text-center">
- <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
- <div class="team-item position-relative rounded overflow-hidden">
- <div class="overflow-hidden">
- <img class="img-fluid" src="img/team-3.jpg" alt="">
- </div>
- <div class="team-text bg-light text-center p-4">
- <h5>Doctor Name</h5>
- <p class="text-primary">Department</p>
- <div class="team-social text-center">
- <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
- <div class="team-item position-relative rounded overflow-hidden">
- <div class="overflow-hidden">
- <img class="img-fluid" src="img/team-4.jpg" alt="">
- </div>
- <div class="team-text bg-light text-center p-4">
- <h5>Doctor Name</h5>
- <p class="text-primary">Department</p>
- <div class="team-social text-center">
- <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
- </div>
- </div>
- </div>
- </div>
- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
- <div class="team-item position-relative rounded overflow-hidden">
- <div class="overflow-hidden">
- <img class="img-fluid" src="img/team-1.jpg" alt="">
- </div>
- <div class="team-text bg-light text-center p-4">
- <h5>Doctor Name</h5>
- <p class="text-primary">Department</p>
- <div class="team-social text-center">
- <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
- <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
- </div>
- </div>
- </div>
- </div>
- </div>
- </div>
- </div>
- <!-- Team End -->
+    <!-- Team Start -->
+    <div class="container-xxl py-5 doctors-section">
+      <div class="container">
+        <!-- Section header -->
+        <div
+          class="text-center mx-auto mb-5 wow fadeInUp"
+          data-wow-delay="0.1s"
+          style="max-width: 650px"
+        >
+          <p
+            class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium"
+          >
+            Meet Our Experts
+          </p>
+          <h1 class="display-5 fw-bold">Our Experienced Medical Specialists</h1>
+          <p class="text-muted">
+            At Alpha Clinic, our specialists combine decades of experience,
+            compassion, and innovative technology to deliver exceptional patient
+            care tailored to your unique needs.
+          </p>
+        </div>
+
+        <!-- Dynamic editorial grid -->
+        <div class="doctors-grid">
+          <!-- 1. Featured Doctor (large) -->
+          <div
+            class="doctor-card doctor-card--featured wow fadeInUp"
+            data-wow-delay="0.15s"
+          >
+            <div class="doctor-card__image">
+              <img src="img/team-1.jpg" alt="Dr. Sarah Johnson" />
+              <div class="doctor-card__badge">25+ Years</div>
+              <div class="doctor-card__availability available">
+                ● Available Today
+              </div>
+            </div>
+            <div class="doctor-card__body">
+              <h3>Dr. Sarah Johnson</h3>
+              <p class="doctor-card__dept">Cardiology</p>
+              <p class="doctor-card__desc">
+                Leading cardiologist with extensive experience in interventional
+                cardiology and preventive heart care.
+              </p>
+              <a href="#" class="doctor-card__profile">
+                View Full Profile <i class="fa fa-arrow-right"></i>
+              </a>
+              <div class="doctor-card__social">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Dr. Michael Chen -->
+          <div class="doctor-card wow fadeInUp" data-wow-delay="0.2s">
+            <div class="doctor-card__image">
+              <img src="img/team-2.jpg" alt="Dr. Michael Chen" />
+              <div class="doctor-card__badge">18+ Years</div>
+              <div class="doctor-card__availability available">
+                ● Available Today
+              </div>
+            </div>
+            <div class="doctor-card__body">
+              <h3>Dr. Michael Chen</h3>
+              <p class="doctor-card__dept">Neurology</p>
+              <p class="doctor-card__desc">
+                Expert in neurological disorders with a focus on stroke
+                management and advanced neuroimaging.
+              </p>
+              <a href="#" class="doctor-card__profile">
+                View Full Profile <i class="fa fa-arrow-right"></i>
+              </a>
+              <div class="doctor-card__social">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Dr. Emily Davis -->
+          <div class="doctor-card wow fadeInUp" data-wow-delay="0.25s">
+            <div class="doctor-card__image">
+              <img src="img/team-3.jpg" alt="Dr. Emily Davis" />
+              <div class="doctor-card__badge">15+ Years</div>
+              <div class="doctor-card__availability available">
+                ● Available Today
+              </div>
+            </div>
+            <div class="doctor-card__body">
+              <h3>Dr. Emily Davis</h3>
+              <p class="doctor-card__dept">Pulmonary</p>
+              <p class="doctor-card__desc">
+                Specialist in respiratory medicine, treating asthma, COPD, and
+                complex lung conditions.
+              </p>
+              <a href="#" class="doctor-card__profile">
+                View Full Profile <i class="fa fa-arrow-right"></i>
+              </a>
+              <div class="doctor-card__social">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Dr. Robert Wilson -->
+          <div class="doctor-card wow fadeInUp" data-wow-delay="0.3s">
+            <div class="doctor-card__image">
+              <img src="img/team-4.jpg" alt="Dr. Robert Wilson" />
+              <div class="doctor-card__badge">20+ Years</div>
+              <div class="doctor-card__availability">● Available Next Week</div>
+            </div>
+            <div class="doctor-card__body">
+              <h3>Dr. Robert Wilson</h3>
+              <p class="doctor-card__dept">Orthopedics</p>
+              <p class="doctor-card__desc">
+                Orthopedic surgeon specializing in joint replacement, sports
+                injuries, and minimally invasive procedures.
+              </p>
+              <a href="#" class="doctor-card__profile">
+                View Full Profile <i class="fa fa-arrow-right"></i>
+              </a>
+              <div class="doctor-card__social">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /doctors-grid -->
+      </div>
+    </div>
+    <!-- Team End -->
+ 
  <!-- Footer Start -->
  <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
  <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
@@ -342,6 +367,23 @@
  <script src="lib/counterup/counterup.min.js"></script>
  <!-- Main Javascript -->
  <script src="js/main.js"></script>
+
+ <!-- Page Header mouse effect -->
+ <script>
+   (function() {
+     const header = document.getElementById('teamPageHeader');
+     if (!header) return;
+     const glow = header.querySelector('.page-header-glow');
+     if (glow && window.innerWidth > 768) {
+       header.addEventListener('mousemove', function(e) {
+         const rect = header.getBoundingClientRect();
+         const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+         const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+         glow.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+       });
+     }
+   })();
+ </script>
 </body>
 
 </html>

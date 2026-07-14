@@ -119,24 +119,61 @@
     <!-- Navbar End -->
 
     <!-- Page Header Start -->
-    <div
-      class="container-fluid page-header py-5 mb-5 wow fadeIn"
-      data-wow-delay="0.1s"
-    >
-      <div class="container py-5">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">
-          Contact Us
+    <div class="container-fluid page-header py-5 mb-5" id="contactPageHeader">
+      <!-- Layered premium overlays -->
+      <div class="page-header-overlay" aria-hidden="true"></div>
+      <div class="page-header-glow" aria-hidden="true"></div>
+
+      <!-- Floating ambient light particles -->
+      <div class="page-header-particles" aria-hidden="true">
+        <span class="ph-particle" style="--x:15%;--y:40%;--d:14s;--s:0.7;"></span>
+        <span class="ph-particle" style="--x:80%;--y:25%;--d:18s;--s:1.0;"></span>
+        <span class="ph-particle" style="--x:50%;--y:70%;--d:12s;--s:0.6;"></span>
+        <span class="ph-particle" style="--x:30%;--y:80%;--d:16s;--s:0.8;"></span>
+      </div>
+
+      <!-- Very faint medical pattern -->
+      <div class="page-header-pattern" aria-hidden="true"></div>
+
+      <!-- Subtle decorative glowing circles -->
+      <div class="page-header-decor" aria-hidden="true">
+        <span class="decor-circle" style="--x:10%;--y:20%;--s:1.2;"></span>
+        <span class="decor-circle" style="--x:90%;--y:80%;--s:0.8;"></span>
+      </div>
+
+      <div class="container py-5 position-relative" style="z-index: 2;">
+        <!-- Small badge -->
+        <p class="page-header-badge">
+          <i class="fa fa-phone-alt me-1"></i> Get In Touch
+        </p>
+
+        <!-- Main heading -->
+        <h1 class="display-3 text-white mb-3 page-header-title" id="contactTitle">
+          We'd Love to Hear from You
         </h1>
-        <nav aria-label="breadcrumb animated slideInDown">
-          <ol class="breadcrumb text-uppercase mb-0">
-            <li class="breadcrumb-item">
-              <a class="text-white" href="#">Home</a>
+
+        <!-- Supporting paragraph -->
+        <p class="page-header-subtitle">
+          Whether you have a question about our services, want to schedule an
+          appointment, or simply need directions, our team is ready to assist
+          you. Reach out today and experience the Alpha Clinic difference.
+        </p>
+
+        <!-- Modern glassmorphism breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb-glass">
+            <li class="breadcrumb-glass__item">
+              <a href="index.html" class="breadcrumb-glass__link">
+                <i class="fa fa-home me-1"></i> Home
+              </a>
+              <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
             </li>
-            <li class="breadcrumb-item">
-              <a class="text-white" href="#">Pages</a>
+            <li class="breadcrumb-glass__item">
+              <span class="breadcrumb-glass__link is-disabled">Pages</span>
+              <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
             </li>
-            <li class="breadcrumb-item text-primary active" aria-current="page">
-              Contact
+            <li class="breadcrumb-glass__item">
+              <span class="breadcrumb-glass__link is-active">Contact</span>
             </li>
           </ol>
         </nav>
@@ -186,7 +223,7 @@
               </div>
               <div class="ms-4">
                 <p class="mb-2">Mail Us Now</p>
-                <h5 class="mb-0">info@example.com</h5>
+                <h5 class="mb-0">info@alphaclinic.com</h5>
               </div>
             </div>
           </div>
@@ -197,10 +234,8 @@
               </p>
               <h1 class="mb-4">Have Any Query? Please Contact Us!</h1>
               <p class="mb-4">
-                The contact form is currently inactive. Get a functional and
-                working contact form with Ajax & PHP in a few minutes. Just copy
-                and paste the files, add a little code and you're done.
-                <a href="https://htmlcodex.com/contact-form">Download Now</a>.
+                Our team is here to help. Fill out the form below and we'll get
+                back to you within one business day.
               </p>
               <form>
                 <div class="row g-3">
@@ -368,5 +403,22 @@
     <script src="lib/counterup/counterup.min.js"></script>
     <!-- Main Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Page Header mouse effect (optional) -->
+    <script>
+      (function() {
+        const header = document.getElementById('contactPageHeader');
+        if (!header) return;
+        const glow = header.querySelector('.page-header-glow');
+        if (glow && window.innerWidth > 768) {
+          header.addEventListener('mousemove', function(e) {
+            const rect = header.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+            const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+            glow.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

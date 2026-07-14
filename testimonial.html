@@ -29,11 +29,11 @@
 
 <body>
  <!-- Spinner Start -->
- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+ <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
  <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
  <span class="sr-only">Loading...</span>
  </div>
- </div>
+ </div> -->
  <!-- Spinner End -->
  <!-- Navbar Start -->
  <nav class="site-nav" id="siteNav">
@@ -49,16 +49,24 @@
  <a href="index.html" class="site-nav__link">Home</a>
  <a href="about.html" class="site-nav__link">About</a>
  <a href="service.html" class="site-nav__link">Service</a>
- <div class="site-nav__dropdown">
- <a href="#" class="site-nav__link is-active">Pages <i class="fa fa-chevron-down" style="font-size:0.7rem;margin-left:0.35rem;"></i></a>
- <div class="site-nav__dropdown-menu">
- <a href="feature.html">Feature</a>
- <a href="team.html">Our Doctor</a>
- <a href="appointment.html">Appointment</a>
- <a href="testimonial.html">Testimonial</a>
- <a href="404.html">404 Page</a>
- </div>
- </div>
+
+          <div class="site-nav__dropdown">
+            <a href="#" class="site-nav__link"
+              >Pages
+              <i
+                class="fa fa-chevron-down"
+                style="font-size: 0.7rem; margin-left: 0.35rem"
+              ></i
+            ></a>
+            <div class="site-nav__dropdown-menu">
+              <!-- <a href="feature.html">Feature</a> -->
+              <a href="team.html">Our Doctors</a>
+              <!-- <a href="appointment.html">Appointment</a> -->
+              <a href="testimonial.html">Testimonial</a>
+              <!-- <a href="404.html">404 Page</a> -->
+            </div>
+          </div>
+
  <a href="contact.html" class="site-nav__link">Contact</a>
  <a href="appointment.html" class="site-nav__cta">Appointment <i class="fa fa-arrow-right"></i></a>
  </div>
@@ -69,70 +77,153 @@
 
 
  <!-- Page Header Start -->
- <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
- <div class="container py-5">
- <h1 class="display-3 text-white mb-3 animated slideInDown">Testimonial</h1>
- <nav aria-label="breadcrumb animated slideInDown">
- <ol class="breadcrumb text-uppercase mb-0">
- <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
- <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
- <li class="breadcrumb-item text-primary active" aria-current="page">Testimonial</li>
- </ol>
- </nav>
- </div>
+ <div class="container-fluid page-header py-5 mb-5" id="testimonialPageHeader">
+   <!-- Layered premium overlays -->
+   <div class="page-header-overlay" aria-hidden="true"></div>
+   <div class="page-header-glow" aria-hidden="true"></div>
+
+   <!-- Floating ambient light particles -->
+   <div class="page-header-particles" aria-hidden="true">
+     <span class="ph-particle" style="--x:15%;--y:40%;--d:14s;--s:0.7;"></span>
+     <span class="ph-particle" style="--x:80%;--y:25%;--d:18s;--s:1.0;"></span>
+     <span class="ph-particle" style="--x:50%;--y:70%;--d:12s;--s:0.6;"></span>
+     <span class="ph-particle" style="--x:30%;--y:80%;--d:16s;--s:0.8;"></span>
+   </div>
+
+   <!-- Very faint medical pattern -->
+   <div class="page-header-pattern" aria-hidden="true"></div>
+
+   <!-- Subtle decorative glowing circles -->
+   <div class="page-header-decor" aria-hidden="true">
+     <span class="decor-circle" style="--x:10%;--y:20%;--s:1.2;"></span>
+     <span class="decor-circle" style="--x:90%;--y:80%;--s:0.8;"></span>
+   </div>
+
+   <div class="container py-5 position-relative" style="z-index: 2;">
+     <!-- Small badge -->
+     <p class="page-header-badge">
+       <i class="fa fa-star me-1"></i> What Our Patients Say
+     </p>
+
+     <!-- Main heading -->
+     <h1 class="display-3 text-white mb-3 page-header-title" id="testimonialTitle">
+       Hear From Our Valued Patients
+     </h1>
+
+     <!-- Supporting paragraph -->
+     <p class="page-header-subtitle">
+       Nothing speaks louder than the words of those we've cared for. Discover
+       real stories of healing, compassion, and life‑changing outcomes from
+       Alpha Clinic patients.
+     </p>
+
+     <!-- Modern glassmorphism breadcrumb -->
+     <nav aria-label="breadcrumb">
+       <ol class="breadcrumb-glass">
+         <li class="breadcrumb-glass__item">
+           <a href="index.html" class="breadcrumb-glass__link">
+             <i class="fa fa-home me-1"></i> Home
+           </a>
+           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
+         </li>
+         <li class="breadcrumb-glass__item">
+           <span class="breadcrumb-glass__link is-disabled">Pages</span>
+           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
+         </li>
+         <li class="breadcrumb-glass__item">
+           <span class="breadcrumb-glass__link is-active">Testimonial</span>
+         </li>
+       </ol>
+     </nav>
+   </div>
  </div>
  <!-- Page Header End -->
 
 
- <!-- Testimonial Start -->
- <div class="container-xxl py-5">
- <div class="container">
- <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
- <p class="d-inline-block border rounded-pill py-1 px-4">Testimonial</p>
- <h1>What Say Our Patients!</h1>
- </div>
- <div class="testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
- <div class="carousel-track">
- <div class="carousel-item">
- <div class="testimonial-item text-center">
- <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
- <div class="testimonial-text rounded text-center p-4">
- <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
- <h5 class="mb-1">Patient Name</h5>
- <span class="fst-italic">Profession</span>
- </div>
- </div>
- </div>
- <div class="carousel-item">
- <div class="testimonial-item text-center">
- <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
- <div class="testimonial-text rounded text-center p-4">
- <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
- <h5 class="mb-1">Patient Name</h5>
- <span class="fst-italic">Profession</span>
- </div>
- </div>
- </div>
- <div class="carousel-item">
- <div class="testimonial-item text-center">
- <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
- <div class="testimonial-text rounded text-center p-4">
- <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
- <h5 class="mb-1">Patient Name</h5>
- <span class="fst-italic">Profession</span>
- </div>
- </div>
- </div>
- </div>
- <div class="carousel-nav">
- <button type="button" class="carousel-prev" aria-label="Previous"><i class="fa fa-arrow-left"></i></button>
- <button type="button" class="carousel-next" aria-label="Next"><i class="fa fa-arrow-right"></i></button>
- </div>
- </div>
- </div>
- </div>
- </div>
- <!-- Testimonial End -->
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div
+          class="text-center mx-auto mb-5 wow fadeInUp"
+          data-wow-delay="0.1s"
+          style="max-width: 600px"
+        >
+          <p
+            class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium"
+          >
+            Testimonial
+          </p>
+          <h1 class="display-5 fw-bold">What Say Our Patients!</h1>
+        </div>
+        <div class="testimonial-carousel wow fadeInUp" data-wow-delay="0.15s">
+          <div class="carousel-track">
+            <div class="carousel-item">
+              <div class="testimonial-item text-center">
+                <img
+                  class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4 shadow-sm"
+                  src="img/testimonial-1.jpg"
+                  alt="Patient portrait"
+                  style="width: 100px; height: 100px"
+                />
+                <div class="testimonial-text rounded-4 text-center p-4">
+                  <p>
+                    “The cardiac team at Alpha Clinic saved my life. After my
+                    bypass surgery, the follow‑up care was exceptional.”
+                  </p>
+                  <h5 class="mb-1">James Anderson</h5>
+                  <span class="fst-italic">Cardiac Patient</span>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="testimonial-item text-center">
+                <img
+                  class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4 shadow-sm"
+                  src="img/testimonial-2.jpg"
+                  alt="Patient portrait"
+                  style="width: 100px; height: 100px"
+                />
+                <div class="testimonial-text rounded-4 text-center p-4">
+                  <p>
+                    “I brought my mother for a neurological consultation. The
+                    specialists were incredibly thorough and kind.”
+                  </p>
+                  <h5 class="mb-1">Laura Martínez</h5>
+                  <span class="fst-italic">Family Member</span>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="testimonial-item text-center">
+                <img
+                  class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4 shadow-sm"
+                  src="img/testimonial-3.jpg"
+                  alt="Patient portrait"
+                  style="width: 100px; height: 100px"
+                />
+                <div class="testimonial-text rounded-4 text-center p-4">
+                  <p>
+                    “My pulmonary rehab was personalized and the results were
+                    beyond my expectations.”
+                  </p>
+                  <h5 class="mb-1">David Okonkwo</h5>
+                  <span class="fst-italic">Pulmonary Patient</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button type="button" class="carousel-prev" aria-label="Previous">
+              <i class="fa fa-arrow-left"></i>
+            </button>
+            <button type="button" class="carousel-next" aria-label="Next">
+              <i class="fa fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial End -->
  <!-- Footer Start -->
  <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
  <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
@@ -205,6 +296,23 @@
  <script src="lib/counterup/counterup.min.js"></script>
  <!-- Main Javascript -->
  <script src="js/main.js"></script>
+
+ <!-- Page Header Mouse Effect -->
+ <script>
+   (function() {
+     const header = document.getElementById('testimonialPageHeader');
+     if (!header) return;
+     const glow = header.querySelector('.page-header-glow');
+     if (glow && window.innerWidth > 768) {
+       header.addEventListener('mousemove', function(e) {
+         const rect = header.getBoundingClientRect();
+         const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+         const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+         glow.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+       });
+     }
+   })();
+ </script>
 </body>
 
 </html>

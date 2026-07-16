@@ -860,130 +860,213 @@
     </div>
     <!-- Team End -->
 
-    <!-- Appointment Start -->
-    <div class="container-xxl py-5 bg-light">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <p
-              class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium"
-            >
-              Appointment
-            </p>
-            <h1 class="mb-4 display-5 fw-bold">
-              Make An Appointment To Visit Our Doctor
-            </h1>
-            <p class="mb-4">
-              Scheduling your visit is simple and fast. Choose a convenient date
-              and time, and our patient coordinator will confirm your
-              appointment within one business hour.
-            </p>
-            <div
-              class="bg-white rounded-4 d-flex align-items-center p-4 mb-4 shadow-sm"
-            >
-              <div
-                class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-primary text-white"
-                style="width: 55px; height: 55px"
-              >
-                <i class="fa fa-phone-alt"></i>
-              </div>
-              <div class="ms-4">
-                <p class="mb-1 text-muted">Call Us Now</p>
-                <h5 class="mb-0">+012 345 6789</h5>
-              </div>
-            </div>
-            <div
-              class="bg-white rounded-4 d-flex align-items-center p-4 shadow-sm"
-            >
-              <div
-                class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-primary text-white"
-                style="width: 55px; height: 55px"
-              >
-                <i class="fa fa-envelope-open"></i>
-              </div>
-              <div class="ms-4">
-                <p class="mb-1 text-muted">Mail Us Now</p>
-                <h5 class="mb-0">info@alphaclinic.com</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="bg-white rounded-4 p-5 shadow-sm h-100">
-              <form>
-                <div class="row g-3">
-                  <div class="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      class="form-control border-0 bg-light rounded-pill px-4"
-                      placeholder="Your Name"
-                      style="height: 55px"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <input
-                      type="email"
-                      class="form-control border-0 bg-light rounded-pill px-4"
-                      placeholder="Your Email"
-                      style="height: 55px"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      class="form-control border-0 bg-light rounded-pill px-4"
-                      placeholder="Your Mobile"
-                      style="height: 55px"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <select
-                      class="form-select border-0 bg-light rounded-pill px-4"
-                      style="height: 55px"
-                    >
-                      <option selected>Choose Doctor</option>
-                      <option value="1">Dr. Sarah Johnson</option>
-                      <option value="2">Dr. Michael Chen</option>
-                      <option value="3">Dr. Emily Davis</option>
-                      <option value="4">Dr. Robert Wilson</option>
-                    </select>
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <input
-                      type="date"
-                      class="form-control border-0 bg-light rounded-pill px-4"
-                      style="height: 55px"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <input
-                      type="time"
-                      class="form-control border-0 bg-light rounded-pill px-4"
-                      style="height: 55px"
-                    />
-                  </div>
-                  <div class="col-12">
-                    <textarea
-                      class="form-control border-0 bg-light rounded-4 px-4 py-3"
-                      rows="5"
-                      placeholder="Describe your problem"
-                    ></textarea>
-                  </div>
-                  <div class="col-12">
-                    <button
-                      class="btn btn-primary w-100 py-3 rounded-pill fw-semibold shadow-sm"
-                      type="submit"
-                    >
-                      Book Appointment
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Appointment End -->
+     <!-- Appointment Start -->
+ <div class="container-xxl py-5 appointment-section" id="appointmentSection">
+   <!-- Subtle background decorations -->
+   <div class="apt-bg-decor" aria-hidden="true">
+     <div class="apt-glow apt-glow--left"></div>
+     <div class="apt-glow apt-glow--right"></div>
+   </div>
+
+   <div class="container position-relative" style="z-index: 1;">
+     <div class="row g-5">
+       <!-- ========== LEFT PANEL ========== -->
+       <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+         <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">Appointment</p>
+         <h1 class="display-5 fw-bold mb-3">Make An Appointment To Visit Our Doctor</h1>
+         <p class="text-muted mb-5">Scheduling your visit is simple and fast. Choose a convenient date and time, and our patient coordinator will confirm your appointment within one business hour. Same‑day urgent slots are often available.</p>
+
+         <!-- Trust cards -->
+         <div class="row g-4 mb-4">
+           <div class="col-md-6">
+             <div class="apt-trust-card">
+               <div class="apt-trust-card__icon"><i class="fa fa-calendar-check"></i></div>
+               <h5>Same‑Day Appointments</h5>
+               <p>Urgent care slots available daily.</p>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="apt-trust-card">
+               <div class="apt-trust-card__icon"><i class="fa fa-user-md"></i></div>
+               <h5>Experienced Specialists</h5>
+               <p>Board‑certified doctors for every need.</p>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="apt-trust-card">
+               <div class="apt-trust-card__icon"><i class="fa fa-lock"></i></div>
+               <h5>100% Confidential</h5>
+               <p>Your privacy is our priority.</p>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="apt-trust-card">
+               <div class="apt-trust-card__icon"><i class="fa fa-clock"></i></div>
+               <h5>Fast Confirmation</h5>
+               <p>We confirm appointments within 1 hour.</p>
+             </div>
+           </div>
+         </div>
+
+         <!-- Emergency contact card -->
+         <div class="apt-emergency-card">
+           <div class="apt-emergency-card__inner">
+             <div class="apt-emergency-card__icon">
+               <i class="fa fa-phone-alt"></i>
+             </div>
+             <div class="apt-emergency-card__info">
+               <p class="apt-emergency-card__label">24/7 Emergency Hotline</p>
+               <h4 class="apt-emergency-card__number">+012 345 6789</h4>
+               <span class="apt-emergency-card__status">Available Now</span>
+             </div>
+           </div>
+         </div>
+       </div><!-- /left panel -->
+
+       <!-- ========== RIGHT PANEL (FORM) ========== -->
+       <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+         <div class="apt-form-card">
+           <h3 class="mb-4 fw-bold">Book Your Appointment</h3>
+           <form>
+             <div class="row g-4">
+               <!-- Full Name -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="fullName">Full Name *</label>
+                   <input type="text" id="fullName" class="apt-input" placeholder="John Doe" required>
+                   <i class="fa fa-user input-icon"></i>
+                 </div>
+               </div>
+               <!-- Date of Birth -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="dob">Date of Birth</label>
+                   <input type="date" id="dob" class="apt-input">
+                   <i class="fa fa-calendar input-icon"></i>
+                 </div>
+               </div>
+               <!-- Gender -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="gender">Gender</label>
+                   <select id="gender" class="apt-input">
+                     <option value="" disabled selected>Select Gender</option>
+                     <option value="male">Male</option>
+                     <option value="female">Female</option>
+                     <option value="other">Other</option>
+                   </select>
+                   <i class="fa fa-venus-mars input-icon"></i>
+                 </div>
+               </div>
+               <!-- Email -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="email">Email Address *</label>
+                   <input type="email" id="email" class="apt-input" placeholder="you@example.com" required>
+                   <i class="fa fa-envelope input-icon"></i>
+                 </div>
+               </div>
+               <!-- Phone -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="phone">Phone Number *</label>
+                   <input type="tel" id="phone" class="apt-input" placeholder="+1 234 567 890" required>
+                   <i class="fa fa-phone input-icon"></i>
+                 </div>
+               </div>
+               <!-- Department -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="department">Department</label>
+                   <select id="department" class="apt-input">
+                     <option value="" disabled selected>Select Department</option>
+                     <option value="cardiology">Cardiology</option>
+                     <option value="neurology">Neurology</option>
+                     <option value="pulmonary">Pulmonary</option>
+                     <option value="orthopedics">Orthopedics</option>
+                     <option value="dental">Dental Surgery</option>
+                     <option value="laboratory">Laboratory</option>
+                   </select>
+                   <i class="fa fa-hospital input-icon"></i>
+                 </div>
+               </div>
+               <!-- Preferred Doctor -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="preferredDoctor">Preferred Doctor</label>
+                   <select id="preferredDoctor" class="apt-input">
+                     <option value="" disabled selected>Choose Doctor</option>
+                     <option value="1">Dr. Sarah Johnson – Cardiology</option>
+                     <option value="2">Dr. Michael Chen – Neurology</option>
+                     <option value="3">Dr. Emily Davis – Pulmonary</option>
+                     <option value="4">Dr. Robert Wilson – Orthopedics</option>
+                   </select>
+                   <i class="fa fa-user-md input-icon"></i>
+                 </div>
+               </div>
+               <!-- Preferred Date -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="preferredDate">Preferred Date</label>
+                   <input type="date" id="preferredDate" class="apt-input">
+                   <i class="fa fa-calendar input-icon"></i>
+                 </div>
+               </div>
+               <!-- Preferred Time -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="preferredTime">Preferred Time</label>
+                   <input type="time" id="preferredTime" class="apt-input">
+                   <i class="fa fa-clock input-icon"></i>
+                 </div>
+               </div>
+               <!-- Emergency Contact Name -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="emergencyContact">Emergency Contact Name</label>
+                   <input type="text" id="emergencyContact" class="apt-input" placeholder="Relative's name">
+                   <i class="fa fa-address-book input-icon"></i>
+                 </div>
+               </div>
+               <!-- Emergency Contact Phone -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="emergencyPhone">Emergency Contact Phone</label>
+                   <input type="tel" id="emergencyPhone" class="apt-input" placeholder="Phone number">
+                   <i class="fa fa-phone-alt input-icon"></i>
+                 </div>
+               </div>
+               <!-- Message -->
+               <div class="col-12">
+                 <div class="apt-input-group">
+                   <label for="message">Symptoms / Reason for Visit</label>
+                   <textarea id="message" class="apt-input apt-textarea" rows="3" placeholder="Briefly describe your condition..."></textarea>
+                   <i class="fa fa-pen input-icon"></i>
+                 </div>
+               </div>
+               <!-- Submit Button -->
+               <div class="col-12">
+                 <button type="submit" class="apt-btn" id="aptSubmitBtn">
+                   <span>Book Appointment</span>
+                   <i class="fa fa-arrow-right"></i>
+                 </button>
+               </div>
+               <!-- Trust badges -->
+               <div class="col-12">
+                 <div class="apt-trust-badges">
+                   <span><i class="fa fa-lock me-1"></i>100% Confidential</span>
+                   <span><i class="fa fa-user-md me-1"></i>Verified Specialists</span>
+                   <span><i class="fa fa-bolt me-1"></i>Fast Confirmation</span>
+                 </div>
+               </div>
+             </div>
+           </form>
+         </div>
+       </div><!-- /right panel -->
+     </div>
+   </div>
+ </div>
+ <!-- Appointment End -->
 
     <!-- Testimonial Start -->
     <div class="container-xxl py-5">

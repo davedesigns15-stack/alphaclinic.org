@@ -1,50 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Alpha Clinic</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
 
-<head>
- <meta charset="utf-8">
- <title>Alpha Clinic</title>
- <meta content="width=device-width, initial-scale=1.0" name="viewport">
- <meta content="" name="keywords">
- <meta content="" name="description">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
 
- <!-- Favicon -->
- <link href="img/favicon.ico" rel="icon">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
- <!-- Google Web Fonts -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <!-- Custom Framework Stylesheet -->
+    <link href="css/framework.css" rel="stylesheet" />
 
- <!-- Icon Font Stylesheet -->
- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
- <!-- Libraries Stylesheet -->
- <link href="lib/animate/animate.min.css" rel="stylesheet">
- <!-- Custom Framework Stylesheet -->
- <link href="css/framework.css" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
 
- <!-- Main Stylesheet -->
- <link href="css/style.css" rel="stylesheet">
-</head>
+  <body>
+    <!-- Navbar Start -->
+    <nav class="site-nav" id="siteNav">
+      <div class="site-nav__inner">
+        <a href="index.html" class="site-nav__brand">
+          <i class="fa fa-heartbeat"></i>
+          <span>Alpha Clinic</span>
+        </a>
+        <button
+          type="button"
+          class="site-nav__toggle"
+          id="siteNavToggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="site-nav__menu" id="siteNavMenu">
+          <a href="index.html" class="site-nav__link">Home</a>
+          <a href="about.html" class="site-nav__link">About</a>
+          <a href="service.html" class="site-nav__link">Service</a>
 
-<body>
-
- <!-- Navbar Start -->
- <nav class="site-nav" id="siteNav">
- <div class="site-nav__inner">
- <a href="index.html" class="site-nav__brand">
- <i class="fa fa-heartbeat"></i>
- <span>Alpha Clinic</span>
- </a>
- <button type="button" class="site-nav__toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false">
- <i class="fa fa-bars"></i>
- </button>
- <div class="site-nav__menu" id="siteNavMenu">
- <a href="index.html" class="site-nav__link">Home</a>
- <a href="about.html" class="site-nav__link">About</a>
- <a href="service.html" class="site-nav__link">Service</a>
-
-         <div class="site-nav__dropdown">
+          <div class="site-nav__dropdown">
             <a href="#" class="site-nav__link"
               >Pages
               <i
@@ -61,265 +71,441 @@
             </div>
           </div>
 
- <a href="contact.html" class="site-nav__link">Contact</a>
- <a href="appointment.html" class="site-nav__cta">Appointment <i class="fa fa-arrow-right"></i></a>
- </div>
- </div>
- </nav>
- <!-- Navbar End -->
+          <a href="contact.html" class="site-nav__link">Contact</a>
+          <a href="appointment.html" class="site-nav__cta"
+            >Appointment <i class="fa fa-arrow-right"></i
+          ></a>
+                    <a href="patient-portal.html" class="site-nav__cta site-nav__cta--outline">
+  <i class="fa fa-user"></i> Patient Portal
+</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
 
+    <!-- Page Header Start -->
+    <div
+      class="container-fluid page-header py-5 mb-5"
+      id="appointmentPageHeader"
+    >
+      <!-- Layered premium overlays -->
+      <div class="page-header-overlay" aria-hidden="true"></div>
+      <div class="page-header-glow" aria-hidden="true"></div>
 
+      <!-- Floating ambient light particles -->
+      <div class="page-header-particles" aria-hidden="true">
+        <span
+          class="ph-particle"
+          style="--x: 15%; --y: 40%; --d: 14s; --s: 0.7"
+        ></span>
+        <span
+          class="ph-particle"
+          style="--x: 80%; --y: 25%; --d: 18s; --s: 1"
+        ></span>
+        <span
+          class="ph-particle"
+          style="--x: 50%; --y: 70%; --d: 12s; --s: 0.6"
+        ></span>
+        <span
+          class="ph-particle"
+          style="--x: 30%; --y: 80%; --d: 16s; --s: 0.8"
+        ></span>
+      </div>
 
- <!-- Page Header Start -->
- <div class="container-fluid page-header py-5 mb-5" id="appointmentPageHeader">
-   <!-- Layered premium overlays -->
-   <div class="page-header-overlay" aria-hidden="true"></div>
-   <div class="page-header-glow" aria-hidden="true"></div>
+      <!-- Very faint medical pattern -->
+      <div class="page-header-pattern" aria-hidden="true"></div>
 
-   <!-- Floating ambient light particles -->
-   <div class="page-header-particles" aria-hidden="true">
-     <span class="ph-particle" style="--x:15%;--y:40%;--d:14s;--s:0.7;"></span>
-     <span class="ph-particle" style="--x:80%;--y:25%;--d:18s;--s:1.0;"></span>
-     <span class="ph-particle" style="--x:50%;--y:70%;--d:12s;--s:0.6;"></span>
-     <span class="ph-particle" style="--x:30%;--y:80%;--d:16s;--s:0.8;"></span>
+      <!-- Subtle decorative glowing circles -->
+      <div class="page-header-decor" aria-hidden="true">
+        <span class="decor-circle" style="--x: 10%; --y: 20%; --s: 1.2"></span>
+        <span class="decor-circle" style="--x: 90%; --y: 80%; --s: 0.8"></span>
+      </div>
+
+      <div class="container py-5 position-relative" style="z-index: 2">
+        <!-- Small badge -->
+        <p class="page-header-badge">
+          <i class="fa fa-calendar-check me-1"></i> Schedule Your Visit
+        </p>
+
+        <!-- Main heading -->
+        <h1
+          class="display-3 text-white mb-3 page-header-title"
+          id="appointmentTitle"
+        >
+          Book an Appointment
+        </h1>
+
+        <!-- Supporting paragraph -->
+        <p class="page-header-subtitle">
+          Take the first step towards better health. Schedule a consultation
+          with one of our experienced specialists at a time that works for you.
+          We're here to help, every step of the way.
+        </p>
+
+        <!-- Modern glassmorphism breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb-glass">
+            <li class="breadcrumb-glass__item">
+              <a href="index.html" class="breadcrumb-glass__link">
+                <i class="fa fa-home me-1"></i> Home
+              </a>
+              <span class="breadcrumb-glass__divider" aria-hidden="true"
+                >›</span
+              >
+            </li>
+            <li class="breadcrumb-glass__item">
+              <span class="breadcrumb-glass__link is-disabled">Pages</span>
+              <span class="breadcrumb-glass__divider" aria-hidden="true"
+                >›</span
+              >
+            </li>
+            <li class="breadcrumb-glass__item">
+              <span class="breadcrumb-glass__link is-active">Appointment</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <!-- Page Header End -->
+
+     <!-- Appointment Start -->
+ <div class="container-xxl py-5 appointment-section" id="appointmentSection">
+   <!-- Subtle background decorations -->
+   <div class="apt-bg-decor" aria-hidden="true">
+     <div class="apt-glow apt-glow--left"></div>
+     <div class="apt-glow apt-glow--right"></div>
    </div>
 
-   <!-- Very faint medical pattern -->
-   <div class="page-header-pattern" aria-hidden="true"></div>
+   <div class="container position-relative" style="z-index: 1;">
+     <div class="row g-5">
+       <!-- ========== LEFT PANEL ========== -->
+       <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+         <p class="d-inline-block border rounded-pill py-1 px-4 text-primary fw-medium">Appointment</p>
+         <h1 class="display-5 fw-bold mb-3">Make An Appointment To Visit Our Doctor</h1>
+         <p class="text-muted mb-5">Scheduling your visit is simple and fast. Choose a convenient date and time, and our patient coordinator will confirm your appointment within one business hour. Same‑day urgent slots are often available.</p>
 
-   <!-- Subtle decorative glowing circles -->
-   <div class="page-header-decor" aria-hidden="true">
-     <span class="decor-circle" style="--x:10%;--y:20%;--s:1.2;"></span>
-     <span class="decor-circle" style="--x:90%;--y:80%;--s:0.8;"></span>
+         <!-- Trust cards -->
+         <div class="row g-4 mb-4">
+           <div class="col-md-6">
+             <div class="apt-trust-card">
+               <div class="apt-trust-card__icon"><i class="fa fa-calendar-check"></i></div>
+               <h5>Same‑Day Appointments</h5>
+               <p>Urgent care slots available daily.</p>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="apt-trust-card">
+               <div class="apt-trust-card__icon"><i class="fa fa-user-md"></i></div>
+               <h5>Experienced Specialists</h5>
+               <p>Board‑certified doctors for every need.</p>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="apt-trust-card">
+               <div class="apt-trust-card__icon"><i class="fa fa-lock"></i></div>
+               <h5>100% Confidential</h5>
+               <p>Your privacy is our priority.</p>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="apt-trust-card">
+               <div class="apt-trust-card__icon"><i class="fa fa-clock"></i></div>
+               <h5>Fast Confirmation</h5>
+               <p>We confirm appointments within 1 hour.</p>
+             </div>
+           </div>
+         </div>
+
+         <!-- Emergency contact card -->
+         <div class="apt-emergency-card">
+           <div class="apt-emergency-card__inner">
+             <div class="apt-emergency-card__icon">
+               <i class="fa fa-phone-alt"></i>
+             </div>
+             <div class="apt-emergency-card__info">
+               <p class="apt-emergency-card__label">24/7 Emergency Hotline</p>
+               <h4 class="apt-emergency-card__number">+012 345 6789</h4>
+               <span class="apt-emergency-card__status">Available Now</span>
+             </div>
+           </div>
+         </div>
+       </div><!-- /left panel -->
+
+       <!-- ========== RIGHT PANEL (FORM) ========== -->
+       <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+         <div class="apt-form-card">
+           <h3 class="mb-4 fw-bold">Book Your Appointment</h3>
+           <form>
+             <div class="row g-4">
+               <!-- Full Name -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="fullName">Full Name *</label>
+                   <input type="text" id="fullName" class="apt-input" placeholder="John Doe" required>
+                   <i class="fa fa-user input-icon"></i>
+                 </div>
+               </div>
+               <!-- Date of Birth -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="dob">Date of Birth</label>
+                   <input type="date" id="dob" class="apt-input">
+                   <i class="fa fa-calendar input-icon"></i>
+                 </div>
+               </div>
+               <!-- Gender -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="gender">Gender</label>
+                   <select id="gender" class="apt-input">
+                     <option value="" disabled selected>Select Gender</option>
+                     <option value="male">Male</option>
+                     <option value="female">Female</option>
+                     <option value="other">Other</option>
+                   </select>
+                   <i class="fa fa-venus-mars input-icon"></i>
+                 </div>
+               </div>
+               <!-- Email -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="email">Email Address *</label>
+                   <input type="email" id="email" class="apt-input" placeholder="you@example.com" required>
+                   <i class="fa fa-envelope input-icon"></i>
+                 </div>
+               </div>
+               <!-- Phone -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="phone">Phone Number *</label>
+                   <input type="tel" id="phone" class="apt-input" placeholder="+1 234 567 890" required>
+                   <i class="fa fa-phone input-icon"></i>
+                 </div>
+               </div>
+               <!-- Department -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="department">Department</label>
+                   <select id="department" class="apt-input">
+                     <option value="" disabled selected>Select Department</option>
+                     <option value="cardiology">Cardiology</option>
+                     <option value="neurology">Neurology</option>
+                     <option value="pulmonary">Pulmonary</option>
+                     <option value="orthopedics">Orthopedics</option>
+                     <option value="dental">Dental Surgery</option>
+                     <option value="laboratory">Laboratory</option>
+                   </select>
+                   <i class="fa fa-hospital input-icon"></i>
+                 </div>
+               </div>
+               <!-- Preferred Doctor -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="preferredDoctor">Preferred Doctor</label>
+                   <select id="preferredDoctor" class="apt-input">
+                     <option value="" disabled selected>Choose Doctor</option>
+                     <option value="1">Dr. Sarah Johnson – Cardiology</option>
+                     <option value="2">Dr. Michael Chen – Neurology</option>
+                     <option value="3">Dr. Emily Davis – Pulmonary</option>
+                     <option value="4">Dr. Robert Wilson – Orthopedics</option>
+                   </select>
+                   <i class="fa fa-user-md input-icon"></i>
+                 </div>
+               </div>
+               <!-- Preferred Date -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="preferredDate">Preferred Date</label>
+                   <input type="date" id="preferredDate" class="apt-input">
+                   <i class="fa fa-calendar input-icon"></i>
+                 </div>
+               </div>
+               <!-- Preferred Time -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="preferredTime">Preferred Time</label>
+                   <input type="time" id="preferredTime" class="apt-input">
+                   <i class="fa fa-clock input-icon"></i>
+                 </div>
+               </div>
+               <!-- Emergency Contact Name -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="emergencyContact">Emergency Contact Name</label>
+                   <input type="text" id="emergencyContact" class="apt-input" placeholder="Relative's name">
+                   <i class="fa fa-address-book input-icon"></i>
+                 </div>
+               </div>
+               <!-- Emergency Contact Phone -->
+               <div class="col-12 col-sm-6">
+                 <div class="apt-input-group">
+                   <label for="emergencyPhone">Emergency Contact Phone</label>
+                   <input type="tel" id="emergencyPhone" class="apt-input" placeholder="Phone number">
+                   <i class="fa fa-phone-alt input-icon"></i>
+                 </div>
+               </div>
+               <!-- Message -->
+               <div class="col-12">
+                 <div class="apt-input-group">
+                   <label for="message">Symptoms / Reason for Visit</label>
+                   <textarea id="message" class="apt-input apt-textarea" rows="3" placeholder="Briefly describe your condition..."></textarea>
+                   <i class="fa fa-pen input-icon"></i>
+                 </div>
+               </div>
+               <!-- Submit Button -->
+               <div class="col-12">
+                 <button type="submit" class="apt-btn" id="aptSubmitBtn">
+                   <span>Book Appointment</span>
+                   <i class="fa fa-arrow-right"></i>
+                 </button>
+               </div>
+               <!-- Trust badges -->
+               <div class="col-12">
+                 <div class="apt-trust-badges">
+                   <span><i class="fa fa-lock me-1"></i>100% Confidential</span>
+                   <span><i class="fa fa-user-md me-1"></i>Verified Specialists</span>
+                   <span><i class="fa fa-bolt me-1"></i>Fast Confirmation</span>
+                 </div>
+               </div>
+             </div>
+           </form>
+         </div>
+       </div><!-- /right panel -->
+     </div>
    </div>
-
-   <div class="container py-5 position-relative" style="z-index: 2;">
-     <!-- Small badge -->
-     <p class="page-header-badge">
-       <i class="fa fa-calendar-check me-1"></i> Schedule Your Visit
-     </p>
-
-     <!-- Main heading -->
-     <h1 class="display-3 text-white mb-3 page-header-title" id="appointmentTitle">
-       Book an Appointment
-     </h1>
-
-     <!-- Supporting paragraph -->
-     <p class="page-header-subtitle">
-       Take the first step towards better health. Schedule a consultation
-       with one of our experienced specialists at a time that works for you.
-       We're here to help, every step of the way.
-     </p>
-
-     <!-- Modern glassmorphism breadcrumb -->
-     <nav aria-label="breadcrumb">
-       <ol class="breadcrumb-glass">
-         <li class="breadcrumb-glass__item">
-           <a href="index.html" class="breadcrumb-glass__link">
-             <i class="fa fa-home me-1"></i> Home
-           </a>
-           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
-         </li>
-         <li class="breadcrumb-glass__item">
-           <span class="breadcrumb-glass__link is-disabled">Pages</span>
-           <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
-         </li>
-         <li class="breadcrumb-glass__item">
-           <span class="breadcrumb-glass__link is-active">Appointment</span>
-         </li>
-       </ol>
-     </nav>
-   </div>
- </div>
- <!-- Page Header End -->
-
-
- <!-- Appointment Start -->
- <div class="container-xxl py-5">
- <div class="container">
- <div class="row g-5">
- <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
- <p class="d-inline-block border rounded-pill py-1 px-4">Appointment</p>
- <h1 class="mb-4">Make An Appointment To Visit Our Doctor</h1>
- <p class="mb-4">Scheduling your visit is simple and fast. Choose a convenient date and time, and our patient coordinator will confirm your appointment within one business hour. Same‑day urgent slots are often available.</p>
- <div class="bg-light rounded d-flex align-items-center p-5 mb-4">
- <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
- <i class="fa fa-phone-alt text-primary"></i>
- </div>
- <div class="ms-4">
- <p class="mb-2">Call Us Now</p>
- <h5 class="mb-0">+012 345 6789</h5>
- </div>
- </div>
- <div class="bg-light rounded d-flex align-items-center p-5">
- <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
- <i class="fa fa-envelope-open text-primary"></i>
- </div>
- <div class="ms-4">
- <p class="mb-2">Mail Us Now</p>
- <h5 class="mb-0">info@alphaclinic.com</h5>
- </div>
- </div>
- </div>
- <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
- <div class="bg-light rounded h-100 d-flex align-items-center p-5">
- <form>
- <div class="row g-3">
- <div class="col-12 col-sm-6">
- <input type="text" class="form-control border-0" placeholder="Full Name *" style="height: 55px;" required>
- </div>
- <div class="col-12 col-sm-6">
- <input type="date" class="form-control border-0" placeholder="Date of Birth" style="height: 55px;">
- </div>
- <div class="col-12 col-sm-6">
- <select class="form-select border-0" style="height: 55px;">
- <option selected>Select Gender</option>
- <option value="male">Male</option>
- <option value="female">Female</option>
- <option value="other">Other</option>
- </select>
- </div>
- <div class="col-12 col-sm-6">
- <input type="email" class="form-control border-0" placeholder="Email Address *" style="height: 55px;" required>
- </div>
- <div class="col-12 col-sm-6">
- <input type="text" class="form-control border-0" placeholder="Phone Number *" style="height: 55px;" required>
- </div>
- <div class="col-12 col-sm-6">
- <select class="form-select border-0" style="height: 55px;">
- <option selected>Select Department</option>
- <option value="cardiology">Cardiology</option>
- <option value="neurology">Neurology</option>
- <option value="pulmonary">Pulmonary</option>
- <option value="orthopedics">Orthopedics</option>
- <option value="dental">Dental Surgery</option>
- <option value="laboratory">Laboratory</option>
- </select>
- </div>
- <div class="col-12 col-sm-6">
- <select class="form-select border-0" style="height: 55px;">
- <option selected>Preferred Doctor</option>
- <option value="1">Dr. Sarah Johnson – Cardiology</option>
- <option value="2">Dr. Michael Chen – Neurology</option>
- <option value="3">Dr. Emily Davis – Pulmonary</option>
- <option value="4">Dr. Robert Wilson – Orthopedics</option>
- </select>
- </div>
- <div class="col-12 col-sm-6">
- <input type="date" class="form-control border-0" placeholder="Preferred Date" style="height: 55px;">
- </div>
- <div class="col-12 col-sm-6">
- <input type="time" class="form-control border-0" placeholder="Preferred Time" style="height: 55px;">
- </div>
- <div class="col-12">
- <input type="text" class="form-control border-0" placeholder="Emergency Contact Name" style="height: 55px;">
- </div>
- <div class="col-12">
- <input type="text" class="form-control border-0" placeholder="Emergency Contact Phone" style="height: 55px;">
- </div>
- <div class="col-12">
- <textarea class="form-control border-0" rows="4" placeholder="Briefly describe your symptoms or reason for visit"></textarea>
- </div>
- <div class="col-12">
- <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
- </div>
- </div>
- </form>
- </div>
- </div>
- </div>
- </div>
  </div>
  <!-- Appointment End -->
- <!-- Footer Start -->
- <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
- <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
- <div class="site-footer__inner">
- <div class="site-footer__grid">
- <div>
- <a href="index.html" class="site-footer__brand">
- <i class="fa fa-heartbeat"></i>
- <span>Alpha Clinic</span>
- </a>
- <p class="site-footer__about">Compassionate care, modern medicine, and a team dedicated to your lasting wellbeing.</p>
- <div class="site-footer__social">
- <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
- <a href="" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
- <a href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
- <a href="" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
- </div>
- </div>
- <div>
- <h5 class="site-footer__title">Services</h5>
- <ul class="site-footer__links">
- <li><a href="service.html">Cardiology</a></li>
- <li><a href="service.html">Pulmonary</a></li>
- <li><a href="service.html">Neurology</a></li>
- <li><a href="service.html">Orthopedics</a></li>
- <li><a href="service.html">Laboratory</a></li>
- </ul>
- </div>
- <div>
- <h5 class="site-footer__title">Explore</h5>
- <ul class="site-footer__links">
- <li><a href="about.html">About Us</a></li>
- <li><a href="contact.html">Contact Us</a></li>
- <li><a href="service.html">Our Services</a></li>
- <li><a href="appointment.html">Appointment</a></li>
- <li><a href="team.html">Our Doctors</a></li>
- </ul>
- </div>
- <div>
- <h5 class="site-footer__title">Stay Connected</h5>
- <ul class="site-footer__contact">
- <li><i class="fa fa-map-marker-alt"></i><span>123 Street, New York, USA</span></li>
- <li><i class="fa fa-phone-alt"></i><span>+012 345 67890</span></li>
- <li><i class="fa fa-envelope"></i><span>info@alphaclinic.com</span></li>
- </ul>
- <form class="site-footer__newsletter" onsubmit="return false;">
- <input type="email" placeholder="Your email" aria-label="Email for newsletter">
- <button type="submit">Subscribe</button>
- </form>
- </div>
- </div>
- </div>
- <div class="site-footer__bottom">
- <span>&copy; <a href="index.html">Alpha Clinic</a>. All rights reserved.</span>
- <span>Crafted for better care | Developed by Glorycodes</span>
- </div>
- </footer>
- <!-- Footer End -->
 
+    <!-- Footer Start -->
+    <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
+      <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
+      <div class="site-footer__inner">
+        <div class="site-footer__grid">
+          <div>
+            <a href="index.html" class="site-footer__brand">
+              <i class="fa fa-heartbeat"></i>
+              <span>Alpha Clinic</span>
+            </a>
+            <p class="site-footer__about">
+              Compassionate care, modern medicine, and a team dedicated to your
+              lasting wellbeing.
+            </p>
+            <div class="site-footer__social">
+              <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h5 class="site-footer__title">Services</h5>
+            <ul class="site-footer__links">
+              <li><a href="service.html">Cardiology</a></li>
+              <li><a href="service.html">Pulmonary</a></li>
+              <li><a href="service.html">Neurology</a></li>
+              <li><a href="service.html">Orthopedics</a></li>
+              <li><a href="service.html">Laboratory</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="site-footer__title">Explore</h5>
+            <ul class="site-footer__links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="service.html">Our Services</a></li>
+              <li><a href="appointment.html">Appointment</a></li>
+              <li><a href="team.html">Our Doctors</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="site-footer__title">Stay Connected</h5>
+            <ul class="site-footer__contact">
+              <li>
+                <i class="fa fa-map-marker-alt"></i
+                ><span>123 Street, New York, USA</span>
+              </li>
+              <li>
+                <i class="fa fa-phone-alt"></i><span>+012 345 67890</span>
+              </li>
+              <li>
+                <i class="fa fa-envelope"></i><span>info@alphaclinic.com</span>
+              </li>
+            </ul>
+            <form class="site-footer__newsletter" onsubmit="return false;">
+              <input
+                type="email"
+                placeholder="Your email"
+                aria-label="Email for newsletter"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span
+          >&copy; <a href="index.html">Alpha Clinic</a>. All rights
+          reserved.</span
+        >
+        <span>Crafted for better care | Developed by Glorycodes</span>
+      </div>
+    </footer>
+    <!-- Footer End -->
 
- <!-- Back to Top -->
- <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+    <!-- Back to Top -->
+    <a
+      href="#"
+      class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a>
 
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <!-- Main Javascript -->
+    <script src="js/main.js"></script>
 
- <!-- JavaScript Libraries -->
- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
- <script src="lib/wow/wow.min.js"></script>
- <script src="lib/easing/easing.min.js"></script>
- <script src="lib/waypoints/waypoints.min.js"></script>
- <script src="lib/counterup/counterup.min.js"></script>
- <!-- Main Javascript -->
- <script src="js/main.js"></script>
+    <!-- Page Header Mouse Effect -->
+    <script>
+      (function () {
+        const header = document.getElementById("appointmentPageHeader");
+        if (!header) return;
+        const glow = header.querySelector(".page-header-glow");
+        if (glow && window.innerWidth > 768) {
+          header.addEventListener("mousemove", function (e) {
+            const rect = header.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+            const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+            glow.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+          });
+        }
+      })();
+    </script>
 
- <!-- Page Header Mouse Effect -->
- <script>
-   (function() {
-     const header = document.getElementById('appointmentPageHeader');
-     if (!header) return;
-     const glow = header.querySelector('.page-header-glow');
-     if (glow && window.innerWidth > 768) {
-       header.addEventListener('mousemove', function(e) {
-         const rect = header.getBoundingClientRect();
-         const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-         const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
-         glow.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-       });
-     }
-   })();
- </script>
-</body>
-
+    <!-- Appointment Button Ripple -->
+<script>
+  (function() {
+    const btn = document.getElementById('aptSubmitBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      const rect = btn.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+      btn.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  })();
+</script>
+  </body>
 </html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Patient Portal | Alpha Clinic</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon" />
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Icon Font Stylesheet -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+  <!-- Custom Framework Stylesheet -->
+  <link href="css/framework.css" rel="stylesheet" />
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Preloader Start -->
+  <div id="spinner">
+    <div class="preloader-overlay">
+      <div class="preloader-particles" aria-hidden="true">
+        <span class="particle" style="--x:10%;--y:20%;--d:12s;--s:0.8;"></span>
+        <span class="particle" style="--x:85%;--y:75%;--d:14s;--s:1.1;"></span>
+        <span class="particle" style="--x:25%;--y:65%;--d:10s;--s:0.9;"></span>
+        <span class="particle" style="--x:70%;--y:15%;--d:16s;--s:1.3;"></span>
+        <span class="particle" style="--x:50%;--y:50%;--d:11s;--s:0.7;"></span>
+      </div>
+      <div class="preloader-content">
+        <div class="ecg-logo-stage">
+          <svg class="ecg-line" viewBox="0 0 200 60" fill="none">
+            <path id="ecgPath" d="M0 30 L 60 30 L 75 5 L 90 55 L 105 30 L 200 30" stroke="url(#ecgGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            <defs>
+              <linearGradient id="ecgGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#0D9B4D" />
+                <stop offset="100%" stop-color="#2EE6A5" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="logo-glow">
+            <div class="logo-circle">
+              <i class="fa fa-heartbeat heartbeat-icon"></i>
+            </div>
+          </div>
+        </div>
+        <h2 class="preloader-message">Preparing Exceptional Care</h2>
+        <div class="preloader-percent" id="preloaderPercent">0%</div>
+        <div class="preloader-progress">
+          <div class="preloader-progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Preloader End -->
+
+  <!-- Navbar Start -->
+  <nav class="site-nav" id="siteNav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">
+        <i class="fa fa-heartbeat"></i>
+        <span>Alpha Clinic</span>
+      </a>
+      <button type="button" class="site-nav__toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="site-nav__menu" id="siteNavMenu">
+        <a href="index.html" class="site-nav__link">Home</a>
+        <a href="about.html" class="site-nav__link">About</a>
+        <a href="service.html" class="site-nav__link">Service</a>
+        <div class="site-nav__dropdown">
+          <a href="#" class="site-nav__link">Pages <i class="fa fa-chevron-down" style="font-size:0.7rem;margin-left:0.35rem;"></i></a>
+          <div class="site-nav__dropdown-menu">
+            <a href="team.html">Our Doctors</a>
+            <a href="testimonial.html">Testimonial</a>
+          </div>
+        </div>
+        <a href="contact.html" class="site-nav__link">Contact</a>
+        <a href="appointment.html" class="site-nav__cta">Appointment <i class="fa fa-arrow-right"></i></a>
+        <a href="patient-portal.html" class="site-nav__cta site-nav__cta--outline">
+          <i class="fa fa-user"></i> Patient Portal
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header py-5 mb-5" id="portalPageHeader">
+    <div class="page-header-overlay" aria-hidden="true"></div>
+    <div class="page-header-glow" aria-hidden="true"></div>
+    <div class="page-header-particles" aria-hidden="true">
+      <span class="ph-particle" style="--x:15%;--y:40%;--d:14s;--s:0.7;"></span>
+      <span class="ph-particle" style="--x:80%;--y:25%;--d:18s;--s:1.0;"></span>
+      <span class="ph-particle" style="--x:50%;--y:70%;--d:12s;--s:0.6;"></span>
+      <span class="ph-particle" style="--x:30%;--y:80%;--d:16s;--s:0.8;"></span>
+    </div>
+    <div class="page-header-pattern" aria-hidden="true"></div>
+    <div class="page-header-decor" aria-hidden="true">
+      <span class="decor-circle" style="--x:10%;--y:20%;--s:1.2;"></span>
+      <span class="decor-circle" style="--x:90%;--y:80%;--s:0.8;"></span>
+    </div>
+    <div class="container py-5 position-relative" style="z-index: 2;">
+      <p class="page-header-badge">
+        <i class="fa fa-user-shield me-1"></i> Secure Access
+      </p>
+      <h1 class="display-3 text-white mb-3 page-header-title">
+        Patient Portal
+      </h1>
+      <p class="page-header-subtitle">
+        Manage your appointments, view medical records, and connect with your
+        care team — all in one secure place.
+      </p>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb-glass">
+          <li class="breadcrumb-glass__item">
+            <a href="index.html" class="breadcrumb-glass__link">
+              <i class="fa fa-home me-1"></i> Home
+            </a>
+            <span class="breadcrumb-glass__divider" aria-hidden="true">›</span>
+          </li>
+          <li class="breadcrumb-glass__item">
+            <span class="breadcrumb-glass__link is-active">Patient Portal</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <!-- Page Header End -->
+
+  <!-- Portal Forms Start -->
+  <div class="container py-5 portal-section">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 col-md-7 col-sm-9">
+        <!-- Tabs -->
+        <div class="portal-tabs">
+          <button class="portal-tab active" data-tab="signin">Sign In</button>
+          <button class="portal-tab" data-tab="signup">Create Account</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="signinForm" class="portal-card">
+          <form>
+            <div class="apt-input-group mb-3">
+              <label for="loginEmail">Email or Username</label>
+              <input type="text" id="loginEmail" class="apt-input" placeholder="you@example.com">
+              <i class="fa fa-envelope input-icon"></i>
+            </div>
+            <div class="apt-input-group mb-2">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" class="apt-input" placeholder="••••••••">
+              <i class="fa fa-lock input-icon"></i>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <label class="remember-me">
+                <input type="checkbox"> Remember me
+              </label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+            <button type="submit" class="apt-btn">
+              <span>Sign In</span>
+              <i class="fa fa-sign-in-alt"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signupForm" class="portal-card" style="display: none;">
+          <form>
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="apt-input-group">
+                  <label for="signupName">Full Name</label>
+                  <input type="text" id="signupName" class="apt-input" placeholder="John Doe">
+                  <i class="fa fa-user input-icon"></i>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="apt-input-group">
+                  <label for="signupEmail">Email Address</label>
+                  <input type="email" id="signupEmail" class="apt-input" placeholder="you@example.com">
+                  <i class="fa fa-envelope input-icon"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="apt-input-group">
+                  <label for="signupPhone">Phone Number</label>
+                  <input type="tel" id="signupPhone" class="apt-input" placeholder="+1 234 567 890">
+                  <i class="fa fa-phone input-icon"></i>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="apt-input-group">
+                  <label for="signupPassword">Password</label>
+                  <input type="password" id="signupPassword" class="apt-input" placeholder="••••••••">
+                  <i class="fa fa-lock input-icon"></i>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="apt-input-group">
+                  <label for="signupConfirmPassword">Confirm Password</label>
+                  <input type="password" id="signupConfirmPassword" class="apt-input" placeholder="••••••••">
+                  <i class="fa fa-lock input-icon"></i>
+                </div>
+              </div>
+              <!-- Facial Authentication Area -->
+              <div class="col-12">
+                <div class="facial-auth-card">
+                  <h5 class="mb-3">Facial Authentication</h5>
+                  <p class="text-muted small mb-3">We use advanced facial recognition to secure your account. Please allow camera access when prompted.</p>
+                  <div class="facial-preview" id="facialPreview">
+                    <video id="camVideo" autoplay muted playsinline style="display:none;"></video>
+                    <div class="facial-overlay" id="facialOverlay">
+                      <i class="fa fa-camera fa-2x mb-2" style="color: rgba(255,255,255,0.7);"></i>
+                      <span class="text-white-50">Camera preview will appear here</span>
+                      <div class="scan-line"></div>
+                    </div>
+                    <div class="facial-status" id="facialStatus">
+                      <span class="status-text">Position your face in the frame</span>
+                      <div class="progress progress-sm mt-2">
+                        <div class="progress-bar" id="scanProgress" style="width: 0%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="facial-btn" id="startFacialBtn">
+                    <i class="fa fa-face-smile me-2"></i> Start Facial Scan
+                  </button>
+                  <p class="text-muted mt-2 mb-0" style="font-size:0.75rem;">
+                    <i class="fa fa-shield-alt me-1"></i> Your biometric data is encrypted and never shared.
+                  </p>
+                </div>
+              </div>
+              <!-- /Facial Authentication -->
+              <div class="col-12">
+                <button type="submit" class="apt-btn">
+                  <span>Create Account</span>
+                  <i class="fa fa-user-plus"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portal Forms End -->
+
+  <!-- Footer Start -->
+  <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
+    <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <a href="index.html" class="site-footer__brand"><i class="fa fa-heartbeat"></i><span>Alpha Clinic</span></a>
+          <p class="site-footer__about">Compassionate care, modern medicine, and a team dedicated to your lasting wellbeing.</p>
+          <div class="site-footer__social">
+            <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h5 class="site-footer__title">Services</h5>
+          <ul class="site-footer__links">
+            <li><a href="service.html">Cardiology</a></li>
+            <li><a href="service.html">Pulmonary</a></li>
+            <li><a href="service.html">Neurology</a></li>
+            <li><a href="service.html">Orthopedics</a></li>
+            <li><a href="service.html">Laboratory</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="site-footer__title">Explore</h5>
+          <ul class="site-footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="service.html">Our Services</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="team.html">Our Doctors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="site-footer__title">Stay Connected</h5>
+          <ul class="site-footer__contact">
+            <li><i class="fa fa-map-marker-alt"></i><span>No 10, Lagos, Nigeria</span></li>
+            <li><i class="fa fa-phone-alt"></i><span>09051106189</span></li>
+            <li><i class="fa fa-envelope"></i><span>info@alphaclinic.com</span></li>
+          </ul>
+          <form class="site-footer__newsletter" onsubmit="return false;">
+            <input type="email" placeholder="Your email" aria-label="Email for newsletter" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>&copy; <a href="index.html">Alpha Clinic</a>. All rights reserved.</span>
+      <span>Crafted for better care | Developed by Glorycodes</span>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Portal Scripts -->
+  <script>
+    (function() {
+      // Tab switching
+      const tabs = document.querySelectorAll('.portal-tab');
+      const signinForm = document.getElementById('signinForm');
+      const signupForm = document.getElementById('signupForm');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          const target = this.dataset.tab;
+          signinForm.style.display = target === 'signin' ? 'block' : 'none';
+          signupForm.style.display = target === 'signup' ? 'block' : 'none';
+        });
+      });
+
+      // Facial authentication (simulated)
+      const startBtn = document.getElementById('startFacialBtn');
+      const video = document.getElementById('camVideo');
+      const overlay = document.getElementById('facialOverlay');
+      const statusDiv = document.getElementById('facialStatus');
+      const progressBar = document.getElementById('scanProgress');
+      let stream = null;
+
+      startBtn.addEventListener('click', function() {
+        // Reset state
+        overlay.style.display = 'flex';
+        video.style.display = 'none';
+        progressBar.style.width = '0%';
+        statusDiv.querySelector('.status-text').textContent = 'Initializing...';
+        startBtn.disabled = true;
+        startBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Scanning...';
+
+        // Attempt to access webcam
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240, facingMode: "user" } })
+            .then(function(mediaStream) {
+              stream = mediaStream;
+              video.srcObject = mediaStream;
+              video.style.display = 'block';
+              overlay.style.display = 'none';
+              simulateScan();
+            })
+            .catch(function(err) {
+              console.warn('Camera access denied or unavailable:', err);
+              // Fallback: show a static face silhouette
+              overlay.innerHTML = '<i class="fa fa-user fa-3x mb-2" style="color: rgba(255,255,255,0.5);"></i><span class="text-white-50">Face silhouette placeholder</span>';
+              overlay.style.display = 'flex';
+              simulateScan();
+            });
+        } else {
+          // No getUserMedia support
+          overlay.innerHTML = '<i class="fa fa-user fa-3x mb-2" style="color: rgba(255,255,255,0.5);"></i><span class="text-white-50">Face silhouette placeholder</span>';
+          overlay.style.display = 'flex';
+          simulateScan();
+        }
+      });
+
+      function simulateScan() {
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += Math.random() * 15 + 5;
+          if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            // Scan complete
+            progressBar.style.width = '100%';
+            statusDiv.querySelector('.status-text').textContent = 'Facial authentication successful!';
+            startBtn.innerHTML = '<i class="fa fa-check-circle me-2"></i> Verified';
+            startBtn.classList.add('verified');
+            startBtn.disabled = true;
+            // Stop webcam if active
+            if (stream) {
+              stream.getTracks().forEach(track => track.stop());
+              stream = null;
+              video.style.display = 'none';
+              // Hide video and show success overlay
+              if (overlay) {
+                overlay.style.display = 'flex';
+                overlay.innerHTML = '<i class="fa fa-check-circle fa-3x mb-2" style="color: var(--primary);"></i><span class="text-white-50">Face Verified</span>';
+              }
+            }
+          } else {
+            progressBar.style.width = progress + '%';
+            if (progress < 40) statusDiv.querySelector('.status-text').textContent = 'Detecting face...';
+            else if (progress < 80) statusDiv.querySelector('.status-text').textContent = 'Analyzing facial features...';
+            else statusDiv.querySelector('.status-text').textContent = 'Finalizing verification...';
+          }
+        }, 300);
+      }
+    })();
+  </script>
+
+  <style>
+    /* Additional portal-specific styles */
+    .portal-section {
+      background: linear-gradient(180deg, #f9fdf8 0%, #fff 100%);
+      position: relative;
+    }
+    .portal-tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+    .portal-tab {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(13,155,77,0.1);
+      padding: 0.8rem 2rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--dark);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .portal-tab.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 8px 20px rgba(13,155,77,0.25);
+    }
+    .portal-card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(13,155,77,0.08);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      box-shadow: 0 30px 50px -20px rgba(0,0,0,0.15);
+    }
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+    .remember-me input {
+      accent-color: var(--primary);
+    }
+    .forgot-link {
+      font-size: 0.9rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+    .facial-auth-card {
+      background: rgba(13,155,77,0.05);
+      border: 1px solid rgba(13,155,77,0.1);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .facial-preview {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto 1rem;
+      background: rgba(0,0,0,0.5);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      flex-direction: column;
+    }
+    .facial-preview video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1.5rem;
+    }
+    .facial-overlay {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .scan-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+      box-shadow: 0 0 10px rgba(13,155,77,0.8);
+      animation: scanMove 2s linear infinite;
+    }
+    @keyframes scanMove {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+    .facial-status {
+      text-align: center;
+    }
+    .progress-sm {
+      height: 4px;
+      background: rgba(13,155,77,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: width 0.2s;
+    }
+    .facial-btn {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(13,155,77,0.1);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 3rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .facial-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .facial-btn.verified {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      cursor: default;
+    }
+    .spinner-border {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -0.125em;
+      border: 0.15em solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spinner-border .75s linear infinite;
+    }
+    @keyframes spinner-border {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</body>
+</html>

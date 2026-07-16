@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>My Profile | Alpha Clinic</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon" />
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Icon Font Stylesheet -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+  <!-- Custom Framework Stylesheet -->
+  <link href="css/framework.css" rel="stylesheet" />
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+
+  <!-- Navbar Start -->
+  <nav class="site-nav" id="siteNav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">
+        <i class="fa fa-heartbeat"></i>
+        <span>Alpha Clinic</span>
+      </a>
+      <button type="button" class="site-nav__toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="site-nav__menu" id="siteNavMenu">
+        <a href="index.html" class="site-nav__link">Home</a>
+        <a href="about.html" class="site-nav__link">About</a>
+        <a href="service.html" class="site-nav__link">Service</a>
+        <div class="site-nav__dropdown">
+          <a href="#" class="site-nav__link">Pages <i class="fa fa-chevron-down" style="font-size:0.7rem;margin-left:0.35rem;"></i></a>
+          <div class="site-nav__dropdown-menu">
+            <a href="team.html">Our Doctors</a>
+            <a href="testimonial.html">Testimonial</a>
+          </div>
+        </div>
+        <a href="contact.html" class="site-nav__link">Contact</a>
+        <a href="appointment.html" class="site-nav__cta">Appointment <i class="fa fa-arrow-right"></i></a>
+        <a href="patient-portal.html" class="site-nav__cta site-nav__cta--outline">
+          <i class="fa fa-user"></i> Patient Portal
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!-- ==================== PROFILE DASHBOARD ==================== -->
+  <div class="container-xxl pt-6 pb-5 profile-dashboard">
+    <div class="container">
+      <!-- Welcome Header -->
+      <div class="profile-header wow fadeInUp" data-wow-delay="0.1s">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="d-flex align-items-center gap-4">
+              <div class="profile-avatar">
+                <img src="img/testimonial-1.jpg" alt="Patient Photo" class="avatar-img" />
+                <span class="avatar-status online"></span>
+              </div>
+              <div>
+                <h2 class="fw-bold mb-1">Welcome back, James</h2>
+                <p class="text-muted mb-0">Patient ID: #ACP-2025-0891</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mt-3 mt-md-0">
+            <div class="d-flex gap-3 justify-content-md-end">
+              <div class="quick-stat">
+                <i class="fa fa-calendar-check"></i>
+                <div>
+                  <span class="small text-muted">Next Appointment</span>
+                  <strong>Jun 28, 2025</strong>
+                </div>
+              </div>
+              <div class="quick-stat">
+                <i class="fa fa-heartbeat"></i>
+                <div>
+                  <span class="small text-muted">Heart Rate</span>
+                  <strong>72 BPM</strong>
+                </div>
+              </div>
+              <div class="quick-stat">
+                <i class="fa fa-weight"></i>
+                <div>
+                  <span class="small text-muted">Blood Pressure</span>
+                  <strong>120/80</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="profile-tabs mt-5">
+        <button class="profile-tab active" data-tab="overview">Overview</button>
+        <button class="profile-tab" data-tab="appointments">Appointments</button>
+        <button class="profile-tab" data-tab="records">Medical Records</button>
+        <button class="profile-tab" data-tab="billing">Billing</button>
+      </div>
+
+      <!-- Tab Content: Overview -->
+      <div id="tab-overview" class="tab-content active">
+        <div class="row g-4 mt-3">
+          <!-- Health Score Gauge -->
+          <div class="col-lg-4 col-md-6">
+            <div class="profile-card text-center p-4">
+              <h5 class="mb-3">Health Score</h5>
+              <div class="health-gauge" data-score="85">
+                <div class="gauge-circle">
+                  <svg viewBox="0 0 120 120">
+                    <circle class="gauge-bg" cx="60" cy="60" r="54" />
+                    <circle class="gauge-fill" cx="60" cy="60" r="54" />
+                  </svg>
+                  <span class="gauge-value">85</span>
+                </div>
+                <span class="gauge-label">Excellent</span>
+              </div>
+              <p class="small text-muted mt-3">Based on your latest check‑up</p>
+            </div>
+          </div>
+          <!-- Upcoming Appointments -->
+          <div class="col-lg-4 col-md-6">
+            <div class="profile-card p-4">
+              <h5 class="mb-3">Upcoming Appointments</h5>
+              <div class="appointment-card">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong>Dr. Sarah Johnson</strong>
+                    <p class="text-muted mb-0">Cardiology · Jun 28, 10:30 AM</p>
+                  </div>
+                  <span class="badge badge-pill bg-primary-soft">Confirmed</span>
+                </div>
+              </div>
+              <div class="appointment-card mt-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong>Lab Test</strong>
+                    <p class="text-muted mb-0">Blood Work · Jun 30, 8:00 AM</p>
+                  </div>
+                  <span class="badge badge-pill bg-warning-soft">Pending</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-link p-0 mt-3 fw-semibold">View All <i class="fa fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+          <!-- Quick Actions -->
+          <div class="col-lg-4 col-md-6">
+            <div class="profile-card p-4">
+              <h5 class="mb-3">Quick Actions</h5>
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="action-card">
+                    <i class="fa fa-calendar-plus"></i>
+                    <span>Book Appointment</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="action-card">
+                    <i class="fa fa-file-medical-alt"></i>
+                    <span>View Records</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="action-card">
+                    <i class="fa fa-prescription"></i>
+                    <span>Refill Rx</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="action-card">
+                    <i class="fa fa-video"></i>
+                    <span>Telehealth</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-4 mt-3">
+          <!-- Medication Reminders -->
+          <div class="col-lg-6">
+            <div class="profile-card p-4">
+              <h5 class="mb-3">Today's Medications</h5>
+              <div class="med-item">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="med-icon">💊</div>
+                  <div>
+                    <strong>Aspirin 81mg</strong>
+                    <p class="text-muted mb-0">After breakfast</p>
+                  </div>
+                  <div class="form-check ms-auto">
+                    <input class="form-check-input" type="checkbox" checked>
+                  </div>
+                </div>
+              </div>
+              <div class="med-item">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="med-icon">💊</div>
+                  <div>
+                    <strong>Atorvastatin 10mg</strong>
+                    <p class="text-muted mb-0">Before bed</p>
+                  </div>
+                  <div class="form-check ms-auto">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Recent Activity / Lab Results -->
+          <div class="col-lg-6">
+            <div class="profile-card p-4">
+              <h5 class="mb-3">Recent Lab Results</h5>
+              <div class="lab-item">
+                <span>Cholesterol</span>
+                <span class="text-primary fw-bold">190 mg/dL</span>
+                <span class="small text-muted">Normal</span>
+              </div>
+              <div class="lab-item">
+                <span>Glucose (Fasting)</span>
+                <span class="text-primary fw-bold">92 mg/dL</span>
+                <span class="small text-muted">Normal</span>
+              </div>
+              <div class="lab-item">
+                <span>Vitamin D</span>
+                <span class="text-warning fw-bold">28 ng/mL</span>
+                <span class="small text-muted">Low</span>
+              </div>
+              <a href="#" class="btn btn-link p-0 mt-3 fw-semibold">Full Report <i class="fa fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Appointments -->
+      <div id="tab-appointments" class="tab-content mt-3">
+        <div class="profile-card p-4">
+          <h5 class="mb-3">Appointment History</h5>
+          <div class="table-responsive">
+            <table class="table table-borderless align-middle">
+              <thead class="text-muted">
+                <tr>
+                  <th>Date</th>
+                  <th>Doctor</th>
+                  <th>Department</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Jun 28, 2025</td>
+                  <td>Dr. Sarah Johnson</td>
+                  <td>Cardiology</td>
+                  <td><span class="badge badge-pill bg-primary-soft">Confirmed</span></td>
+                </tr>
+                <tr>
+                  <td>Jun 15, 2025</td>
+                  <td>Dr. Michael Chen</td>
+                  <td>Neurology</td>
+                  <td><span class="badge badge-pill bg-success-soft">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>May 22, 2025</td>
+                  <td>Dr. Emily Davis</td>
+                  <td>Pulmonary</td>
+                  <td><span class="badge badge-pill bg-success-soft">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Medical Records -->
+      <div id="tab-records" class="tab-content mt-3">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="profile-card p-4">
+              <h5 class="mb-3">Documents</h5>
+              <ul class="list-unstyled">
+                <li class="d-flex justify-content-between mb-2"><span><i class="fa fa-file-pdf text-danger me-2"></i>Blood Test Report</span><span class="text-muted">Jun 12</span></li>
+                <li class="d-flex justify-content-between mb-2"><span><i class="fa fa-file-pdf text-danger me-2"></i>ECG Report</span><span class="text-muted">May 28</span></li>
+                <li class="d-flex justify-content-between mb-2"><span><i class="fa fa-file-pdf text-danger me-2"></i>MRI Scan</span><span class="text-muted">Apr 15</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="profile-card p-4">
+              <h5 class="mb-3">Immunizations</h5>
+              <ul class="list-unstyled">
+                <li class="d-flex justify-content-between"><span>COVID-19 Booster</span><span class="text-muted">Feb 10, 2025</span></li>
+                <li class="d-flex justify-content-between"><span>Flu Vaccine</span><span class="text-muted">Oct 05, 2024</span></li>
+                <li class="d-flex justify-content-between"><span>Tetanus</span><span class="text-muted">Mar 20, 2023</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Billing -->
+      <div id="tab-billing" class="tab-content mt-3">
+        <div class="profile-card p-4">
+          <h5 class="mb-3">Recent Transactions</h5>
+          <div class="table-responsive">
+            <table class="table table-borderless align-middle">
+              <thead class="text-muted">
+                <tr>
+                  <th>Invoice</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#INV-2025-0342</td>
+                  <td>Cardiology Consultation</td>
+                  <td>$150.00</td>
+                  <td><span class="badge badge-pill bg-success-soft">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>#INV-2025-0281</td>
+                  <td>Lab Work</td>
+                  <td>$75.00</td>
+                  <td><span class="badge badge-pill bg-success-soft">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>#INV-2025-0195</td>
+                  <td>ECG</td>
+                  <td>$200.00</td>
+                  <td><span class="badge badge-pill bg-warning-soft">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logout & Settings Floating Buttons -->
+      <div class="profile-actions">
+        <button class="btn btn-outline-primary rounded-pill me-2"><i class="fa fa-cog me-2"></i> Settings</button>
+        <button class="btn btn-primary rounded-pill"><i class="fa fa-sign-out-alt me-2"></i> Log Out</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- ==================== PROFILE END ==================== -->
+
+  <!-- Footer Start -->
+  <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
+    <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <a href="index.html" class="site-footer__brand"><i class="fa fa-heartbeat"></i><span>Alpha Clinic</span></a>
+          <p class="site-footer__about">Compassionate care, modern medicine, and a team dedicated to your lasting wellbeing.</p>
+          <div class="site-footer__social">
+            <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h5 class="site-footer__title">Services</h5>
+          <ul class="site-footer__links">
+            <li><a href="service.html">Cardiology</a></li>
+            <li><a href="service.html">Pulmonary</a></li>
+            <li><a href="service.html">Neurology</a></li>
+            <li><a href="service.html">Orthopedics</a></li>
+            <li><a href="service.html">Laboratory</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="site-footer__title">Explore</h5>
+          <ul class="site-footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="service.html">Our Services</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="team.html">Our Doctors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="site-footer__title">Stay Connected</h5>
+          <ul class="site-footer__contact">
+            <li><i class="fa fa-map-marker-alt"></i><span>No 10, Lagos, Nigeria</span></li>
+            <li><i class="fa fa-phone-alt"></i><span>09051106189</span></li>
+            <li><i class="fa fa-envelope"></i><span>info@alphaclinic.com</span></li>
+          </ul>
+          <form class="site-footer__newsletter" onsubmit="return false;">
+            <input type="email" placeholder="Your email" aria-label="Email for newsletter" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>&copy; <a href="index.html">Alpha Clinic</a>. All rights reserved.</span>
+      <span>Crafted for better care | Developed by Glorycodes</span>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Profile Dashboard Logic -->
+  <script>
+    (function() {
+      // Tab switching
+      const tabs = document.querySelectorAll('.profile-tab');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const target = tab.dataset.tab;
+          contents.forEach(c => c.classList.remove('active'));
+          document.getElementById('tab-' + target).classList.add('active');
+        });
+      });
+
+      // Animated health gauge (if present)
+      const gauge = document.querySelector('.health-gauge');
+      if (gauge) {
+        const fillCircle = gauge.querySelector('.gauge-fill');
+        const score = parseInt(gauge.dataset.score);
+        const circumference = 2 * Math.PI * 54;
+        const offset = circumference - (score / 100) * circumference;
+        fillCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+        fillCircle.style.strokeDashoffset = circumference;
+        setTimeout(() => {
+          fillCircle.style.transition = 'stroke-dashoffset 1.5s ease';
+          fillCircle.style.strokeDashoffset = offset;
+        }, 300);
+      }
+    })();
+  </script>
+</body>
+</html>

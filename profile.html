@@ -1,467 +1,2241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>My Profile | Alpha Clinic</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <meta content="" name="keywords" />
-  <meta content="" name="description" />
-  <!-- Favicon -->
-  <link href="img/favicon.ico" rel="icon" />
-  <!-- Google Web Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-    rel="stylesheet"
-  />
-  <!-- Icon Font Stylesheet -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-    rel="stylesheet"
-  />
-  <!-- Libraries Stylesheet -->
-  <link href="lib/animate/animate.min.css" rel="stylesheet" />
-  <!-- Custom Framework Stylesheet -->
-  <link href="css/framework.css" rel="stylesheet" />
-  <!-- Main Stylesheet -->
-  <link href="css/style.css" rel="stylesheet" />
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <title>My Profile | Alpha Clinic</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <!-- Custom Framework Stylesheet -->
+    <link href="css/framework.css" rel="stylesheet" />
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
 
+    <!-- ========== PROFILE DASHBOARD REDESIGN CSS ========== -->
+    <style>
+      :root {
+        --pr-green: #0d9b4d;
+        --pr-green-dark: #087a38;
+        --pr-green-light: #e8f5ee;
+        --pr-green-surface: #f4faf6;
+        --pr-accent: #2ee6a5;
+        --pr-dark: #1a3d2b;
+        --pr-text: #1e293b;
+        --pr-text-secondary: #64748b;
+        --pr-border: #e2e8f0;
+        --pr-white: #ffffff;
+        --pr-danger: #ef4444;
+        --pr-warning: #f59e0b;
+        --pr-success: #10b981;
+        --pr-info: #3b82f6;
+        --pr-radius-sm: 0.75rem;
+        --pr-radius: 1rem;
+        --pr-radius-lg: 1.5rem;
+        --pr-radius-xl: 2rem;
+        --pr-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+        --pr-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+        --pr-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+        --pr-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.1);
+        --pr-shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.13);
+        --pr-sidebar-width: 280px;
+        --pr-topbar-height: 64px;
+        --pr-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --pr-transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-  <!-- Navbar Start -->
-  <nav class="site-nav" id="siteNav">
-    <div class="site-nav__inner">
-      <a href="index.html" class="site-nav__brand">
-        <i class="fa fa-heartbeat"></i>
-        <span>Alpha Clinic</span>
-      </a>
-      <button type="button" class="site-nav__toggle" id="siteNavToggle" aria-label="Toggle menu" aria-expanded="false">
-        <i class="fa fa-bars"></i>
-      </button>
-      <div class="site-nav__menu" id="siteNavMenu">
-        <a href="index.html" class="site-nav__link">Home</a>
-        <a href="about.html" class="site-nav__link">About</a>
-        <a href="service.html" class="site-nav__link">Service</a>
-        <div class="site-nav__dropdown">
-          <a href="#" class="site-nav__link">Pages <i class="fa fa-chevron-down" style="font-size:0.7rem;margin-left:0.35rem;"></i></a>
-          <div class="site-nav__dropdown-menu">
-            <a href="team.html">Our Doctors</a>
-            <a href="testimonial.html">Testimonial</a>
-          </div>
+      /* ===== PROFILE DASHBOARD LAYOUT ===== */
+      .profile-dashboard {
+        background: #f8fbf9;
+        min-height: 100vh;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+
+      .profile-dashboard > .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .profile-shell {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      /* ===== SIDEBAR ===== */
+      .profile-sidebar {
+        width: var(--pr-sidebar-width);
+        background: var(--pr-white);
+        border-right: 1px solid var(--pr-border);
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        transition:
+          transform var(--pr-transition),
+          box-shadow var(--pr-transition);
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-shadow: var(--pr-shadow-sm);
+      }
+
+      .profile-sidebar__brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 1.5rem 1.5rem 1rem;
+        text-decoration: none;
+        color: var(--pr-green);
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        flex-shrink: 0;
+      }
+      .profile-sidebar__brand i {
+        font-size: 1.5rem;
+      }
+
+      .profile-sidebar__user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 1.5rem 1.5rem;
+        border-bottom: 1px solid var(--pr-border);
+        flex-shrink: 0;
+      }
+      .profile-sidebar__avatar {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0.85rem;
+      }
+      .profile-sidebar__avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid var(--pr-green);
+        box-shadow: 0 6px 20px rgba(13, 155, 77, 0.22);
+      }
+      .profile-sidebar__avatar-dot {
+        position: absolute;
+        bottom: 6px;
+        right: 6px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: var(--pr-success);
+        border: 2.5px solid #fff;
+        animation: pulse-dot 2s infinite;
+      }
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+        }
+      }
+      .profile-sidebar__name {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--pr-dark);
+        margin: 0 0 0.15rem;
+        text-align: center;
+      }
+      .profile-sidebar__pid {
+        font-size: 0.8rem;
+        color: var(--pr-text-secondary);
+        margin: 0;
+        text-align: center;
+        background: var(--pr-green-light);
+        padding: 0.25rem 0.8rem;
+        border-radius: 2rem;
+        font-weight: 500;
+      }
+
+      .profile-sidebar__nav {
+        flex: 1;
+        padding: 1rem 1rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        flex-shrink: 0;
+      }
+      .profile-sidebar__nav-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--pr-text-secondary);
+        padding: 0.5rem 0.75rem 0.25rem;
+        font-weight: 600;
+      }
+      .profile-sidebar__link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        border-radius: var(--pr-radius);
+        text-decoration: none;
+        color: var(--pr-text-secondary);
+        font-weight: 500;
+        font-size: 0.92rem;
+        transition: all var(--pr-transition);
+        cursor: pointer;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        font-family: inherit;
+        position: relative;
+      }
+      .profile-sidebar__link i {
+        width: 20px;
+        text-align: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .profile-sidebar__link:hover {
+        background: var(--pr-green-light);
+        color: var(--pr-green);
+      }
+      .profile-sidebar__link.active {
+        background: var(--pr-green);
+        color: #fff;
+        font-weight: 600;
+        box-shadow: 0 4px 14px rgba(13, 155, 77, 0.3);
+      }
+      .profile-sidebar__link.active i {
+        color: #fff;
+      }
+      .profile-sidebar__badge {
+        margin-left: auto;
+        background: var(--pr-warning);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.2rem 0.55rem;
+        border-radius: 2rem;
+        min-width: 22px;
+        text-align: center;
+      }
+
+      .profile-sidebar__footer {
+        padding: 1rem 1.5rem 1.5rem;
+        border-top: 1px solid var(--pr-border);
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .profile-sidebar__footer .btn {
+        width: 100%;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+        border-radius: var(--pr-radius);
+        transition: all var(--pr-transition);
+      }
+      .btn-sidebar-settings {
+        background: var(--pr-green-light);
+        color: var(--pr-green);
+        border: 1px solid transparent;
+      }
+      .btn-sidebar-settings:hover {
+        background: #d4ede0;
+        color: var(--pr-green-dark);
+      }
+      .btn-sidebar-logout {
+        background: #fef2f2;
+        color: var(--pr-danger);
+        border: 1px solid transparent;
+      }
+      .btn-sidebar-logout:hover {
+        background: #fee2e2;
+        color: #dc2626;
+      }
+
+      /* ===== MAIN CONTENT ===== */
+      .profile-main {
+        flex: 1;
+        margin-left: var(--pr-sidebar-width);
+        padding: 2rem 2.5rem 3rem;
+        min-width: 0;
+        transition: margin var(--pr-transition);
+      }
+
+      /* ===== MOBILE TOP BAR ===== */
+      .profile-topbar {
+        display: none;
+        position: sticky;
+        top: 0;
+        z-index: 90;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--pr-border);
+        padding: 0.75rem 1.25rem;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: var(--pr-shadow-xs);
+      }
+      .profile-topbar__toggle {
+        width: 42px;
+        height: 42px;
+        border-radius: var(--pr-radius-sm);
+        border: 1px solid var(--pr-border);
+        background: var(--pr-white);
+        color: var(--pr-dark);
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all var(--pr-transition);
+      }
+      .profile-topbar__toggle:hover {
+        background: var(--pr-green-light);
+        color: var(--pr-green);
+        border-color: var(--pr-green);
+      }
+      .profile-topbar__brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: var(--pr-green);
+        text-decoration: none;
+      }
+      .profile-topbar__brand i {
+        font-size: 1.3rem;
+      }
+      .profile-topbar__user-mini {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .profile-topbar__user-mini img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--pr-green);
+      }
+      .profile-topbar__user-mini span {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--pr-dark);
+        display: none;
+      }
+
+      /* ===== SIDEBAR OVERLAY (mobile) ===== */
+      .profile-sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 99;
+        opacity: 0;
+        transition: opacity var(--pr-transition);
+      }
+      .profile-sidebar-overlay.show {
+        opacity: 1;
+      }
+
+      /* ===== WELCOME HEADER ===== */
+      .profile-welcome {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+      }
+      .profile-welcome__greeting h2 {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-size: 1.6rem;
+        color: var(--pr-dark);
+        margin: 0 0 0.2rem;
+        letter-spacing: -0.02em;
+      }
+      .profile-welcome__greeting p {
+        margin: 0;
+        color: var(--pr-text-secondary);
+        font-size: 0.9rem;
+      }
+      .profile-welcome__date {
+        background: var(--pr-white);
+        border: 1px solid var(--pr-border);
+        border-radius: var(--pr-radius);
+        padding: 0.6rem 1.2rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--pr-text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: var(--pr-shadow-xs);
+      }
+      .profile-welcome__date i {
+        color: var(--pr-green);
+      }
+
+      /* ===== QUICK STATS ROW ===== */
+      .profile-stats-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+      }
+      .profile-stat-card {
+        background: var(--pr-white);
+        border-radius: var(--pr-radius-lg);
+        padding: 1.2rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid var(--pr-border);
+        box-shadow: var(--pr-shadow-xs);
+        transition: all var(--pr-transition);
+        cursor: default;
+      }
+      .profile-stat-card:hover {
+        box-shadow: var(--pr-shadow);
+        transform: translateY(-2px);
+        border-color: rgba(13, 155, 77, 0.2);
+      }
+      .profile-stat-card__icon {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--pr-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+      .profile-stat-card__icon--heart {
+        background: #fee2e2;
+        color: #ef4444;
+      }
+      .profile-stat-card__icon--bp {
+        background: #e8f5ee;
+        color: #0d9b4d;
+      }
+      .profile-stat-card__icon--weight {
+        background: #ede9fe;
+        color: #7c3aed;
+      }
+      .profile-stat-card__icon--calendar {
+        background: #fef3c7;
+        color: #d97706;
+      }
+      .profile-stat-card__info span {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--pr-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        font-weight: 500;
+      }
+      .profile-stat-card__info strong {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--pr-dark);
+      }
+
+      /* ===== TAB NAVIGATION (in main content) ===== */
+      .profile-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1.75rem;
+        background: var(--pr-white);
+        padding: 0.4rem;
+        border-radius: var(--pr-radius);
+        border: 1px solid var(--pr-border);
+        box-shadow: var(--pr-shadow-xs);
+      }
+      .profile-tab {
+        flex: 1;
+        min-width: fit-content;
+        padding: 0.65rem 1.3rem;
+        border-radius: calc(var(--pr-radius) - 0.3rem);
+        border: none;
+        background: transparent;
+        font-weight: 600;
+        font-size: 0.88rem;
+        color: var(--pr-text-secondary);
+        cursor: pointer;
+        transition: all var(--pr-transition);
+        white-space: nowrap;
+        font-family: inherit;
+        text-align: center;
+      }
+      .profile-tab:hover {
+        background: var(--pr-green-light);
+        color: var(--pr-green);
+      }
+      .profile-tab.active {
+        background: var(--pr-green);
+        color: #fff;
+        box-shadow: 0 3px 10px rgba(13, 155, 77, 0.3);
+      }
+      .profile-tab .tab-icon {
+        display: none;
+      }
+
+      /* ===== TAB CONTENT ===== */
+      .tab-content {
+        display: none;
+        animation: tabFadeIn 0.4s ease;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      @keyframes tabFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ===== CARDS GRID ===== */
+      .profile-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.25rem;
+      }
+      .profile-grid--2col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .profile-grid--3col {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .profile-card {
+        background: var(--pr-white);
+        border-radius: var(--pr-radius-lg);
+        padding: 1.5rem 1.75rem;
+        border: 1px solid var(--pr-border);
+        box-shadow: var(--pr-shadow-xs);
+        transition: all var(--pr-transition);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .profile-card:hover {
+        box-shadow: var(--pr-shadow);
+        border-color: rgba(13, 155, 77, 0.15);
+      }
+      .profile-card__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+        flex-shrink: 0;
+      }
+      .profile-card__header h5 {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--pr-dark);
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+      .profile-card__body {
+        flex: 1;
+      }
+      .profile-card__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--pr-green);
+        text-decoration: none;
+        margin-top: 1rem;
+        transition: gap var(--pr-transition);
+      }
+      .profile-card__link:hover {
+        gap: 0.65rem;
+        color: var(--pr-green-dark);
+      }
+      .profile-card__link i {
+        font-size: 0.75rem;
+        transition: transform var(--pr-transition);
+      }
+      .profile-card__link:hover i {
+        transform: translateX(3px);
+      }
+
+      /* ===== HEALTH GAUGE ===== */
+      .health-gauge-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+      .health-gauge {
+        position: relative;
+        width: 140px;
+        height: 140px;
+        margin-bottom: 0.5rem;
+      }
+      .health-gauge svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+      }
+      .gauge-bg {
+        fill: none;
+        stroke: #e8f5ee;
+        stroke-width: 10;
+      }
+      .gauge-fill {
+        fill: none;
+        stroke: var(--pr-green);
+        stroke-width: 10;
+        stroke-linecap: round;
+        transition: stroke-dashoffset 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .gauge-value {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Roboto", sans-serif;
+        font-weight: 900;
+        font-size: 2.4rem;
+        color: var(--pr-dark);
+        letter-spacing: -0.02em;
+      }
+      .gauge-label {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--pr-green);
+        padding: 0.3rem 1rem;
+        background: var(--pr-green-light);
+        border-radius: 2rem;
+      }
+
+      /* ===== APPOINTMENT LIST ITEMS ===== */
+      .apt-list-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.9rem 1rem;
+        border-radius: var(--pr-radius);
+        background: var(--pr-green-surface);
+        margin-bottom: 0.6rem;
+        transition: all var(--pr-transition);
+        cursor: default;
+      }
+      .apt-list-item:hover {
+        background: #e4f2ea;
+      }
+      .apt-list-item__icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--pr-green-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: var(--pr-green);
+        flex-shrink: 0;
+      }
+      .apt-list-item__info {
+        flex: 1;
+        min-width: 0;
+      }
+      .apt-list-item__info strong {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--pr-dark);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .apt-list-item__info span {
+        font-size: 0.78rem;
+        color: var(--pr-text-secondary);
+      }
+
+      /* ===== BADGES ===== */
+      .badge-pill {
+        display: inline-block;
+        padding: 0.3rem 0.85rem;
+        border-radius: 2rem;
+        font-size: 0.73rem;
+        font-weight: 600;
+        white-space: nowrap;
+        letter-spacing: 0.01em;
+      }
+      .badge-confirmed {
+        background: #e8f5ee;
+        color: #0d9b4d;
+      }
+      .badge-pending {
+        background: #fef3c7;
+        color: #b45309;
+      }
+      .badge-completed {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+      .badge-paid {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .badge-active {
+        background: #ede9fe;
+        color: #5b21b6;
+      }
+
+      /* ===== QUICK ACTIONS GRID ===== */
+      .quick-actions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+      .quick-action-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1.1rem 0.8rem;
+        border-radius: var(--pr-radius);
+        background: var(--pr-green-surface);
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all var(--pr-transition);
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: var(--pr-dark);
+        font-family: inherit;
+        text-decoration: none;
+      }
+      .quick-action-btn:hover {
+        background: var(--pr-green);
+        color: #fff;
+        border-color: var(--pr-green);
+        box-shadow: 0 6px 18px rgba(13, 155, 77, 0.25);
+        transform: translateY(-2px);
+      }
+      .quick-action-btn i {
+        font-size: 1.4rem;
+        transition: transform var(--pr-transition);
+      }
+      .quick-action-btn:hover i {
+        transform: scale(1.15);
+      }
+
+      /* ===== MEDICATION ITEMS ===== */
+      .med-row {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        padding: 0.85rem 1rem;
+        border-radius: var(--pr-radius);
+        background: #fdf8f0;
+        margin-bottom: 0.6rem;
+        transition: all var(--pr-transition);
+      }
+      .med-row:hover {
+        background: #fef3e4;
+      }
+      .med-row__icon {
+        font-size: 1.4rem;
+        flex-shrink: 0;
+      }
+      .med-row__info {
+        flex: 1;
+        min-width: 0;
+      }
+      .med-row__info strong {
+        display: block;
+        font-size: 0.88rem;
+        color: var(--pr-dark);
+      }
+      .med-row__info span {
+        font-size: 0.75rem;
+        color: var(--pr-text-secondary);
+      }
+      .med-row .form-check-input {
+        width: 1.3em;
+        height: 1.3em;
+        accent-color: var(--pr-green);
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      /* ===== LAB RESULTS ===== */
+      .lab-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.7rem 0;
+        border-bottom: 1px dashed #eee;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .lab-row:last-child {
+        border-bottom: none;
+      }
+      .lab-row__name {
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--pr-dark);
+        flex: 1;
+        min-width: 100px;
+      }
+      .lab-row__value {
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--pr-dark);
+      }
+      .lab-row__status {
+        font-size: 0.73rem;
+        font-weight: 600;
+        padding: 0.2rem 0.7rem;
+        border-radius: 2rem;
+      }
+      .lab-normal {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .lab-low {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .lab-high {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      /* ===== TABLE ===== */
+      .profile-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -0.5rem;
+        padding: 0 0.5rem;
+      }
+      .profile-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.88rem;
+        min-width: 500px;
+      }
+      .profile-table thead th {
+        text-align: left;
+        padding: 0.75rem 1rem;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--pr-text-secondary);
+        border-bottom: 2px solid var(--pr-border);
+        white-space: nowrap;
+      }
+      .profile-table tbody td {
+        padding: 0.85rem 1rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: var(--pr-dark);
+        white-space: nowrap;
+      }
+      .profile-table tbody tr {
+        transition: background var(--pr-transition);
+      }
+      .profile-table tbody tr:hover {
+        background: #f9fdfb;
+      }
+
+      /* ===== DOCUMENT LIST ===== */
+      .doc-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f5f5f5;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .doc-list-item:last-child {
+        border-bottom: none;
+      }
+      .doc-list-item__name {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--pr-dark);
+      }
+      .doc-list-item__name i {
+        color: #ef4444;
+        font-size: 1rem;
+      }
+      .doc-list-item__date {
+        font-size: 0.78rem;
+        color: var(--pr-text-secondary);
+        white-space: nowrap;
+      }
+
+      /* ===== FLOATING ACTIONS (desktop bottom-right) ===== */
+      .profile-floating-actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 2rem;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+      .profile-floating-actions .btn {
+        padding: 0.65rem 1.4rem;
+        border-radius: 3rem;
+        font-weight: 600;
+        font-size: 0.88rem;
+        transition: all var(--pr-transition);
+      }
+      .btn-settings-outline {
+        background: var(--pr-white);
+        color: var(--pr-green);
+        border: 2px solid var(--pr-green);
+      }
+      .btn-settings-outline:hover {
+        background: var(--pr-green);
+        color: #fff;
+      }
+      .btn-logout-solid {
+        background: var(--pr-green);
+        color: #fff;
+        border: 2px solid var(--pr-green);
+      }
+      .btn-logout-solid:hover {
+        background: var(--pr-green-dark);
+        border-color: var(--pr-green-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(13, 155, 77, 0.3);
+      }
+
+      /* ===== RESPONSIVE BREAKPOINTS ===== */
+
+      /* Tablet & below: sidebar becomes slide-out */
+      @media (max-width: 1199.98px) {
+        .profile-main {
+          padding: 1.5rem 1.5rem 2.5rem;
+        }
+        .profile-grid--3col {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 991.98px) {
+        .profile-sidebar {
+          transform: translateX(-100%);
+          box-shadow: var(--pr-shadow-xl);
+        }
+        .profile-sidebar.open {
+          transform: translateX(0);
+        }
+        .profile-sidebar-overlay {
+          display: block;
+          pointer-events: none;
+        }
+        .profile-sidebar-overlay.show {
+          pointer-events: auto;
+        }
+        .profile-topbar {
+          display: flex;
+        }
+        .profile-main {
+          margin-left: 0;
+          padding: 1.25rem 1rem 2rem;
+        }
+        .profile-grid--2col {
+          grid-template-columns: 1fr;
+        }
+        .profile-grid--3col {
+          grid-template-columns: 1fr 1fr;
+        }
+        .profile-welcome__greeting h2 {
+          font-size: 1.35rem;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .profile-grid {
+          grid-template-columns: 1fr;
+        }
+        .profile-grid--3col {
+          grid-template-columns: 1fr;
+        }
+        .profile-stats-row {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.65rem;
+        }
+        .profile-stat-card {
+          padding: 0.9rem 1rem;
+          gap: 0.65rem;
+        }
+        .profile-stat-card__icon {
+          width: 38px;
+          height: 38px;
+          font-size: 1rem;
+          border-radius: 0.65rem;
+        }
+        .profile-stat-card__info strong {
+          font-size: 1rem;
+        }
+        .profile-tabs {
+          gap: 0.25rem;
+          padding: 0.3rem;
+          border-radius: 0.75rem;
+        }
+        .profile-tab {
+          padding: 0.55rem 0.8rem;
+          font-size: 0.78rem;
+          border-radius: 0.6rem;
+        }
+        .profile-tab .tab-icon {
+          display: inline;
+          margin-right: 0.3rem;
+        }
+        .profile-card {
+          padding: 1.25rem 1.25rem;
+          border-radius: var(--pr-radius);
+        }
+        .profile-welcome {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .profile-welcome__date {
+          width: 100%;
+          justify-content: center;
+        }
+        .health-gauge {
+          width: 110px;
+          height: 110px;
+        }
+        .gauge-value {
+          font-size: 1.8rem;
+        }
+        .quick-actions-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.5rem;
+        }
+        .quick-action-btn {
+          padding: 0.85rem 0.5rem;
+          font-size: 0.72rem;
+        }
+        .quick-action-btn i {
+          font-size: 1.2rem;
+        }
+        .profile-floating-actions {
+          justify-content: center;
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .profile-floating-actions .btn {
+          text-align: center;
+          justify-content: center;
+        }
+        .profile-table {
+          min-width: 400px;
+          font-size: 0.8rem;
+        }
+        .profile-table thead th,
+        .profile-table tbody td {
+          padding: 0.6rem 0.65rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .profile-stats-row {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.5rem;
+        }
+        .profile-stat-card {
+          padding: 0.7rem 0.8rem;
+          gap: 0.5rem;
+        }
+        .profile-stat-card__icon {
+          width: 32px;
+          height: 32px;
+          font-size: 0.85rem;
+          border-radius: 0.5rem;
+        }
+        .profile-stat-card__info span {
+          font-size: 0.65rem;
+        }
+        .profile-stat-card__info strong {
+          font-size: 0.9rem;
+        }
+        .profile-tab {
+          font-size: 0.72rem;
+          padding: 0.45rem 0.6rem;
+        }
+        .profile-main {
+          padding: 1rem 0.75rem 2rem;
+        }
+        .profile-topbar {
+          padding: 0.6rem 0.85rem;
+          gap: 0.6rem;
+        }
+        .profile-topbar__brand {
+          font-size: 1rem;
+        }
+        .profile-topbar__user-mini span {
+          display: inline;
+          font-size: 0.8rem;
+        }
+        .profile-card {
+          padding: 1rem 1rem;
+        }
+        .profile-card__header h5 {
+          font-size: 0.95rem;
+        }
+        .health-gauge {
+          width: 95px;
+          height: 95px;
+        }
+        .gauge-value {
+          font-size: 1.5rem;
+        }
+        .gauge-bg,
+        .gauge-fill {
+          stroke-width: 8;
+        }
+        .apt-list-item {
+          padding: 0.7rem 0.8rem;
+          gap: 0.6rem;
+        }
+        .apt-list-item__icon {
+          width: 36px;
+          height: 36px;
+          font-size: 0.85rem;
+        }
+        .apt-list-item__info strong {
+          font-size: 0.8rem;
+        }
+        .apt-list-item__info span {
+          font-size: 0.7rem;
+        }
+        .med-row {
+          padding: 0.7rem 0.8rem;
+          gap: 0.6rem;
+        }
+        .badge-pill {
+          font-size: 0.68rem;
+          padding: 0.25rem 0.6rem;
+        }
+        .profile-floating-actions .btn {
+          font-size: 0.8rem;
+          padding: 0.55rem 1rem;
+        }
+      }
+
+      /* ===== SIDEBAR SCROLLBAR ===== */
+      .profile-sidebar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .profile-sidebar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .profile-sidebar::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 4px;
+      }
+
+      /* ===== REDUCED MOTION ===== */
+      @media (prefers-reduced-motion: reduce) {
+        .profile-sidebar,
+        .profile-sidebar-overlay,
+        .profile-card,
+        .profile-stat-card,
+        .profile-tab,
+        .gauge-fill,
+        .tab-content,
+        .quick-action-btn,
+        .profile-sidebar__link {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader Start -->
+    <div id="spinner">
+      <div class="preloader-overlay">
+        <div class="preloader-particles" aria-hidden="true">
+          <span
+            class="particle"
+            style="--x: 10%; --y: 20%; --d: 12s; --s: 0.8"
+          ></span>
+          <span
+            class="particle"
+            style="--x: 85%; --y: 75%; --d: 14s; --s: 1.1"
+          ></span>
+          <span
+            class="particle"
+            style="--x: 25%; --y: 65%; --d: 10s; --s: 0.9"
+          ></span>
+          <span
+            class="particle"
+            style="--x: 70%; --y: 15%; --d: 16s; --s: 1.3"
+          ></span>
+          <span
+            class="particle"
+            style="--x: 50%; --y: 50%; --d: 11s; --s: 0.7"
+          ></span>
         </div>
-        <a href="contact.html" class="site-nav__link">Contact</a>
-        <a href="appointment.html" class="site-nav__cta">Appointment <i class="fa fa-arrow-right"></i></a>
-        <a href="patient-portal.html" class="site-nav__cta site-nav__cta--outline">
-          <i class="fa fa-user"></i> Patient Portal
-        </a>
-      </div>
-    </div>
-  </nav>
-  <!-- Navbar End -->
-
-  <!-- ==================== PROFILE DASHBOARD ==================== -->
-  <div class="container-xxl pt-6 pb-5 profile-dashboard">
-    <div class="container">
-      <!-- Welcome Header -->
-      <div class="profile-header wow fadeInUp" data-wow-delay="0.1s">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <div class="d-flex align-items-center gap-4">
-              <div class="profile-avatar">
-                <img src="img/testimonial-1.jpg" alt="Patient Photo" class="avatar-img" />
-                <span class="avatar-status online"></span>
-              </div>
-              <div>
-                <h2 class="fw-bold mb-1">Welcome back, James</h2>
-                <p class="text-muted mb-0">Patient ID: #ACP-2025-0891</p>
+        <div class="preloader-content">
+          <div class="ecg-logo-stage">
+            <svg class="ecg-line" viewBox="0 0 200 60" fill="none">
+              <path
+                id="ecgPath"
+                d="M0 30 L 60 30 L 75 5 L 90 55 L 105 30 L 200 30"
+                stroke="url(#ecgGradient)"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+              <defs>
+                <linearGradient id="ecgGradient" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#0D9B4D" />
+                  <stop offset="100%" stop-color="#2EE6A5" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="logo-glow">
+              <div class="logo-circle">
+                <i class="fa fa-heartbeat heartbeat-icon"></i>
               </div>
             </div>
           </div>
-          <div class="col-md-6 mt-3 mt-md-0">
-            <div class="d-flex gap-3 justify-content-md-end">
-              <div class="quick-stat">
-                <i class="fa fa-calendar-check"></i>
-                <div>
-                  <span class="small text-muted">Next Appointment</span>
+          <h2 class="preloader-message">Loading Your Dashboard</h2>
+          <div class="preloader-percent" id="preloaderPercent">0%</div>
+          <div class="preloader-progress">
+            <div class="preloader-progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- ==================== PROFILE DASHBOARD ==================== -->
+    <div class="profile-dashboard">
+      <div class="container">
+        <div class="profile-shell">
+          <!-- SIDEBAR OVERLAY (mobile) -->
+          <div
+            class="profile-sidebar-overlay"
+            id="sidebarOverlay"
+            aria-hidden="true"
+          ></div>
+
+          <!-- SIDEBAR -->
+          <aside
+            class="profile-sidebar"
+            id="profileSidebar"
+            aria-label="Profile navigation"
+          >
+            <a href="index.html" class="profile-sidebar__brand">
+              <i class="fa fa-heartbeat"></i><span>Alpha Clinic</span>
+            </a>
+            <div class="profile-sidebar__user">
+              <div class="profile-sidebar__avatar">
+                <img src="img/testimonial-1.jpg" alt="Patient Photo" />
+                <span class="profile-sidebar__avatar-dot" title="Online"></span>
+              </div>
+              <h3 class="profile-sidebar__name" id="sidebarUserName">
+                James Anderson
+              </h3>
+              <p class="profile-sidebar__pid" id="sidebarUserPID">
+                #ACP-2025-0891
+              </p>
+            </div>
+            <nav class="profile-sidebar__nav">
+              <span class="profile-sidebar__nav-label">Main Menu</span>
+              <button
+                class="profile-sidebar__link active"
+                data-tab="overview"
+                data-nav-link
+              >
+                <i class="fa fa-th-large"></i> Overview
+              </button>
+              <button
+                class="profile-sidebar__link"
+                data-tab="appointments"
+                data-nav-link
+              >
+                <i class="fa fa-calendar-check"></i> Appointments
+                <span class="profile-sidebar__badge">2</span>
+              </button>
+              <!-- <button
+                class="profile-sidebar__link"
+                data-tab="records"
+                data-nav-link
+              >
+                <i class="fa fa-folder-open"></i> Medical Records
+              </button> -->
+              <button
+                class="profile-sidebar__link"
+                data-tab="billing"
+                data-nav-link
+              >
+                <i class="fa fa-credit-card"></i> Billing
+              </button>
+              <span
+                class="profile-sidebar__nav-label"
+                style="margin-top: 0.5rem"
+                >Quick Links</span
+              >
+              <a href="user-appointment.html" class="profile-sidebar__link">
+                <i class="fa fa-calendar-plus"></i> Book Appointment
+              </a>
+
+              <a href="user-medical-records.html" class="profile-sidebar__link">
+                <i class="fa fa-folder-open"></i> Medical records
+              </a>
+              <a href="user-billing.html" class="profile-sidebar__link">
+                <i class="fa fa-credit-card"></i> Billing
+              </a>
+            </nav>
+            <div class="profile-sidebar__footer">
+              <button class="btn btn-sidebar-settings">
+                <i class="fa fa-cog me-2"></i> Settings
+              </button>
+              <button class="btn btn-sidebar-logout">
+                <i class="fa fa-sign-out-alt me-2"></i> Log Out
+              </button>
+            </div>
+          </aside>
+
+          <!-- MOBILE TOP BAR -->
+          <div class="profile-topbar" id="profileTopbar">
+            <button
+              class="profile-topbar__toggle"
+              id="sidebarToggle"
+              aria-label="Toggle menu"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+            <a href="index.html" class="profile-topbar__brand">
+              <i class="fa fa-heartbeat"></i><span>Alpha Clinic</span>
+            </a>
+            <div class="profile-topbar__user-mini">
+              <span id="topbarUserName">James</span>
+              <img src="img/testimonial-1.jpg" alt="Patient" />
+            </div>
+          </div>
+
+          <!-- MAIN CONTENT -->
+          <main class="profile-main" id="profileMain">
+            <!-- Welcome Header -->
+            <div class="profile-welcome">
+              <div class="profile-welcome__greeting">
+                <h2 id="profileGreeting">Welcome back, James 👋</h2>
+                <p>Here's your health summary for today</p>
+              </div>
+              <div class="profile-welcome__date" id="currentDate">
+                <i class="fa fa-calendar-alt"></i>
+                <span>Loading...</span>
+              </div>
+            </div>
+
+            <!-- Quick Stats Row -->
+            <div class="profile-stats-row">
+              <div class="profile-stat-card">
+                <div
+                  class="profile-stat-card__icon profile-stat-card__icon--calendar"
+                >
+                  <i class="fa fa-calendar-check"></i>
+                </div>
+                <div class="profile-stat-card__info">
+                  <span>Next Appointment</span>
                   <strong>Jun 28, 2025</strong>
                 </div>
               </div>
-              <div class="quick-stat">
-                <i class="fa fa-heartbeat"></i>
-                <div>
-                  <span class="small text-muted">Heart Rate</span>
+              <div class="profile-stat-card">
+                <div
+                  class="profile-stat-card__icon profile-stat-card__icon--heart"
+                >
+                  <i class="fa fa-heartbeat"></i>
+                </div>
+                <div class="profile-stat-card__info">
+                  <span>Heart Rate</span>
                   <strong>72 BPM</strong>
                 </div>
               </div>
-              <div class="quick-stat">
-                <i class="fa fa-weight"></i>
-                <div>
-                  <span class="small text-muted">Blood Pressure</span>
+              <div class="profile-stat-card">
+                <div
+                  class="profile-stat-card__icon profile-stat-card__icon--bp"
+                >
+                  <i class="fa fa-tint"></i>
+                </div>
+                <div class="profile-stat-card__info">
+                  <span>Blood Pressure</span>
                   <strong>120/80</strong>
                 </div>
               </div>
+              <div class="profile-stat-card">
+                <div
+                  class="profile-stat-card__icon profile-stat-card__icon--weight"
+                >
+                  <i class="fa fa-weight"></i>
+                </div>
+                <div class="profile-stat-card__info">
+                  <span>BMI</span>
+                  <strong>24.5</strong>
+                </div>
+              </div>
             </div>
-          </div>
+
+            <!-- Tab Navigation (main content) -->
+            <div class="profile-tabs" role="tablist">
+              <button
+                class="profile-tab active"
+                data-tab="overview"
+                role="tab"
+                aria-selected="true"
+              >
+                <span class="tab-icon">📋</span> Overview
+              </button>
+              <button
+                class="profile-tab"
+                data-tab="appointments"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="tab-icon">📅</span> Appointments
+              </button>
+              <button
+                class="profile-tab"
+                data-tab="records"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="tab-icon">📁</span> Medical Records
+              </button>
+              <button
+                class="profile-tab"
+                data-tab="billing"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="tab-icon">💳</span> Billing
+              </button>
+            </div>
+
+            <!-- ===== TAB: Overview ===== -->
+            <div id="tab-overview" class="tab-content active">
+              <div class="profile-grid profile-grid--3col">
+                <!-- Health Score -->
+                <div class="profile-card">
+                  <div class="profile-card__header">
+                    <h5>❤️ Health Score</h5>
+                  </div>
+                  <div class="profile-card__body health-gauge-wrapper">
+                    <div class="health-gauge" data-score="85">
+                      <svg viewBox="0 0 140 140">
+                        <circle class="gauge-bg" cx="70" cy="70" r="62" />
+                        <circle class="gauge-fill" cx="70" cy="70" r="62" />
+                      </svg>
+                      <span class="gauge-value">85</span>
+                    </div>
+                    <span class="gauge-label">Excellent</span>
+                    <p
+                      style="
+                        font-size: 0.78rem;
+                        color: var(--pr-text-secondary);
+                        margin-top: 0.5rem;
+                        text-align: center;
+                      "
+                    >
+                      Based on your latest check‑up
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Upcoming Appointments -->
+                <div class="profile-card">
+                  <div class="profile-card__header">
+                    <h5>📅 Upcoming</h5>
+                  </div>
+                  <div class="profile-card__body">
+                    <div class="apt-list-item">
+                      <div class="apt-list-item__icon">
+                        <i class="fa fa-user-md"></i>
+                      </div>
+                      <div class="apt-list-item__info">
+                        <strong>Dr. Sarah Johnson</strong>
+                        <span>Cardiology · Jun 28, 10:30 AM</span>
+                      </div>
+                      <span class="badge-pill badge-confirmed">Confirmed</span>
+                    </div>
+                    <div class="apt-list-item">
+                      <div class="apt-list-item__icon">
+                        <i class="fa fa-flask"></i>
+                      </div>
+                      <div class="apt-list-item__info">
+                        <strong>Lab Test</strong>
+                        <span>Blood Work · Jun 30, 8:00 AM</span>
+                      </div>
+                      <span class="badge-pill badge-pending">Pending</span>
+                    </div>
+                  </div>
+                  <a href="#" class="profile-card__link"
+                    >View All <i class="fa fa-arrow-right"></i
+                  ></a>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="profile-card">
+                  <div class="profile-card__header">
+                    <h5>⚡ Quick Actions</h5>
+                  </div>
+                  <div class="profile-card__body">
+                    <div class="quick-actions-grid">
+                      <button
+                        class="quick-action-btn"
+                        onclick="window.location.href = 'appointment.html'"
+                      >
+                        <i class="fa fa-calendar-plus"></i> Book Appointment
+                      </button>
+                      <button class="quick-action-btn">
+                        <i class="fa fa-file-medical-alt"></i> View Records
+                      </button>
+                      <button class="quick-action-btn">
+                        <i class="fa fa-prescription"></i> Refill Rx
+                      </button>
+                      <button class="quick-action-btn">
+                        <i class="fa fa-video"></i> Telehealth
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="profile-grid profile-grid--2col"
+                style="margin-top: 1.25rem"
+              >
+                <!-- Today's Medications -->
+                <div class="profile-card">
+                  <div class="profile-card__header">
+                    <h5>💊 Today's Medications</h5>
+                  </div>
+                  <div class="profile-card__body">
+                    <div class="med-row">
+                      <span class="med-row__icon">💊</span>
+                      <div class="med-row__info">
+                        <strong>Aspirin 81mg</strong>
+                        <span>After breakfast</span>
+                      </div>
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        checked
+                        aria-label="Aspirin taken"
+                      />
+                    </div>
+                    <div class="med-row">
+                      <span class="med-row__icon">💊</span>
+                      <div class="med-row__info">
+                        <strong>Atorvastatin 10mg</strong>
+                        <span>Before bed</span>
+                      </div>
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        aria-label="Atorvastatin taken"
+                      />
+                    </div>
+                    <div class="med-row">
+                      <span class="med-row__icon">💉</span>
+                      <div class="med-row__info">
+                        <strong>Insulin Glargine</strong>
+                        <span>Morning injection</span>
+                      </div>
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        aria-label="Insulin taken"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Recent Lab Results -->
+                <div class="profile-card">
+                  <div class="profile-card__header">
+                    <h5>🔬 Recent Lab Results</h5>
+                  </div>
+                  <div class="profile-card__body">
+                    <div class="lab-row">
+                      <span class="lab-row__name">Cholesterol</span>
+                      <span class="lab-row__value">190 mg/dL</span>
+                      <span class="lab-row__status lab-normal">Normal</span>
+                    </div>
+                    <div class="lab-row">
+                      <span class="lab-row__name">Glucose (Fasting)</span>
+                      <span class="lab-row__value">92 mg/dL</span>
+                      <span class="lab-row__status lab-normal">Normal</span>
+                    </div>
+                    <div class="lab-row">
+                      <span class="lab-row__name">Vitamin D</span>
+                      <span class="lab-row__value">28 ng/mL</span>
+                      <span class="lab-row__status lab-low">Low</span>
+                    </div>
+                    <div class="lab-row">
+                      <span class="lab-row__name">Hemoglobin A1C</span>
+                      <span class="lab-row__value">5.6%</span>
+                      <span class="lab-row__status lab-normal">Normal</span>
+                    </div>
+                  </div>
+                  <a href="#" class="profile-card__link"
+                    >Full Report <i class="fa fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== TAB: Appointments ===== -->
+            <div id="tab-appointments" class="tab-content">
+              <div class="profile-card">
+                <div class="profile-card__header">
+                  <h5>📋 Appointment History</h5>
+                </div>
+                <div class="profile-card__body">
+                  <div class="profile-table-wrap">
+                    <table class="profile-table">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Doctor</th>
+                          <th>Department</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Jun 28, 2025</td>
+                          <td>Dr. Sarah Johnson</td>
+                          <td>Cardiology</td>
+                          <td>
+                            <span class="badge-pill badge-confirmed"
+                              >Confirmed</span
+                            >
+                          </td>
+                          <td>
+                            <a
+                              href="#"
+                              style="
+                                color: var(--pr-green);
+                                font-weight: 600;
+                                font-size: 0.82rem;
+                              "
+                              >Reschedule</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Jun 15, 2025</td>
+                          <td>Dr. Michael Chen</td>
+                          <td>Neurology</td>
+                          <td>
+                            <span class="badge-pill badge-completed"
+                              >Completed</span
+                            >
+                          </td>
+                          <td>
+                            <a
+                              href="#"
+                              style="
+                                color: var(--pr-text-secondary);
+                                font-size: 0.82rem;
+                              "
+                              >View Summary</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>May 22, 2025</td>
+                          <td>Dr. Emily Davis</td>
+                          <td>Pulmonary</td>
+                          <td>
+                            <span class="badge-pill badge-completed"
+                              >Completed</span
+                            >
+                          </td>
+                          <td>
+                            <a
+                              href="#"
+                              style="
+                                color: var(--pr-text-secondary);
+                                font-size: 0.82rem;
+                              "
+                              >View Summary</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Apr 10, 2025</td>
+                          <td>Dr. Robert Kim</td>
+                          <td>Orthopedics</td>
+                          <td>
+                            <span class="badge-pill badge-completed"
+                              >Completed</span
+                            >
+                          </td>
+                          <td>
+                            <a
+                              href="#"
+                              style="
+                                color: var(--pr-text-secondary);
+                                font-size: 0.82rem;
+                              "
+                              >View Summary</a
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== TAB: Medical Records ===== -->
+            <div id="tab-records" class="tab-content">
+              <div class="profile-grid profile-grid--2col">
+                <div class="profile-card">
+                  <div class="profile-card__header">
+                    <h5>📄 Documents</h5>
+                  </div>
+                  <div class="profile-card__body">
+                    <div class="doc-list-item">
+                      <span class="doc-list-item__name"
+                        ><i class="fa fa-file-pdf"></i> Blood Test Report</span
+                      >
+                      <span class="doc-list-item__date">Jun 12, 2025</span>
+                    </div>
+                    <div class="doc-list-item">
+                      <span class="doc-list-item__name"
+                        ><i class="fa fa-file-pdf"></i> ECG Report</span
+                      >
+                      <span class="doc-list-item__date">May 28, 2025</span>
+                    </div>
+                    <div class="doc-list-item">
+                      <span class="doc-list-item__name"
+                        ><i class="fa fa-file-pdf"></i> MRI Scan</span
+                      >
+                      <span class="doc-list-item__date">Apr 15, 2025</span>
+                    </div>
+                    <div class="doc-list-item">
+                      <span class="doc-list-item__name"
+                        ><i class="fa fa-file-image"></i> X-Ray Chest</span
+                      >
+                      <span class="doc-list-item__date">Mar 08, 2025</span>
+                    </div>
+                  </div>
+                  <a href="#" class="profile-card__link"
+                    >Download All <i class="fa fa-download"></i
+                  ></a>
+                </div>
+                <div class="profile-card">
+                  <div class="profile-card__header">
+                    <h5>💉 Immunizations</h5>
+                  </div>
+                  <div class="profile-card__body">
+                    <div class="doc-list-item">
+                      <span class="doc-list-item__name"
+                        ><i
+                          class="fa fa-syringe"
+                          style="color: var(--pr-green)"
+                        ></i>
+                        COVID-19 Booster</span
+                      >
+                      <span class="doc-list-item__date">Feb 10, 2025</span>
+                    </div>
+                    <div class="doc-list-item">
+                      <span class="doc-list-item__name"
+                        ><i
+                          class="fa fa-syringe"
+                          style="color: var(--pr-green)"
+                        ></i>
+                        Flu Vaccine</span
+                      >
+                      <span class="doc-list-item__date">Oct 05, 2024</span>
+                    </div>
+                    <div class="doc-list-item">
+                      <span class="doc-list-item__name"
+                        ><i
+                          class="fa fa-syringe"
+                          style="color: var(--pr-green)"
+                        ></i>
+                        Tetanus</span
+                      >
+                      <span class="doc-list-item__date">Mar 20, 2023</span>
+                    </div>
+                    <div class="doc-list-item">
+                      <span class="doc-list-item__name"
+                        ><i
+                          class="fa fa-syringe"
+                          style="color: var(--pr-green)"
+                        ></i>
+                        Hepatitis B</span
+                      >
+                      <span class="doc-list-item__date">Jan 12, 2022</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== TAB: Billing ===== -->
+            <div id="tab-billing" class="tab-content">
+              <div class="profile-card">
+                <div class="profile-card__header">
+                  <h5>🧾 Recent Transactions</h5>
+                </div>
+                <div class="profile-card__body">
+                  <div class="profile-table-wrap">
+                    <table class="profile-table">
+                      <thead>
+                        <tr>
+                          <th>Invoice</th>
+                          <th>Description</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>#INV-2025-0342</td>
+                          <td>Cardiology Consultation</td>
+                          <td>$150.00</td>
+                          <td>
+                            <span class="badge-pill badge-paid">Paid</span>
+                          </td>
+                          <td>
+                            <a
+                              href="#"
+                              style="
+                                color: var(--pr-text-secondary);
+                                font-size: 0.82rem;
+                              "
+                              >Receipt</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#INV-2025-0281</td>
+                          <td>Lab Work</td>
+                          <td>$75.00</td>
+                          <td>
+                            <span class="badge-pill badge-paid">Paid</span>
+                          </td>
+                          <td>
+                            <a
+                              href="#"
+                              style="
+                                color: var(--pr-text-secondary);
+                                font-size: 0.82rem;
+                              "
+                              >Receipt</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#INV-2025-0195</td>
+                          <td>ECG</td>
+                          <td>$200.00</td>
+                          <td>
+                            <span class="badge-pill badge-pending"
+                              >Pending</span
+                            >
+                          </td>
+                          <td>
+                            <a
+                              href="#"
+                              style="
+                                color: var(--pr-green);
+                                font-weight: 600;
+                                font-size: 0.82rem;
+                              "
+                              >Pay Now</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#INV-2025-0102</td>
+                          <td>Annual Check-up</td>
+                          <td>$300.00</td>
+                          <td>
+                            <span class="badge-pill badge-paid">Paid</span>
+                          </td>
+                          <td>
+                            <a
+                              href="#"
+                              style="
+                                color: var(--pr-text-secondary);
+                                font-size: 0.82rem;
+                              "
+                              >Receipt</a
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Actions -->
+            <div class="profile-floating-actions">
+              <button class="btn btn-settings-outline">
+                <i class="fa fa-cog me-2"></i> Settings
+              </button>
+              <button class="btn btn-logout-solid">
+                <i class="fa fa-sign-out-alt me-2"></i> Log Out
+              </button>
+            </div>
+          </main>
         </div>
       </div>
-
-      <!-- Tab Navigation -->
-      <div class="profile-tabs mt-5">
-        <button class="profile-tab active" data-tab="overview">Overview</button>
-        <button class="profile-tab" data-tab="appointments">Appointments</button>
-        <button class="profile-tab" data-tab="records">Medical Records</button>
-        <button class="profile-tab" data-tab="billing">Billing</button>
-      </div>
-
-      <!-- Tab Content: Overview -->
-      <div id="tab-overview" class="tab-content active">
-        <div class="row g-4 mt-3">
-          <!-- Health Score Gauge -->
-          <div class="col-lg-4 col-md-6">
-            <div class="profile-card text-center p-4">
-              <h5 class="mb-3">Health Score</h5>
-              <div class="health-gauge" data-score="85">
-                <div class="gauge-circle">
-                  <svg viewBox="0 0 120 120">
-                    <circle class="gauge-bg" cx="60" cy="60" r="54" />
-                    <circle class="gauge-fill" cx="60" cy="60" r="54" />
-                  </svg>
-                  <span class="gauge-value">85</span>
-                </div>
-                <span class="gauge-label">Excellent</span>
-              </div>
-              <p class="small text-muted mt-3">Based on your latest check‑up</p>
-            </div>
-          </div>
-          <!-- Upcoming Appointments -->
-          <div class="col-lg-4 col-md-6">
-            <div class="profile-card p-4">
-              <h5 class="mb-3">Upcoming Appointments</h5>
-              <div class="appointment-card">
-                <div class="d-flex justify-content-between align-items-center">
-                  <div>
-                    <strong>Dr. Sarah Johnson</strong>
-                    <p class="text-muted mb-0">Cardiology · Jun 28, 10:30 AM</p>
-                  </div>
-                  <span class="badge badge-pill bg-primary-soft">Confirmed</span>
-                </div>
-              </div>
-              <div class="appointment-card mt-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <div>
-                    <strong>Lab Test</strong>
-                    <p class="text-muted mb-0">Blood Work · Jun 30, 8:00 AM</p>
-                  </div>
-                  <span class="badge badge-pill bg-warning-soft">Pending</span>
-                </div>
-              </div>
-              <a href="#" class="btn btn-link p-0 mt-3 fw-semibold">View All <i class="fa fa-arrow-right ms-2"></i></a>
-            </div>
-          </div>
-          <!-- Quick Actions -->
-          <div class="col-lg-4 col-md-6">
-            <div class="profile-card p-4">
-              <h5 class="mb-3">Quick Actions</h5>
-              <div class="row g-3">
-                <div class="col-6">
-                  <div class="action-card">
-                    <i class="fa fa-calendar-plus"></i>
-                    <span>Book Appointment</span>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="action-card">
-                    <i class="fa fa-file-medical-alt"></i>
-                    <span>View Records</span>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="action-card">
-                    <i class="fa fa-prescription"></i>
-                    <span>Refill Rx</span>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="action-card">
-                    <i class="fa fa-video"></i>
-                    <span>Telehealth</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row g-4 mt-3">
-          <!-- Medication Reminders -->
-          <div class="col-lg-6">
-            <div class="profile-card p-4">
-              <h5 class="mb-3">Today's Medications</h5>
-              <div class="med-item">
-                <div class="d-flex align-items-center gap-3">
-                  <div class="med-icon">💊</div>
-                  <div>
-                    <strong>Aspirin 81mg</strong>
-                    <p class="text-muted mb-0">After breakfast</p>
-                  </div>
-                  <div class="form-check ms-auto">
-                    <input class="form-check-input" type="checkbox" checked>
-                  </div>
-                </div>
-              </div>
-              <div class="med-item">
-                <div class="d-flex align-items-center gap-3">
-                  <div class="med-icon">💊</div>
-                  <div>
-                    <strong>Atorvastatin 10mg</strong>
-                    <p class="text-muted mb-0">Before bed</p>
-                  </div>
-                  <div class="form-check ms-auto">
-                    <input class="form-check-input" type="checkbox">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Recent Activity / Lab Results -->
-          <div class="col-lg-6">
-            <div class="profile-card p-4">
-              <h5 class="mb-3">Recent Lab Results</h5>
-              <div class="lab-item">
-                <span>Cholesterol</span>
-                <span class="text-primary fw-bold">190 mg/dL</span>
-                <span class="small text-muted">Normal</span>
-              </div>
-              <div class="lab-item">
-                <span>Glucose (Fasting)</span>
-                <span class="text-primary fw-bold">92 mg/dL</span>
-                <span class="small text-muted">Normal</span>
-              </div>
-              <div class="lab-item">
-                <span>Vitamin D</span>
-                <span class="text-warning fw-bold">28 ng/mL</span>
-                <span class="small text-muted">Low</span>
-              </div>
-              <a href="#" class="btn btn-link p-0 mt-3 fw-semibold">Full Report <i class="fa fa-arrow-right ms-2"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab Content: Appointments -->
-      <div id="tab-appointments" class="tab-content mt-3">
-        <div class="profile-card p-4">
-          <h5 class="mb-3">Appointment History</h5>
-          <div class="table-responsive">
-            <table class="table table-borderless align-middle">
-              <thead class="text-muted">
-                <tr>
-                  <th>Date</th>
-                  <th>Doctor</th>
-                  <th>Department</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Jun 28, 2025</td>
-                  <td>Dr. Sarah Johnson</td>
-                  <td>Cardiology</td>
-                  <td><span class="badge badge-pill bg-primary-soft">Confirmed</span></td>
-                </tr>
-                <tr>
-                  <td>Jun 15, 2025</td>
-                  <td>Dr. Michael Chen</td>
-                  <td>Neurology</td>
-                  <td><span class="badge badge-pill bg-success-soft">Completed</span></td>
-                </tr>
-                <tr>
-                  <td>May 22, 2025</td>
-                  <td>Dr. Emily Davis</td>
-                  <td>Pulmonary</td>
-                  <td><span class="badge badge-pill bg-success-soft">Completed</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab Content: Medical Records -->
-      <div id="tab-records" class="tab-content mt-3">
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="profile-card p-4">
-              <h5 class="mb-3">Documents</h5>
-              <ul class="list-unstyled">
-                <li class="d-flex justify-content-between mb-2"><span><i class="fa fa-file-pdf text-danger me-2"></i>Blood Test Report</span><span class="text-muted">Jun 12</span></li>
-                <li class="d-flex justify-content-between mb-2"><span><i class="fa fa-file-pdf text-danger me-2"></i>ECG Report</span><span class="text-muted">May 28</span></li>
-                <li class="d-flex justify-content-between mb-2"><span><i class="fa fa-file-pdf text-danger me-2"></i>MRI Scan</span><span class="text-muted">Apr 15</span></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="profile-card p-4">
-              <h5 class="mb-3">Immunizations</h5>
-              <ul class="list-unstyled">
-                <li class="d-flex justify-content-between"><span>COVID-19 Booster</span><span class="text-muted">Feb 10, 2025</span></li>
-                <li class="d-flex justify-content-between"><span>Flu Vaccine</span><span class="text-muted">Oct 05, 2024</span></li>
-                <li class="d-flex justify-content-between"><span>Tetanus</span><span class="text-muted">Mar 20, 2023</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab Content: Billing -->
-      <div id="tab-billing" class="tab-content mt-3">
-        <div class="profile-card p-4">
-          <h5 class="mb-3">Recent Transactions</h5>
-          <div class="table-responsive">
-            <table class="table table-borderless align-middle">
-              <thead class="text-muted">
-                <tr>
-                  <th>Invoice</th>
-                  <th>Description</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#INV-2025-0342</td>
-                  <td>Cardiology Consultation</td>
-                  <td>$150.00</td>
-                  <td><span class="badge badge-pill bg-success-soft">Paid</span></td>
-                </tr>
-                <tr>
-                  <td>#INV-2025-0281</td>
-                  <td>Lab Work</td>
-                  <td>$75.00</td>
-                  <td><span class="badge badge-pill bg-success-soft">Paid</span></td>
-                </tr>
-                <tr>
-                  <td>#INV-2025-0195</td>
-                  <td>ECG</td>
-                  <td>$200.00</td>
-                  <td><span class="badge badge-pill bg-warning-soft">Pending</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Logout & Settings Floating Buttons -->
-      <div class="profile-actions">
-        <button class="btn btn-outline-primary rounded-pill me-2"><i class="fa fa-cog me-2"></i> Settings</button>
-        <button class="btn btn-primary rounded-pill"><i class="fa fa-sign-out-alt me-2"></i> Log Out</button>
-      </div>
-
     </div>
-  </div>
-  <!-- ==================== PROFILE END ==================== -->
+    <!-- ==================== PROFILE END ==================== -->
 
-  <!-- Footer Start -->
-  <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
-    <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
-    <div class="site-footer__inner">
-      <div class="site-footer__grid">
-        <div>
-          <a href="index.html" class="site-footer__brand"><i class="fa fa-heartbeat"></i><span>Alpha Clinic</span></a>
-          <p class="site-footer__about">Compassionate care, modern medicine, and a team dedicated to your lasting wellbeing.</p>
-          <div class="site-footer__social">
-            <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          </div>
+    <!-- Footer Start -->
+    <!-- <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="site-footer__watermark" aria-hidden="true">Alpha Clinic</div>
+        <div class="site-footer__inner">
+            <div class="site-footer__grid">
+                <div>
+                    <a href="index.html" class="site-footer__brand"><i class="fa fa-heartbeat"></i><span>Alpha Clinic</span></a>
+                    <p class="site-footer__about">Compassionate care, modern medicine, and a team dedicated to your lasting wellbeing.</p>
+                    <div class="site-footer__social">
+                        <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="site-footer__title">Services</h5>
+                    <ul class="site-footer__links">
+                        <li><a href="service.html">Cardiology</a></li>
+                        <li><a href="service.html">Pulmonary</a></li>
+                        <li><a href="service.html">Neurology</a></li>
+                        <li><a href="service.html">Orthopedics</a></li>
+                        <li><a href="service.html">Laboratory</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="site-footer__title">Explore</h5>
+                    <ul class="site-footer__links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="service.html">Our Services</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                        <li><a href="team.html">Our Doctors</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="site-footer__title">Stay Connected</h5>
+                    <ul class="site-footer__contact">
+                        <li><i class="fa fa-map-marker-alt"></i><span>No 10, Lagos, Nigeria</span></li>
+                        <li><i class="fa fa-phone-alt"></i><span>09051106189</span></li>
+                        <li><i class="fa fa-envelope"></i><span>info@alphaclinic.com</span></li>
+                    </ul>
+                    <form class="site-footer__newsletter" onsubmit="return false;">
+                        <input type="email" placeholder="Your email" aria-label="Email for newsletter" />
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div>
-          <h5 class="site-footer__title">Services</h5>
-          <ul class="site-footer__links">
-            <li><a href="service.html">Cardiology</a></li>
-            <li><a href="service.html">Pulmonary</a></li>
-            <li><a href="service.html">Neurology</a></li>
-            <li><a href="service.html">Orthopedics</a></li>
-            <li><a href="service.html">Laboratory</a></li>
-          </ul>
+        <div class="site-footer__bottom">
+            <span>&copy; <a href="index.html">Alpha Clinic</a>. All rights reserved.</span>
+            <span>Crafted for better care | Developed by Glorycodes</span>
         </div>
-        <div>
-          <h5 class="site-footer__title">Explore</h5>
-          <ul class="site-footer__links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="service.html">Our Services</a></li>
-            <li><a href="appointment.html">Appointment</a></li>
-            <li><a href="team.html">Our Doctors</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="site-footer__title">Stay Connected</h5>
-          <ul class="site-footer__contact">
-            <li><i class="fa fa-map-marker-alt"></i><span>No 10, Lagos, Nigeria</span></li>
-            <li><i class="fa fa-phone-alt"></i><span>09051106189</span></li>
-            <li><i class="fa fa-envelope"></i><span>info@alphaclinic.com</span></li>
-          </ul>
-          <form class="site-footer__newsletter" onsubmit="return false;">
-            <input type="email" placeholder="Your email" aria-label="Email for newsletter" />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="site-footer__bottom">
-      <span>&copy; <a href="index.html">Alpha Clinic</a>. All rights reserved.</span>
-      <span>Crafted for better care | Developed by Glorycodes</span>
-    </div>
-  </footer>
-  <!-- Footer End -->
+    </footer> -->
+    <!-- Footer End -->
 
-  <!-- Back to Top -->
-  <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+    <!-- Back to Top -->
+    <a
+      href="#"
+      class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a>
 
-  <!-- JavaScript Libraries -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/counterup/counterup.min.js"></script>
-  <script src="js/main.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="js/main.js"></script>
 
-  <!-- Profile Dashboard Logic -->
-  <script>
-    (function() {
-      // Tab switching
-      const tabs = document.querySelectorAll('.profile-tab');
-      const contents = document.querySelectorAll('.tab-content');
+    <!-- Profile Dashboard Logic -->
+    <script>
+      (function () {
+        // ===== DOM ELEMENTS =====
+        const sidebar = document.getElementById("profileSidebar");
+        const sidebarOverlay = document.getElementById("sidebarOverlay");
+        const sidebarToggle = document.getElementById("sidebarToggle");
+        const profileMain = document.getElementById("profileMain");
+        const allTabs = document.querySelectorAll(".profile-tab");
+        const allSidebarLinks = document.querySelectorAll("[data-nav-link]");
+        const allContents = document.querySelectorAll(".tab-content");
+        const healthGauge = document.querySelector(".health-gauge");
+        const currentDateEl = document.getElementById("currentDate");
 
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          const target = tab.dataset.tab;
-          contents.forEach(c => c.classList.remove('active'));
-          document.getElementById('tab-' + target).classList.add('active');
+        // ===== SET CURRENT DATE =====
+        if (currentDateEl) {
+          const now = new Date();
+          const options = {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          };
+          currentDateEl.querySelector("span").textContent =
+            now.toLocaleDateString("en-US", options);
+        }
+
+        // ===== SIDEBAR TOGGLE (mobile) =====
+        function openSidebar() {
+          sidebar.classList.add("open");
+          sidebarOverlay.classList.add("show");
+          sidebarOverlay.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeSidebar() {
+          sidebar.classList.remove("open");
+          sidebarOverlay.classList.remove("show");
+          sidebarOverlay.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+
+        if (sidebarToggle) {
+          sidebarToggle.addEventListener("click", function () {
+            if (sidebar.classList.contains("open")) {
+              closeSidebar();
+            } else {
+              openSidebar();
+            }
+          });
+        }
+
+        if (sidebarOverlay) {
+          sidebarOverlay.addEventListener("click", closeSidebar);
+        }
+
+        // Close sidebar on Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && sidebar.classList.contains("open")) {
+            closeSidebar();
+            sidebarToggle.focus();
+          }
         });
-      });
 
-      // Animated health gauge (if present)
-      const gauge = document.querySelector('.health-gauge');
-      if (gauge) {
-        const fillCircle = gauge.querySelector('.gauge-fill');
-        const score = parseInt(gauge.dataset.score);
-        const circumference = 2 * Math.PI * 54;
-        const offset = circumference - (score / 100) * circumference;
-        fillCircle.style.strokeDasharray = `${circumference} ${circumference}`;
-        fillCircle.style.strokeDashoffset = circumference;
-        setTimeout(() => {
-          fillCircle.style.transition = 'stroke-dashoffset 1.5s ease';
-          fillCircle.style.strokeDashoffset = offset;
-        }, 300);
-      }
-    })();
-  </script>
-</body>
+        // Close sidebar when a nav link is clicked (mobile)
+        allSidebarLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            if (window.innerWidth <= 991) {
+              closeSidebar();
+            }
+          });
+        });
+
+        // ===== TAB SWITCHING =====
+        function switchTab(targetTab) {
+          // Update main content tabs
+          allTabs.forEach(function (t) {
+            t.classList.remove("active");
+            t.setAttribute("aria-selected", "false");
+          });
+          allContents.forEach(function (c) {
+            c.classList.remove("active");
+          });
+
+          const matchingTabs = document.querySelectorAll(
+            '.profile-tab[data-tab="' + targetTab + '"]',
+          );
+          matchingTabs.forEach(function (t) {
+            t.classList.add("active");
+            t.setAttribute("aria-selected", "true");
+          });
+
+          const targetContent = document.getElementById("tab-" + targetTab);
+          if (targetContent) {
+            targetContent.classList.add("active");
+          }
+
+          // Update sidebar links
+          allSidebarLinks.forEach(function (l) {
+            l.classList.remove("active");
+          });
+          const matchingSidebarLink = document.querySelector(
+            '[data-nav-link][data-tab="' + targetTab + '"]',
+          );
+          if (matchingSidebarLink) {
+            matchingSidebarLink.classList.add("active");
+          }
+        }
+
+        allTabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            const target = this.dataset.tab;
+            switchTab(target);
+          });
+        });
+
+        allSidebarLinks.forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            const target = this.dataset.tab;
+            if (target) {
+              e.preventDefault();
+              switchTab(target);
+              // Scroll to tabs on mobile
+              if (window.innerWidth <= 991) {
+                const tabsRow = document.querySelector(".profile-tabs");
+                if (tabsRow) {
+                  tabsRow.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              }
+            }
+          });
+        });
+
+        // ===== ANIMATED HEALTH GAUGE =====
+        if (healthGauge) {
+          const fillCircle = healthGauge.querySelector(".gauge-fill");
+          const score = parseInt(healthGauge.dataset.score) || 85;
+          const radius = 62;
+          const circumference = 2 * Math.PI * radius;
+          const offset = circumference - (score / 100) * circumference;
+
+          fillCircle.style.strokeDasharray = circumference;
+          fillCircle.style.strokeDashoffset = circumference;
+
+          // Use IntersectionObserver to trigger animation when visible
+          const observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  setTimeout(function () {
+                    fillCircle.style.strokeDashoffset = offset;
+                  }, 200);
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.3 },
+          );
+
+          observer.observe(healthGauge);
+
+          // Fallback: animate after a short delay
+          setTimeout(function () {
+            if (
+              fillCircle.style.strokeDashoffset === circumference.toString() ||
+              fillCircle.style.strokeDashoffset === ""
+            ) {
+              fillCircle.style.strokeDashoffset = offset;
+            }
+          }, 800);
+        }
+
+        // ===== LOAD USER DATA FROM LOCAL STORAGE =====
+        const storedUser = localStorage.getItem("alphaClinicUser");
+        if (storedUser) {
+          try {
+            const user = JSON.parse(storedUser);
+            const sidebarName = document.getElementById("sidebarUserName");
+            const sidebarPID = document.getElementById("sidebarUserPID");
+            const greeting = document.getElementById("profileGreeting");
+            const topbarName = document.getElementById("topbarUserName");
+
+            if (sidebarName && user.name) sidebarName.textContent = user.name;
+            if (sidebarPID && user.email)
+              sidebarPID.textContent = "Email: " + user.email;
+            if (greeting && user.name)
+              greeting.textContent =
+                "Welcome back, " + user.name.split(" ")[0] + " 👋";
+            if (topbarName && user.name)
+              topbarName.textContent = user.name.split(" ")[0];
+          } catch (e) {
+            console.warn("Could not parse stored user data");
+          }
+        }
+
+        // ===== RESIZE HANDLER =====
+        let resizeTimeout;
+        window.addEventListener("resize", function () {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(function () {
+            if (window.innerWidth > 991 && sidebar.classList.contains("open")) {
+              closeSidebar();
+            }
+          }, 250);
+        });
+
+        // ===== CLOSE SIDEBAR ON LARGE SCREEN =====
+        if (window.innerWidth > 991 && sidebar.classList.contains("open")) {
+          closeSidebar();
+        }
+
+        console.log("✅ Profile dashboard initialized successfully");
+      })();
+    </script>
+  </body>
 </html>

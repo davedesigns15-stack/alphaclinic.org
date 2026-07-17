@@ -324,7 +324,7 @@
   <script src="lib/counterup/counterup.min.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Portal Scripts -->
+  <!-- Portal Scripts (Updated with sign-up/sign-in logic) -->
   <script>
     (function() {
       // Tab switching
@@ -342,7 +342,47 @@
         });
       });
 
-      // Facial authentication (simulated)
+      // ========== SIGN UP – save user & switch to Sign In ==========
+      const signupFormElement = signupForm.querySelector('form');
+      signupFormElement.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Gather form values
+        const name = document.getElementById('signupName').value.trim();
+        const email = document.getElementById('signupEmail').value.trim();
+        const phone = document.getElementById('signupPhone').value.trim();
+        const password = document.getElementById('signupPassword').value.trim();
+        const confirm = document.getElementById('signupConfirmPassword').value.trim();
+
+        // Basic validation
+        if (!name || !email || !password) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+        if (password !== confirm) {
+          alert('Passwords do not match.');
+          return;
+        }
+
+        // Store user data in localStorage (for profile page)
+        const user = { name, email, phone };
+        localStorage.setItem('alphaClinicUser', JSON.stringify(user));
+
+        // Show success and switch to Sign In tab
+        alert('Account created successfully! Please sign in.');
+        // Reset form
+        signupFormElement.reset();
+        // Manually switch to sign in tab
+        document.querySelector('.portal-tab[data-tab="signin"]').click();
+      });
+
+      // ========== SIGN IN – redirect to profile with user data ==========
+      const signinFormElement = signinForm.querySelector('form');
+      signinFormElement.addEventListener('submit', function(e) {
+        e.preventDefault();
+        window.location.href = 'profile.html';
+      });
+
+      // Facial authentication (unchanged)
       const startBtn = document.getElementById('startFacialBtn');
       const video = document.getElementById('camVideo');
       const overlay = document.getElementById('facialOverlay');
@@ -351,7 +391,6 @@
       let stream = null;
 
       startBtn.addEventListener('click', function() {
-        // Reset state
         overlay.style.display = 'flex';
         video.style.display = 'none';
         progressBar.style.width = '0%';
@@ -359,7 +398,6 @@
         startBtn.disabled = true;
         startBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Scanning...';
 
-        // Attempt to access webcam
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240, facingMode: "user" } })
             .then(function(mediaStream) {
@@ -371,13 +409,11 @@
             })
             .catch(function(err) {
               console.warn('Camera access denied or unavailable:', err);
-              // Fallback: show a static face silhouette
               overlay.innerHTML = '<i class="fa fa-user fa-3x mb-2" style="color: rgba(255,255,255,0.5);"></i><span class="text-white-50">Face silhouette placeholder</span>';
               overlay.style.display = 'flex';
               simulateScan();
             });
         } else {
-          // No getUserMedia support
           overlay.innerHTML = '<i class="fa fa-user fa-3x mb-2" style="color: rgba(255,255,255,0.5);"></i><span class="text-white-50">Face silhouette placeholder</span>';
           overlay.style.display = 'flex';
           simulateScan();
@@ -391,18 +427,15 @@
           if (progress >= 100) {
             progress = 100;
             clearInterval(interval);
-            // Scan complete
             progressBar.style.width = '100%';
             statusDiv.querySelector('.status-text').textContent = 'Facial authentication successful!';
             startBtn.innerHTML = '<i class="fa fa-check-circle me-2"></i> Verified';
             startBtn.classList.add('verified');
             startBtn.disabled = true;
-            // Stop webcam if active
             if (stream) {
               stream.getTracks().forEach(track => track.stop());
               stream = null;
               video.style.display = 'none';
-              // Hide video and show success overlay
               if (overlay) {
                 overlay.style.display = 'flex';
                 overlay.innerHTML = '<i class="fa fa-check-circle fa-3x mb-2" style="color: var(--primary);"></i><span class="text-white-50">Face Verified</span>';

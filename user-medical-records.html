@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Medical Records | Alpha Clinic</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Access your complete medical records, lab results, and immunizations at Alpha Clinic" name="description" />
+    <link href="img/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="css/framework.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --mr-green: #0D9B4D;
+            --mr-green-dark: #087A38;
+            --mr-green-light: #E8F5EE;
+            --mr-green-surface: #F4FAF6;
+            --mr-accent: #2EE6A5;
+            --mr-dark: #1A3D2B;
+            --mr-text: #1E293B;
+            --mr-text-secondary: #64748B;
+            --mr-border: #E2E8F0;
+            --mr-white: #FFFFFF;
+            --mr-danger: #EF4444;
+            --mr-warning: #F59E0B;
+            --mr-success: #10B981;
+            --mr-info: #3B82F6;
+            --mr-purple: #7C3AED;
+            --mr-radius-sm: 0.65rem;
+            --mr-radius: 1rem;
+            --mr-radius-lg: 1.5rem;
+            --mr-radius-xl: 2rem;
+            --mr-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+            --mr-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --mr-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+            --mr-shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.10);
+            --mr-shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.14);
+            --mr-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --mr-transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .medical-records-page {
+            background: #F7FAF8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* ===== FLOATING ORBS ===== */
+        .mr-bg-orbs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .mr-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: mr-orbFloat 20s ease-in-out infinite;
+        }
+        .mr-orb--1 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(13, 155, 77, 0.25) 0%, transparent 70%);
+            top: -100px;
+            left: -120px;
+            animation-delay: 0s;
+        }
+        .mr-orb--2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(46, 230, 165, 0.2) 0%, transparent 70%);
+            bottom: -80px;
+            right: -100px;
+            animation-delay: -8s;
+        }
+        .mr-orb--3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+            top: 50%;
+            left: 60%;
+            animation-delay: -16s;
+        }
+        @keyframes mr-orbFloat {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(50px, -40px) scale(1.08);
+            }
+            50% {
+                transform: translate(-30px, 30px) scale(0.94);
+            }
+            75% {
+                transform: translate(-40px, -20px) scale(1.04);
+            }
+        }
+
+        /* ===== CONTAINER ===== */
+        .mr-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== TOP BAR ===== */
+        .mr-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .mr-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--mr-text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 3rem;
+            background: var(--mr-white);
+            border: 1px solid var(--mr-border);
+            transition: all var(--mr-transition);
+            box-shadow: var(--mr-shadow-xs);
+        }
+        .mr-back-link:hover {
+            color: var(--mr-green);
+            border-color: var(--mr-green);
+            box-shadow: var(--mr-shadow-sm);
+            transform: translateX(-3px);
+        }
+        .mr-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--mr-green);
+            text-decoration: none;
+        }
+        .mr-brand i {
+            font-size: 1.3rem;
+        }
+        .mr-emergency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #FEF2F2;
+            color: #DC2626;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 3rem;
+            border: 1px solid #FECACA;
+            animation: mr-emergencyPulse 2s ease-in-out infinite;
+        }
+        @keyframes mr-emergencyPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+            }
+        }
+        .mr-emergency-badge i {
+            font-size: 0.85rem;
+        }
+
+        /* ===== MAIN CARD ===== */
+        .mr-main-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(13, 155, 77, 0.08);
+            border-radius: var(--mr-radius-xl);
+            box-shadow: var(--mr-shadow-lg);
+            overflow: hidden;
+            transition: all var(--mr-transition);
+        }
+        .mr-main-card:hover {
+            box-shadow: var(--mr-shadow-xl);
+        }
+        .mr-card-inner {
+            padding: 2.5rem 2.5rem 3rem;
+            position: relative;
+        }
+
+        /* ===== HEADER INSIDE CARD ===== */
+        .mr-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .mr-card-header h2 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--mr-dark);
+            letter-spacing: -0.02em;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .mr-card-header h2 i {
+            color: var(--mr-green);
+        }
+        .mr-search-box {
+            position: relative;
+            width: 280px;
+            max-width: 100%;
+        }
+        .mr-search-box input {
+            width: 100%;
+            height: 44px;
+            padding: 0 2.8rem 0 1.2rem;
+            border-radius: 3rem;
+            border: 1.5px solid var(--mr-border);
+            background: var(--mr-white);
+            font-size: 0.88rem;
+            color: var(--mr-text);
+            transition: all var(--mr-transition);
+            outline: none;
+            box-shadow: var(--mr-shadow-xs);
+        }
+        .mr-search-box input:focus {
+            border-color: var(--mr-green);
+            box-shadow: 0 0 0 4px rgba(13, 155, 77, 0.08);
+        }
+        .mr-search-box i {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--mr-text-secondary);
+            font-size: 0.9rem;
+            pointer-events: none;
+            transition: color var(--mr-transition);
+        }
+        .mr-search-box input:focus~i {
+            color: var(--mr-green);
+        }
+
+        /* ===== TABS ===== */
+        .mr-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 2rem;
+            background: var(--mr-white);
+            padding: 0.4rem;
+            border-radius: var(--mr-radius);
+            border: 1px solid var(--mr-border);
+            box-shadow: var(--mr-shadow-xs);
+        }
+        .mr-tab {
+            flex: 1;
+            min-width: fit-content;
+            padding: 0.65rem 1.3rem;
+            border-radius: calc(var(--mr-radius) - 0.3rem);
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--mr-text-secondary);
+            cursor: pointer;
+            transition: all var(--mr-transition);
+            white-space: nowrap;
+            font-family: inherit;
+            text-align: center;
+        }
+        .mr-tab:hover {
+            background: var(--mr-green-light);
+            color: var(--mr-green);
+        }
+        .mr-tab.active {
+            background: var(--mr-green);
+            color: #fff;
+            box-shadow: 0 3px 10px rgba(13, 155, 77, 0.3);
+        }
+        .mr-tab .mr-tab-icon {
+            display: none;
+        }
+
+        /* ===== TAB CONTENT ===== */
+        .mr-tab-content {
+            display: none;
+            animation: mr-fadeSlideIn 0.4s ease;
+        }
+        .mr-tab-content.active {
+            display: block;
+        }
+        @keyframes mr-fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== DOCUMENTS GRID ===== */
+        .mr-documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+        .mr-document-card {
+            background: var(--mr-white);
+            border: 1px solid var(--mr-border);
+            border-radius: var(--mr-radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all var(--mr-transition);
+            box-shadow: var(--mr-shadow-xs);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .mr-document-card:hover {
+            box-shadow: var(--mr-shadow);
+            transform: translateY(-3px);
+            border-color: rgba(13, 155, 77, 0.25);
+        }
+        .mr-document-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--mr-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .mr-doc-pdf {
+            background: #FEE2E2;
+            color: #EF4444;
+        }
+        .mr-doc-img {
+            background: #DBEAFE;
+            color: #3B82F6;
+        }
+        .mr-doc-word {
+            background: #EDE9FE;
+            color: #7C3AED;
+        }
+        .mr-document-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .mr-document-info h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin: 0 0 0.2rem;
+            color: var(--mr-dark);
+        }
+        .mr-document-info span {
+            font-size: 0.78rem;
+            color: var(--mr-text-secondary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .mr-document-info .mr-doc-date {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.73rem;
+            color: var(--mr-text-secondary);
+        }
+        .mr-document-actions {
+            display: flex;
+            gap: 0.4rem;
+            margin-top: 0.6rem;
+        }
+        .mr-btn-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid var(--mr-border);
+            background: var(--mr-white);
+            color: var(--mr-text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: all var(--mr-transition);
+        }
+        .mr-btn-icon:hover {
+            background: var(--mr-green-light);
+            color: var(--mr-green);
+            border-color: var(--mr-green);
+        }
+        .mr-doc-badge {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .mr-badge-new {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        .mr-badge-reviewed {
+            background: #DBEAFE;
+            color: #1D4ED8;
+        }
+
+        /* ===== LAB RESULTS TABLE ===== */
+        .mr-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -0.5rem;
+            padding: 0 0.5rem;
+        }
+        .mr-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            min-width: 600px;
+        }
+        .mr-table thead th {
+            text-align: left;
+            padding: 0.85rem 1rem;
+            font-weight: 700;
+            font-size: 0.73rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--mr-text-secondary);
+            border-bottom: 2px solid var(--mr-border);
+            white-space: nowrap;
+            background: var(--mr-green-surface);
+        }
+        .mr-table tbody td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--mr-dark);
+            white-space: nowrap;
+        }
+        .mr-table tbody tr {
+            transition: background var(--mr-transition);
+        }
+        .mr-table tbody tr:hover {
+            background: #f9fdfb;
+        }
+        .mr-status-pill {
+            display: inline-block;
+            padding: 0.25rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .mr-status-normal {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        .mr-status-low {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+        .mr-status-high {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+        .mr-status-pending {
+            background: #EDE9FE;
+            color: #5B21B6;
+        }
+
+        /* ===== IMMUNIZATIONS TIMELINE ===== */
+        .mr-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .mr-timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--mr-border);
+        }
+        .mr-timeline-item {
+            position: relative;
+            margin-bottom: 1.75rem;
+            padding-left: 1.5rem;
+        }
+        .mr-timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .mr-timeline-dot {
+            position: absolute;
+            left: -1.6rem;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--mr-green);
+            border: 3px solid var(--mr-white);
+            box-shadow: 0 0 0 3px var(--mr-green-light);
+            z-index: 1;
+        }
+        .mr-timeline-content {
+            background: var(--mr-white);
+            border: 1px solid var(--mr-border);
+            border-radius: var(--mr-radius);
+            padding: 1rem 1.25rem;
+            box-shadow: var(--mr-shadow-xs);
+            transition: all var(--mr-transition);
+        }
+        .mr-timeline-content:hover {
+            box-shadow: var(--mr-shadow-sm);
+            border-color: rgba(13, 155, 77, 0.2);
+        }
+        .mr-timeline-content h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin: 0 0 0.2rem;
+            color: var(--mr-dark);
+        }
+        .mr-timeline-content .mr-date {
+            font-size: 0.75rem;
+            color: var(--mr-text-secondary);
+            font-weight: 500;
+        }
+        .mr-timeline-content .mr-provider {
+            font-size: 0.8rem;
+            color: var(--mr-text-secondary);
+            margin-top: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* ===== NO RESULTS ===== */
+        .mr-empty-state {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--mr-text-secondary);
+        }
+        .mr-empty-state i {
+            font-size: 3rem;
+            color: var(--mr-border);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .mr-empty-state p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ===== BUTTONS ===== */
+        .mr-btn-primary {
+            background: var(--mr-green);
+            color: #fff;
+            border: none;
+            padding: 0.65rem 1.5rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all var(--mr-transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: inherit;
+            box-shadow: 0 4px 12px rgba(13, 155, 77, 0.2);
+        }
+        .mr-btn-primary:hover {
+            background: var(--mr-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13, 155, 77, 0.3);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 991px) {
+            .mr-card-inner {
+                padding: 1.75rem 1.5rem 2.5rem;
+            }
+            .mr-documents-grid {
+                grid-template-columns: 1fr;
+            }
+            .mr-card-header h2 {
+                font-size: 1.3rem;
+            }
+            .mr-search-box {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .mr-container {
+                padding: 1rem 0.75rem 2rem;
+            }
+            .mr-card-inner {
+                padding: 1.25rem 1rem 2rem;
+            }
+            .mr-main-card {
+                border-radius: var(--mr-radius-lg);
+            }
+            .mr-tab {
+                font-size: 0.78rem;
+                padding: 0.55rem 0.8rem;
+                border-radius: 0.6rem;
+            }
+            .mr-tab .mr-tab-icon {
+                display: inline;
+                margin-right: 0.3rem;
+            }
+            .mr-table thead th,
+            .mr-table tbody td {
+                padding: 0.65rem 0.65rem;
+                font-size: 0.78rem;
+            }
+            .mr-document-card {
+                padding: 1.2rem;
+            }
+            .mr-timeline {
+                padding-left: 1.5rem;
+            }
+            .mr-timeline-item {
+                padding-left: 1rem;
+            }
+            .mr-timeline-dot {
+                left: -1.2rem;
+                width: 12px;
+                height: 12px;
+            }
+            .mr-btn-primary {
+                font-size: 0.8rem;
+                padding: 0.55rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mr-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .mr-search-box {
+                width: 100%;
+            }
+            .mr-documents-grid {
+                grid-template-columns: 1fr;
+            }
+            .mr-table {
+                min-width: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="medical-records-page">
+        <!-- Floating background orbs -->
+        <div class="mr-bg-orbs" aria-hidden="true">
+            <div class="mr-orb mr-orb--1"></div>
+            <div class="mr-orb mr-orb--2"></div>
+            <div class="mr-orb mr-orb--3"></div>
+        </div>
+
+        <div class="mr-container">
+            <!-- Top Bar -->
+            <div class="mr-topbar">
+                <a href="profile.html" class="mr-back-link">
+                    <i class="fa fa-arrow-left"></i> Back to Dashboard
+                </a>
+                <a href="index.html" class="mr-brand">
+                    <i class="fa fa-heartbeat"></i> Alpha Clinic
+                </a>
+                <div class="mr-emergency-badge">
+                    <i class="fa fa-phone-alt"></i> Emergency: 911
+                </div>
+            </div>
+
+            <!-- Main Card -->
+            <div class="mr-main-card">
+                <div class="mr-card-inner">
+                    <!-- Header -->
+                    <div class="mr-card-header">
+                        <h2>
+                            <i class="fa fa-folder-open"></i> Medical Records
+                        </h2>
+                        <div class="mr-search-box">
+                            <input type="text" id="mrSearchInput" placeholder="Search records..." aria-label="Search medical records" />
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="mr-tabs" role="tablist">
+                        <button class="mr-tab active" data-mr-tab="documents" role="tab" aria-selected="true">
+                            <span class="mr-tab-icon">📄</span> Documents
+                        </button>
+                        <button class="mr-tab" data-mr-tab="lab-results" role="tab" aria-selected="false">
+                            <span class="mr-tab-icon">🔬</span> Lab Results
+                        </button>
+                        <button class="mr-tab" data-mr-tab="immunizations" role="tab" aria-selected="false">
+                            <span class="mr-tab-icon">💉</span> Immunizations
+                        </button>
+                    </div>
+
+                    <!-- Tab: Documents -->
+                    <div class="mr-tab-content active" id="mr-tab-documents">
+                        <div class="mr-documents-grid" id="documentsGrid">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div class="mr-empty-state" id="documentsEmpty" style="display:none;">
+                            <i class="fa fa-file-medical-alt"></i>
+                            <p>No documents match your search.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Lab Results -->
+                    <div class="mr-tab-content" id="mr-tab-lab-results">
+                        <div class="mr-table-wrap">
+                            <table class="mr-table" id="labResultsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Test Name</th>
+                                        <th>Result</th>
+                                        <th>Reference Range</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="labResultsBody">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mr-empty-state" id="labEmpty" style="display:none;">
+                            <i class="fa fa-flask"></i>
+                            <p>No lab results match your search.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Immunizations -->
+                    <div class="mr-tab-content" id="mr-tab-immunizations">
+                        <div class="mr-timeline" id="immunizationsTimeline">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div class="mr-empty-state" id="immunizationsEmpty" style="display:none;">
+                            <i class="fa fa-syringe"></i>
+                            <p>No immunization records found.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ===== DATA =====
+            const documentsData = [
+                { id: 1, title: 'Complete Blood Count (CBC)', type: 'pdf', date: '2025-06-15',
+                    doctor: 'Dr. Sarah Johnson', category: 'lab', badge: 'new' },
+                { id: 2, title: 'Chest X-Ray Report', type: 'img', date: '2025-06-10', doctor: 'Dr. Emily Davis',
+                    category: 'imaging', badge: 'reviewed' },
+                { id: 3, title: 'Lipid Panel Results', type: 'pdf', date: '2025-05-28', doctor: 'Dr. Sarah Johnson',
+                    category: 'lab', badge: 'reviewed' },
+                { id: 4, title: 'MRI Brain Scan', type: 'img', date: '2025-05-15', doctor: 'Dr. Michael Chen',
+                    category: 'imaging', badge: 'new' },
+                { id: 5, title: 'Liver Function Test', type: 'pdf', date: '2025-04-22', doctor: 'Dr. Sarah Johnson',
+                    category: 'lab', badge: 'reviewed' },
+                { id: 6, title: 'ECG Report', type: 'pdf', date: '2025-04-10', doctor: 'Dr. Sarah Johnson',
+                    category: 'cardiac', badge: 'new' },
+                { id: 7, title: 'Skin Biopsy Results', type: 'word', date: '2025-03-30', doctor: 'Dr. Linda Nakamura',
+                    category: 'pathology', badge: 'reviewed' },
+                { id: 8, title: 'Bone Density Scan', type: 'img', date: '2025-03-12', doctor: 'Dr. Robert Kim',
+                    category: 'imaging', badge: 'reviewed' },
+            ];
+
+            const labResultsData = [
+                { name: 'Cholesterol', result: '190', unit: 'mg/dL', range: '125-200', status: 'normal',
+                date: '2025-06-15' },
+                { name: 'HDL Cholesterol', result: '55', unit: 'mg/dL', range: '>40', status: 'normal',
+                date: '2025-06-15' },
+                { name: 'LDL Cholesterol', result: '110', unit: 'mg/dL', range: '<100', status: 'high',
+                    date: '2025-06-15' },
+                { name: 'Triglycerides', result: '140', unit: 'mg/dL', range: '<150', status: 'normal',
+                date: '2025-06-15' },
+                { name: 'Glucose (Fasting)', result: '92', unit: 'mg/dL', range: '70-99', status: 'normal',
+                    date: '2025-06-15' },
+                { name: 'Hemoglobin A1C', result: '5.6', unit: '%', range: '<5.7', status: 'normal',
+                date: '2025-06-15' },
+                { name: 'Vitamin D', result: '28', unit: 'ng/mL', range: '30-100', status: 'low', date: '2025-05-28' },
+                { name: 'TSH', result: '2.1', unit: 'mIU/L', range: '0.4-4.0', status: 'normal', date: '2025-05-28' },
+                { name: 'Hemoglobin', result: '14.2', unit: 'g/dL', range: '13.5-17.5', status: 'normal',
+                date: '2025-04-22' },
+                { name: 'White Blood Cells', result: '7.5', unit: 'x10³/µL', range: '4.5-11.0', status: 'normal',
+                    date: '2025-04-22' },
+            ];
+
+            const immunizationsData = [
+                { name: 'COVID-19 Booster (Pfizer)', date: '2025-02-10', provider: 'Alpha Clinic Main',
+                    location: 'Lagos' },
+                { name: 'Influenza Vaccine (Quadrivalent)', date: '2024-10-05', provider: 'Alpha Clinic Main',
+                    location: 'Lagos' },
+                { name: 'Tetanus, Diphtheria, Pertussis (Tdap)', date: '2023-03-20', provider: 'City Health Center',
+                    location: 'Abuja' },
+                { name: 'Hepatitis B (Series completed)', date: '2022-01-12', provider: 'Alpha Clinic Main',
+                    location: 'Lagos' },
+                { name: 'MMR (Measles, Mumps, Rubella)', date: '2021-08-25', provider: 'Alpha Clinic Main',
+                    location: 'Lagos' },
+            ];
+
+            // ===== DOM REFS =====
+            const documentsGrid = document.getElementById('documentsGrid');
+            const documentsEmpty = document.getElementById('documentsEmpty');
+            const labResultsBody = document.getElementById('labResultsBody');
+            const labEmpty = document.getElementById('labEmpty');
+            const immunizationsTimeline = document.getElementById('immunizationsTimeline');
+            const immunizationsEmpty = document.getElementById('immunizationsEmpty');
+            const searchInput = document.getElementById('mrSearchInput');
+            const allTabs = document.querySelectorAll('.mr-tab');
+            const allTabContents = document.querySelectorAll('.mr-tab-content');
+
+            // ===== RENDER FUNCTIONS =====
+            function renderDocuments(filter = '') {
+                const filtered = documentsData.filter(doc =>
+                    doc.title.toLowerCase().includes(filter.toLowerCase()) ||
+                    doc.doctor.toLowerCase().includes(filter.toLowerCase()) ||
+                    doc.category.toLowerCase().includes(filter.toLowerCase())
+                );
+                documentsGrid.innerHTML = '';
+                if (filtered.length === 0) {
+                    documentsEmpty.style.display = 'block';
+                    documentsGrid.style.display = 'none';
+                } else {
+                    documentsEmpty.style.display = 'none';
+                    documentsGrid.style.display = 'grid';
+                    filtered.forEach(doc => {
+                        const typeClass = doc.type === 'pdf' ? 'mr-doc-pdf' : doc.type === 'img' ?
+                            'mr-doc-img' : 'mr-doc-word';
+                        const icon = doc.type === 'pdf' ? 'fa-file-pdf' : doc.type === 'img' ?
+                            'fa-file-image' : 'fa-file-word';
+                        const badgeClass = doc.badge === 'new' ? 'mr-badge-new' : 'mr-badge-reviewed';
+                        const badgeText = doc.badge === 'new' ? 'New' : 'Reviewed';
+                        const dateObj = new Date(doc.date + 'T00:00:00');
+                        const formattedDate = dateObj.toLocaleDateString('en-US', { year: 'numeric',
+                            month: 'short', day: 'numeric' });
+
+                        const card = document.createElement('div');
+                        card.className = 'mr-document-card';
+                        card.innerHTML = `
+                                <div class="mr-document-icon ${typeClass}">
+                                    <i class="fa ${icon}"></i>
+                                </div>
+                                <div class="mr-document-info">
+                                    <h4>${doc.title}</h4>
+                                    <span>Dr. ${doc.doctor.split(' ').slice(1).join(' ')}</span>
+                                    <div class="mr-doc-date">
+                                        <i class="fa fa-calendar-alt"></i> ${formattedDate}
+                                    </div>
+                                    <div class="mr-document-actions">
+                                        <button class="mr-btn-icon" title="Download" onclick="alert('Downloading ${doc.title}...')">
+                                            <i class="fa fa-download"></i>
+                                        </button>
+                                        <button class="mr-btn-icon" title="Share" onclick="alert('Sharing options for ${doc.title}')">
+                                            <i class="fa fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <span class="mr-doc-badge ${badgeClass}">${badgeText}</span>
+                            `;
+                        documentsGrid.appendChild(card);
+                    });
+                }
+            }
+
+            function renderLabResults(filter = '') {
+                const filtered = labResultsData.filter(lab =>
+                    lab.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    lab.status.toLowerCase().includes(filter.toLowerCase())
+                );
+                labResultsBody.innerHTML = '';
+                if (filtered.length === 0) {
+                    labEmpty.style.display = 'block';
+                    document.querySelector('#mr-tab-lab-results .mr-table-wrap').style.display = 'none';
+                } else {
+                    labEmpty.style.display = 'none';
+                    document.querySelector('#mr-tab-lab-results .mr-table-wrap').style.display = 'block';
+                    filtered.forEach(lab => {
+                        const statusClass = lab.status === 'normal' ? 'mr-status-normal' : lab.status ===
+                            'low' ? 'mr-status-low' : lab.status === 'high' ? 'mr-status-high' :
+                            'mr-status-pending';
+                        const statusText = lab.status.charAt(0).toUpperCase() + lab.status.slice(1);
+                        const dateObj = new Date(lab.date + 'T00:00:00');
+                        const formattedDate = dateObj.toLocaleDateString('en-US', { year: 'numeric',
+                            month: 'short', day: 'numeric' });
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                                <td><strong>${lab.name}</strong></td>
+                                <td>${lab.result} ${lab.unit}</td>
+                                <td>${lab.range}</td>
+                                <td><span class="mr-status-pill ${statusClass}">${statusText}</span></td>
+                                <td>${formattedDate}</td>
+                            `;
+                        labResultsBody.appendChild(row);
+                    });
+                }
+            }
+
+            function renderImmunizations(filter = '') {
+                const filtered = immunizationsData.filter(imm =>
+                    imm.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    imm.provider.toLowerCase().includes(filter.toLowerCase())
+                );
+                immunizationsTimeline.innerHTML = '';
+                if (filtered.length === 0) {
+                    immunizationsEmpty.style.display = 'block';
+                } else {
+                    immunizationsEmpty.style.display = 'none';
+                    filtered.forEach(imm => {
+                        const dateObj = new Date(imm.date + 'T00:00:00');
+                        const formattedDate = dateObj.toLocaleDateString('en-US', { year: 'numeric',
+                            month: 'long', day: 'numeric' });
+                        const item = document.createElement('div');
+                        item.className = 'mr-timeline-item';
+                        item.innerHTML = `
+                                <div class="mr-timeline-dot"></div>
+                                <div class="mr-timeline-content">
+                                    <h4>${imm.name}</h4>
+                                    <span class="mr-date"><i class="fa fa-calendar"></i> ${formattedDate}</span>
+                                    <div class="mr-provider">
+                                        <i class="fa fa-clinic-medical"></i> ${imm.provider} – ${imm.location}
+                                    </div>
+                                </div>
+                            `;
+                        immunizationsTimeline.appendChild(item);
+                    });
+                }
+            }
+
+            function renderAll(filter = '') {
+                renderDocuments(filter);
+                renderLabResults(filter);
+                renderImmunizations(filter);
+            }
+
+            // ===== TAB SWITCHING =====
+            allTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.dataset.mrTab;
+                    allTabs.forEach(t => { t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false'); });
+                    this.classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
+
+                    allTabContents.forEach(c => c.classList.remove('active'));
+                    document.getElementById('mr-tab-' + targetTab).classList.add('active');
+                });
+            });
+
+            // ===== SEARCH =====
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim();
+                renderAll(query);
+            });
+
+            // ===== INIT =====
+            renderAll();
+        })();
+    </script>
+</body>
+</html>

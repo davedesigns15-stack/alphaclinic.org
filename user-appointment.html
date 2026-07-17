@@ -1,0 +1,1926 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Book Appointment | Alpha Clinic</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Book your medical appointment at Alpha Clinic" name="description" />
+    <link href="img/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="css/framework.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --ap-green: #0D9B4D;
+            --ap-green-dark: #087A38;
+            --ap-green-light: #E8F5EE;
+            --ap-green-surface: #F4FAF6;
+            --ap-accent: #2EE6A5;
+            --ap-dark: #1A3D2B;
+            --ap-text: #1E293B;
+            --ap-text-secondary: #64748B;
+            --ap-border: #E2E8F0;
+            --ap-white: #FFFFFF;
+            --ap-danger: #EF4444;
+            --ap-warning: #F59E0B;
+            --ap-success: #10B981;
+            --ap-info: #3B82F6;
+            --ap-purple: #7C3AED;
+            --ap-radius-sm: 0.65rem;
+            --ap-radius: 1rem;
+            --ap-radius-lg: 1.5rem;
+            --ap-radius-xl: 2rem;
+            --ap-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+            --ap-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --ap-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+            --ap-shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.10);
+            --ap-shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.14);
+            --ap-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --ap-transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ===== PAGE BACKGROUND ===== */
+        .appointment-page {
+            background: #F7FAF8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* ===== FLOATING ORBS (background decoration) ===== */
+        .ap-bg-orbs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .ap-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: orbFloat 18s ease-in-out infinite;
+        }
+        .ap-orb--1 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(13, 155, 77, 0.3) 0%, transparent 70%);
+            top: -80px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+        .ap-orb--2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(46, 230, 165, 0.25) 0%, transparent 70%);
+            bottom: -60px;
+            left: -80px;
+            animation-delay: -6s;
+        }
+        .ap-orb--3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+            top: 40%;
+            left: 50%;
+            animation-delay: -12s;
+        }
+        @keyframes orbFloat {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(40px, -30px) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 25px) scale(0.95);
+            }
+            75% {
+                transform: translate(-35px, -15px) scale(1.05);
+            }
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .ap-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== TOP NAV / BACK ===== */
+        .ap-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .ap-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--ap-text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 3rem;
+            background: var(--ap-white);
+            border: 1px solid var(--ap-border);
+            transition: all var(--ap-transition);
+            box-shadow: var(--ap-shadow-xs);
+        }
+        .ap-back-link:hover {
+            color: var(--ap-green);
+            border-color: var(--ap-green);
+            box-shadow: var(--ap-shadow-sm);
+            transform: translateX(-3px);
+        }
+        .ap-brand-mini {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--ap-green);
+            text-decoration: none;
+        }
+        .ap-brand-mini i {
+            font-size: 1.3rem;
+        }
+        .ap-emergency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #FEF2F2;
+            color: #DC2626;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 3rem;
+            border: 1px solid #FECACA;
+            animation: emergencyPulse 2s ease-in-out infinite;
+        }
+        @keyframes emergencyPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+            }
+        }
+        .ap-emergency-badge i {
+            font-size: 0.85rem;
+        }
+
+        /* ===== PROGRESS STEPS ===== */
+        .ap-progress {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .ap-progress-step {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .ap-progress-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            background: var(--ap-white);
+            border: 2.5px solid var(--ap-border);
+            color: var(--ap-text-secondary);
+            transition: all var(--ap-transition-bounce);
+            flex-shrink: 0;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+        }
+        .ap-progress-dot.completed {
+            background: var(--ap-green);
+            border-color: var(--ap-green);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(13, 155, 77, 0.35);
+        }
+        .ap-progress-dot.active {
+            border-color: var(--ap-green);
+            color: var(--ap-green);
+            box-shadow: 0 0 0 8px rgba(13, 155, 77, 0.1);
+            animation: dotActivePulse 2s ease-in-out infinite;
+        }
+        @keyframes dotActivePulse {
+            0%,
+            100% {
+                box-shadow: 0 0 0 6px rgba(13, 155, 77, 0.08);
+            }
+            50% {
+                box-shadow: 0 0 0 16px rgba(13, 155, 77, 0);
+            }
+        }
+        .ap-progress-line {
+            width: 50px;
+            height: 3px;
+            background: var(--ap-border);
+            border-radius: 3px;
+            transition: all var(--ap-transition);
+            flex-shrink: 0;
+            margin: 0 0.25rem;
+        }
+        .ap-progress-line.completed {
+            background: var(--ap-green);
+        }
+        .ap-progress-label {
+            position: absolute;
+            top: 52px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--ap-text-secondary);
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: color var(--ap-transition);
+        }
+        .ap-progress-dot.active~.ap-progress-label,
+        .ap-progress-dot.completed~.ap-progress-label {
+            color: var(--ap-green);
+        }
+
+        /* ===== MAIN CARD ===== */
+        .ap-main-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(13, 155, 77, 0.08);
+            border-radius: var(--ap-radius-xl);
+            box-shadow: var(--ap-shadow-lg);
+            overflow: hidden;
+            transition: all var(--ap-transition);
+            min-height: 420px;
+        }
+        .ap-main-card:hover {
+            box-shadow: var(--ap-shadow-xl);
+        }
+        .ap-card-inner {
+            padding: 2.5rem 2.5rem 3rem;
+            position: relative;
+        }
+
+        /* ===== STEP PANELS ===== */
+        .ap-step-panel {
+            display: none;
+            animation: panelSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .ap-step-panel.active {
+            display: block;
+        }
+        @keyframes panelSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .ap-step-title {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--ap-dark);
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.02em;
+        }
+        .ap-step-subtitle {
+            color: var(--ap-text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        /* ===== STEP 1: DEPARTMENT SELECTION ===== */
+        .ap-dept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.85rem;
+        }
+        .ap-dept-card {
+            background: var(--ap-white);
+            border: 2px solid var(--ap-border);
+            border-radius: var(--ap-radius-lg);
+            padding: 1.4rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--ap-transition-bounce);
+            position: relative;
+            overflow: hidden;
+        }
+        .ap-dept-card:hover {
+            border-color: rgba(13, 155, 77, 0.35);
+            transform: translateY(-4px);
+            box-shadow: var(--ap-shadow);
+        }
+        .ap-dept-card.selected {
+            border-color: var(--ap-green);
+            background: var(--ap-green-light);
+            box-shadow: 0 6px 24px rgba(13, 155, 77, 0.2);
+            transform: translateY(-4px);
+        }
+        .ap-dept-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--ap-green);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes popIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        .ap-dept-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--ap-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.8rem;
+            font-size: 1.5rem;
+            transition: all var(--ap-transition);
+        }
+        .ap-dept-card.selected .ap-dept-icon {
+            background: var(--ap-green) !important;
+            color: #fff !important;
+            transform: scale(1.1);
+        }
+        .ap-dept-icon--cardio {
+            background: #FEE2E2;
+            color: #EF4444;
+        }
+        .ap-dept-icon--neuro {
+            background: #EDE9FE;
+            color: #7C3AED;
+        }
+        .ap-dept-icon--pulmo {
+            background: #DBEAFE;
+            color: #3B82F6;
+        }
+        .ap-dept-icon--ortho {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+        .ap-dept-icon--derm {
+            background: #FCE7F3;
+            color: #DB2777;
+        }
+        .ap-dept-icon--ped {
+            background: #D1FAE5;
+            color: #059669;
+        }
+        .ap-dept-card h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin: 0 0 0.2rem;
+            color: var(--ap-dark);
+        }
+        .ap-dept-card span {
+            font-size: 0.73rem;
+            color: var(--ap-text-secondary);
+            font-weight: 500;
+        }
+
+        /* ===== STEP 2: DOCTOR SELECTION ===== */
+        .ap-doctor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .ap-doctor-card {
+            background: var(--ap-white);
+            border: 2px solid var(--ap-border);
+            border-radius: var(--ap-radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            cursor: pointer;
+            transition: all var(--ap-transition-bounce);
+            position: relative;
+            overflow: hidden;
+        }
+        .ap-doctor-card:hover {
+            border-color: rgba(13, 155, 77, 0.3);
+            box-shadow: var(--ap-shadow);
+            transform: translateY(-3px);
+        }
+        .ap-doctor-card.selected {
+            border-color: var(--ap-green);
+            background: var(--ap-green-light);
+            box-shadow: 0 6px 24px rgba(13, 155, 77, 0.2);
+        }
+        .ap-doctor-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--ap-green);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .ap-doctor-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 3px solid var(--ap-green-light);
+            transition: all var(--ap-transition);
+        }
+        .ap-doctor-card.selected .ap-doctor-avatar {
+            border-color: var(--ap-green);
+            box-shadow: 0 4px 16px rgba(13, 155, 77, 0.3);
+        }
+        .ap-doctor-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .ap-doctor-info h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 0 0 0.15rem;
+            color: var(--ap-dark);
+        }
+        .ap-doctor-info .ap-doctor-spec {
+            font-size: 0.78rem;
+            color: var(--ap-green);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .ap-doctor-info .ap-doctor-exp {
+            font-size: 0.73rem;
+            color: var(--ap-text-secondary);
+        }
+        .ap-doctor-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #D97706;
+            margin-top: 0.3rem;
+        }
+        .ap-doctor-rating i {
+            font-size: 0.7rem;
+        }
+        .ap-doctor-availability {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2rem;
+            margin-top: 0.35rem;
+        }
+        .ap-avail-available {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        .ap-avail-limited {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        /* ===== STEP 3: DATE & TIME ===== */
+        .ap-datetime-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .ap-calendar-wrap {
+            background: var(--ap-white);
+            border: 1px solid var(--ap-border);
+            border-radius: var(--ap-radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--ap-shadow-xs);
+        }
+        .ap-calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--ap-dark);
+        }
+        .ap-calendar-header button {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--ap-border);
+            background: var(--ap-white);
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--ap-text-secondary);
+            transition: all var(--ap-transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ap-calendar-header button:hover {
+            background: var(--ap-green-light);
+            color: var(--ap-green);
+            border-color: var(--ap-green);
+        }
+        .ap-calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            text-align: center;
+        }
+        .ap-calendar-day-name {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--ap-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            padding: 0.3rem 0;
+        }
+        .ap-calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--ap-transition);
+            color: var(--ap-text);
+            position: relative;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+        }
+        .ap-calendar-day:hover:not(.disabled):not(.empty) {
+            background: var(--ap-green-light);
+            color: var(--ap-green);
+        }
+        .ap-calendar-day.selected {
+            background: var(--ap-green);
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 4px 14px rgba(13, 155, 77, 0.35);
+            animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .ap-calendar-day.today {
+            border: 2px solid var(--ap-green);
+            font-weight: 700;
+        }
+        .ap-calendar-day.disabled {
+            color: #ccc;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .ap-calendar-day.empty {
+            cursor: default;
+        }
+        .ap-calendar-day.has-slots::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--ap-accent);
+        }
+        .ap-calendar-day.selected.has-slots::after {
+            background: #fff;
+        }
+
+        /* Time Slots */
+        .ap-timeslots-wrap {
+            background: var(--ap-white);
+            border: 1px solid var(--ap-border);
+            border-radius: var(--ap-radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--ap-shadow-xs);
+        }
+        .ap-timeslots-wrap h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--ap-dark);
+            margin-bottom: 0.75rem;
+        }
+        .ap-timeslot-group {
+            margin-bottom: 1rem;
+        }
+        .ap-timeslot-group-label {
+            font-size: 0.73rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--ap-text-secondary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .ap-timeslot-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .ap-timeslot-chip {
+            padding: 0.5rem 0.9rem;
+            border-radius: 2rem;
+            border: 1.5px solid var(--ap-border);
+            background: var(--ap-white);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all var(--ap-transition);
+            color: var(--ap-text);
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .ap-timeslot-chip:hover {
+            border-color: var(--ap-green);
+            background: var(--ap-green-light);
+            color: var(--ap-green);
+        }
+        .ap-timeslot-chip.selected {
+            background: var(--ap-green);
+            color: #fff;
+            border-color: var(--ap-green);
+            font-weight: 600;
+            box-shadow: 0 3px 12px rgba(13, 155, 77, 0.3);
+        }
+        .ap-timeslot-chip.unavailable {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+            text-decoration: line-through;
+        }
+
+        /* ===== STEP 4: PATIENT DETAILS ===== */
+        .ap-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .ap-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .ap-form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .ap-form-group label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--ap-dark);
+            letter-spacing: 0.01em;
+        }
+        .ap-form-input {
+            width: 100%;
+            height: 48px;
+            padding: 0 1rem;
+            border: 1.5px solid var(--ap-border);
+            border-radius: var(--ap-radius);
+            font-size: 0.9rem;
+            color: var(--ap-text);
+            background: var(--ap-white);
+            transition: all var(--ap-transition);
+            outline: none;
+            font-family: inherit;
+            box-shadow: var(--ap-shadow-xs);
+        }
+        .ap-form-input:focus {
+            border-color: var(--ap-green);
+            box-shadow: 0 0 0 4px rgba(13, 155, 77, 0.08);
+        }
+        .ap-form-textarea {
+            height: 90px;
+            padding: 0.8rem 1rem;
+            resize: vertical;
+            min-height: 70px;
+        }
+        .ap-form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230D9B4D'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.8rem center;
+            background-size: 1.1rem;
+            padding-right: 2.5rem;
+        }
+
+        /* ===== BUTTONS ===== */
+        .ap-btn-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .ap-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all var(--ap-transition);
+            font-family: inherit;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.01em;
+        }
+        .ap-btn-prev {
+            background: var(--ap-white);
+            color: var(--ap-text);
+            border: 2px solid var(--ap-border);
+        }
+        .ap-btn-prev:hover {
+            border-color: var(--ap-text-secondary);
+            background: #f8fafc;
+        }
+        .ap-btn-next {
+            background: var(--ap-green);
+            color: #fff;
+            border: 2px solid var(--ap-green);
+            box-shadow: 0 6px 20px rgba(13, 155, 77, 0.3);
+        }
+        .ap-btn-next:hover {
+            background: var(--ap-green-dark);
+            border-color: var(--ap-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(13, 155, 77, 0.4);
+        }
+        .ap-btn-next:active {
+            transform: translateY(1px);
+            box-shadow: 0 3px 10px rgba(13, 155, 77, 0.25);
+        }
+        .ap-btn-confirm {
+            background: linear-gradient(135deg, #0D9B4D 0%, #087A38 100%);
+            color: #fff;
+            font-size: 1rem;
+            padding: 0.9rem 2.5rem;
+            box-shadow: 0 8px 28px rgba(13, 155, 77, 0.4);
+            animation: subtleGlow 3s ease-in-out infinite;
+        }
+        @keyframes subtleGlow {
+            0%,
+            100% {
+                box-shadow: 0 8px 28px rgba(13, 155, 77, 0.35);
+            }
+            50% {
+                box-shadow: 0 12px 36px rgba(13, 155, 77, 0.55);
+            }
+        }
+        .ap-btn-confirm:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(13, 155, 77, 0.5);
+        }
+
+        /* ===== SUMMARY CARD (Step 4) ===== */
+        .ap-summary-card {
+            background: var(--ap-green-surface);
+            border-radius: var(--ap-radius-lg);
+            padding: 1.5rem;
+            border: 1px solid rgba(13, 155, 77, 0.1);
+            margin-bottom: 1rem;
+        }
+        .ap-summary-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.55rem 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+            font-size: 0.88rem;
+        }
+        .ap-summary-row:last-child {
+            border-bottom: none;
+        }
+        .ap-summary-row i {
+            width: 20px;
+            color: var(--ap-green);
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .ap-summary-row strong {
+            color: var(--ap-dark);
+            margin-right: 0.35rem;
+        }
+
+        /* ===== SUCCESS OVERLAY ===== */
+        .ap-success-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(6px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        .ap-success-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .ap-success-modal {
+            background: #fff;
+            border-radius: var(--ap-radius-xl);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: var(--ap-shadow-xl);
+            animation: modalBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes modalBounceIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .ap-success-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #D1FAE5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.8rem;
+            color: var(--ap-green);
+            animation: successPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+        }
+        @keyframes successPop {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        .ap-success-modal h2 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--ap-dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        .ap-success-modal p {
+            color: var(--ap-text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .ap-success-details {
+            background: var(--ap-green-surface);
+            border-radius: var(--ap-radius);
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .ap-success-details span {
+            display: block;
+            padding: 0.3rem 0;
+            color: var(--ap-text);
+        }
+        .ap-success-details i {
+            color: var(--ap-green);
+            margin-right: 0.5rem;
+            width: 16px;
+            text-align: center;
+        }
+        .ap-btn-done {
+            background: var(--ap-green);
+            color: #fff;
+            padding: 0.85rem 2.5rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--ap-transition);
+            font-family: inherit;
+            box-shadow: 0 6px 20px rgba(13, 155, 77, 0.3);
+        }
+        .ap-btn-done:hover {
+            background: var(--ap-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(13, 155, 77, 0.4);
+        }
+
+        /* ===== CONFETTI ===== */
+        .ap-confetti-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10000;
+        }
+        .ap-confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            animation: confettiFall linear forwards;
+        }
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-120vh) rotate(0deg);
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 991px) {
+            .ap-datetime-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .ap-card-inner {
+                padding: 1.75rem 1.5rem 2.5rem;
+            }
+            .ap-step-title {
+                font-size: 1.3rem;
+            }
+            .ap-dept-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 0.6rem;
+            }
+            .ap-dept-card {
+                padding: 1rem 0.7rem;
+            }
+            .ap-dept-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
+                border-radius: 0.65rem;
+            }
+            .ap-dept-card h4 {
+                font-size: 0.82rem;
+            }
+            .ap-doctor-grid {
+                grid-template-columns: 1fr;
+            }
+            .ap-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .ap-progress-line {
+                width: 30px;
+            }
+            .ap-progress-dot {
+                width: 36px;
+                height: 36px;
+                font-size: 0.78rem;
+            }
+            .ap-progress-label {
+                font-size: 0.62rem;
+                top: 44px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .ap-container {
+                padding: 1rem 0.75rem 2rem;
+            }
+            .ap-topbar {
+                gap: 0.6rem;
+            }
+            .ap-back-link {
+                font-size: 0.78rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .ap-brand-mini {
+                font-size: 0.95rem;
+            }
+            .ap-emergency-badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.7rem;
+            }
+            .ap-card-inner {
+                padding: 1.25rem 1rem 2rem;
+            }
+            .ap-main-card {
+                border-radius: var(--ap-radius-lg);
+            }
+            .ap-dept-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.4rem;
+            }
+            .ap-dept-card {
+                padding: 0.8rem 0.4rem;
+                border-radius: var(--ap-radius);
+            }
+            .ap-dept-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+                border-radius: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .ap-dept-card h4 {
+                font-size: 0.7rem;
+            }
+            .ap-dept-card span {
+                font-size: 0.62rem;
+            }
+            .ap-dept-card.selected::after {
+                width: 20px;
+                height: 20px;
+                font-size: 0.6rem;
+                top: 6px;
+                right: 8px;
+            }
+            .ap-doctor-card {
+                padding: 1rem;
+                gap: 0.8rem;
+            }
+            .ap-doctor-avatar {
+                width: 52px;
+                height: 52px;
+            }
+            .ap-doctor-info h4 {
+                font-size: 0.88rem;
+            }
+            .ap-doctor-info .ap-doctor-spec {
+                font-size: 0.7rem;
+            }
+            .ap-calendar-day {
+                font-size: 0.75rem;
+            }
+            .ap-calendar-day-name {
+                font-size: 0.62rem;
+            }
+            .ap-timeslot-chip {
+                font-size: 0.72rem;
+                padding: 0.4rem 0.65rem;
+            }
+            .ap-btn {
+                font-size: 0.82rem;
+                padding: 0.65rem 1.3rem;
+            }
+            .ap-btn-row {
+                justify-content: stretch;
+                gap: 0.6rem;
+            }
+            .ap-btn-row .ap-btn {
+                flex: 1;
+                justify-content: center;
+            }
+            .ap-progress-line {
+                width: 20px;
+            }
+            .ap-progress-dot {
+                width: 30px;
+                height: 30px;
+                font-size: 0.7rem;
+            }
+            .ap-progress-label {
+                display: none;
+            }
+            .ap-step-title {
+                font-size: 1.15rem;
+            }
+            .ap-step-subtitle {
+                font-size: 0.8rem;
+                margin-bottom: 1.25rem;
+            }
+            .ap-success-modal {
+                padding: 2rem 1.5rem;
+            }
+            .ap-success-modal h2 {
+                font-size: 1.4rem;
+            }
+            .ap-success-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .ap-dept-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ap-progress-line {
+                width: 14px;
+            }
+            .ap-progress-dot {
+                width: 26px;
+                height: 26px;
+                font-size: 0.65rem;
+            }
+            .ap-btn-row {
+                flex-direction: column;
+            }
+            .ap-btn-row .ap-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .ap-btn-prev {
+                order: 2;
+            }
+            .ap-btn-next {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== APPOINTMENT PAGE ==================== -->
+    <div class="appointment-page">
+
+        <!-- Floating background orbs -->
+        <div class="ap-bg-orbs" aria-hidden="true">
+            <div class="ap-orb ap-orb--1"></div>
+            <div class="ap-orb ap-orb--2"></div>
+            <div class="ap-orb ap-orb--3"></div>
+        </div>
+
+        <div class="ap-container">
+
+            <!-- Top Bar -->
+            <div class="ap-topbar">
+                <a href="profile.html" class="ap-back-link">
+                    <i class="fa fa-arrow-left"></i> Back to Dashboard
+                </a>
+                <a href="index.html" class="ap-brand-mini">
+                    <i class="fa fa-heartbeat"></i> Alpha Clinic
+                </a>
+                <div class="ap-emergency-badge">
+                    <i class="fa fa-phone-alt"></i> Emergency: 911
+                </div>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="ap-progress" id="progressBar">
+                <div class="ap-progress-step">
+                    <div class="ap-progress-dot active" data-step="1">1</div>
+                    <span class="ap-progress-label">Department</span>
+                </div>
+                <div class="ap-progress-line" data-line="1"></div>
+                <div class="ap-progress-step">
+                    <div class="ap-progress-dot" data-step="2">2</div>
+                    <span class="ap-progress-label">Doctor</span>
+                </div>
+                <div class="ap-progress-line" data-line="2"></div>
+                <div class="ap-progress-step">
+                    <div class="ap-progress-dot" data-step="3">3</div>
+                    <span class="ap-progress-label">Date & Time</span>
+                </div>
+                <div class="ap-progress-line" data-line="3"></div>
+                <div class="ap-progress-step">
+                    <div class="ap-progress-dot" data-step="4">4</div>
+                    <span class="ap-progress-label">Confirm</span>
+                </div>
+            </div>
+
+            <!-- Main Card -->
+            <div class="ap-main-card">
+                <div class="ap-card-inner">
+
+                    <!-- ===== STEP 1: Department ===== -->
+                    <div class="ap-step-panel active" id="step1">
+                        <h2 class="ap-step-title">Select Department</h2>
+                        <p class="ap-step-subtitle">Choose the medical specialty you need</p>
+                        <div class="ap-dept-grid" id="deptGrid">
+                            <div class="ap-dept-card" data-dept="cardiology" data-dept-name="Cardiology">
+                                <div class="ap-dept-icon ap-dept-icon--cardio"><i class="fa fa-heartbeat"></i></div>
+                                <h4>Cardiology</h4>
+                                <span>Heart & Vascular</span>
+                            </div>
+                            <div class="ap-dept-card" data-dept="neurology" data-dept-name="Neurology">
+                                <div class="ap-dept-icon ap-dept-icon--neuro"><i class="fa fa-brain"></i></div>
+                                <h4>Neurology</h4>
+                                <span>Brain & Nerves</span>
+                            </div>
+                            <div class="ap-dept-card" data-dept="pulmonary" data-dept-name="Pulmonary">
+                                <div class="ap-dept-icon ap-dept-icon--pulmo"><i class="fa fa-lungs"></i></div>
+                                <h4>Pulmonary</h4>
+                                <span>Lungs & Breathing</span>
+                            </div>
+                            <div class="ap-dept-card" data-dept="orthopedics" data-dept-name="Orthopedics">
+                                <div class="ap-dept-icon ap-dept-icon--ortho"><i class="fa fa-bone"></i></div>
+                                <h4>Orthopedics</h4>
+                                <span>Bones & Joints</span>
+                            </div>
+                            <div class="ap-dept-card" data-dept="dermatology" data-dept-name="Dermatology">
+                                <div class="ap-dept-icon ap-dept-icon--derm"><i class="fa fa-allergies"></i></div>
+                                <h4>Dermatology</h4>
+                                <span>Skin & Hair</span>
+                            </div>
+                            <div class="ap-dept-card" data-dept="pediatrics" data-dept-name="Pediatrics">
+                                <div class="ap-dept-icon ap-dept-icon--ped"><i class="fa fa-child"></i></div>
+                                <h4>Pediatrics</h4>
+                                <span>Children's Care</span>
+                            </div>
+                        </div>
+                        <div class="ap-btn-row">
+                            <button class="ap-btn ap-btn-next" id="btnStep1Next" disabled>
+                                Continue <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ===== STEP 2: Doctor ===== -->
+                    <div class="ap-step-panel" id="step2">
+                        <h2 class="ap-step-title">Choose Your Doctor</h2>
+                        <p class="ap-step-subtitle" id="step2DeptLabel">Available specialists</p>
+                        <div class="ap-doctor-grid" id="doctorGrid">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <div class="ap-btn-row">
+                            <button class="ap-btn ap-btn-prev" id="btnStep2Prev">
+                                <i class="fa fa-arrow-left"></i> Back
+                            </button>
+                            <button class="ap-btn ap-btn-next" id="btnStep2Next" disabled>
+                                Continue <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ===== STEP 3: Date & Time ===== -->
+                    <div class="ap-step-panel" id="step3">
+                        <h2 class="ap-step-title">Select Date & Time</h2>
+                        <p class="ap-step-subtitle">Pick your preferred appointment slot</p>
+                        <div class="ap-datetime-grid">
+                            <!-- Calendar -->
+                            <div class="ap-calendar-wrap">
+                                <div class="ap-calendar-header">
+                                    <button id="calPrev" aria-label="Previous month"><i class="fa fa-chevron-left"></i></button>
+                                    <span id="calMonthYear">July 2025</span>
+                                    <button id="calNext" aria-label="Next month"><i class="fa fa-chevron-right"></i></button>
+                                </div>
+                                <div class="ap-calendar-grid" id="calDays">
+                                    <span class="ap-calendar-day-name">Sun</span>
+                                    <span class="ap-calendar-day-name">Mon</span>
+                                    <span class="ap-calendar-day-name">Tue</span>
+                                    <span class="ap-calendar-day-name">Wed</span>
+                                    <span class="ap-calendar-day-name">Thu</span>
+                                    <span class="ap-calendar-day-name">Fri</span>
+                                    <span class="ap-calendar-day-name">Sat</span>
+                                </div>
+                                <div class="ap-calendar-grid" id="calGrid">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                            <!-- Time Slots -->
+                            <div class="ap-timeslots-wrap">
+                                <h4 id="selectedDateLabel">Select a date first</h4>
+                                <div id="timeSlotsContainer">
+                                    <div class="ap-timeslot-group">
+                                        <span class="ap-timeslot-group-label">🌅 Morning</span>
+                                        <div class="ap-timeslot-chips" id="morningSlots"></div>
+                                    </div>
+                                    <div class="ap-timeslot-group">
+                                        <span class="ap-timeslot-group-label">☀️ Afternoon</span>
+                                        <div class="ap-timeslot-chips" id="afternoonSlots"></div>
+                                    </div>
+                                    <div class="ap-timeslot-group">
+                                        <span class="ap-timeslot-group-label">🌙 Evening</span>
+                                        <div class="ap-timeslot-chips" id="eveningSlots"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ap-btn-row">
+                            <button class="ap-btn ap-btn-prev" id="btnStep3Prev">
+                                <i class="fa fa-arrow-left"></i> Back
+                            </button>
+                            <button class="ap-btn ap-btn-next" id="btnStep3Next" disabled>
+                                Continue <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ===== STEP 4: Patient Details & Confirm ===== -->
+                    <div class="ap-step-panel" id="step4">
+                        <h2 class="ap-step-title">Confirm Your Appointment</h2>
+                        <p class="ap-step-subtitle">Review details and provide your information</p>
+
+                        <!-- Summary -->
+                        <div class="ap-summary-card" id="summaryCard">
+                            <div class="ap-summary-row">
+                                <i class="fa fa-hospital"></i>
+                                <span><strong>Department:</strong> <span id="summaryDept">-</span></span>
+                            </div>
+                            <div class="ap-summary-row">
+                                <i class="fa fa-user-md"></i>
+                                <span><strong>Doctor:</strong> <span id="summaryDoctor">-</span></span>
+                            </div>
+                            <div class="ap-summary-row">
+                                <i class="fa fa-calendar"></i>
+                                <span><strong>Date:</strong> <span id="summaryDate">-</span></span>
+                            </div>
+                            <div class="ap-summary-row">
+                                <i class="fa fa-clock"></i>
+                                <span><strong>Time:</strong> <span id="summaryTime">-</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Patient Form -->
+                        <div class="ap-form-grid">
+                            <div class="ap-form-group">
+                                <label>Full Name *</label>
+                                <input type="text" class="ap-form-input" id="patientName" placeholder="Enter your full name" />
+                            </div>
+                            <div class="ap-form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" class="ap-form-input" id="patientPhone" placeholder="+234 000 000 0000" />
+                            </div>
+                            <div class="ap-form-group">
+                                <label>Email Address</label>
+                                <input type="email" class="ap-form-input" id="patientEmail" placeholder="your@email.com" />
+                            </div>
+                            <div class="ap-form-group">
+                                <label>Appointment Type</label>
+                                <select class="ap-form-input ap-form-select" id="appointmentType">
+                                    <option value="in-person">In-Person Visit</option>
+                                    <option value="telehealth">Telehealth (Video Call)</option>
+                                    <option value="home-visit">Home Visit</option>
+                                </select>
+                            </div>
+                            <div class="ap-form-group full-width">
+                                <label>Reason for Visit / Notes</label>
+                                <textarea class="ap-form-input ap-form-textarea" id="patientNotes" placeholder="Briefly describe your symptoms or reason for the appointment..."></textarea>
+                            </div>
+                        </div>
+                        <div class="ap-btn-row">
+                            <button class="ap-btn ap-btn-prev" id="btnStep4Prev">
+                                <i class="fa fa-arrow-left"></i> Back
+                            </button>
+                            <button class="ap-btn ap-btn-confirm" id="btnConfirm">
+                                <i class="fa fa-check-circle"></i> Confirm Booking
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Overlay -->
+        <div class="ap-success-overlay" id="successOverlay">
+            <div class="ap-success-modal">
+                <div class="ap-success-icon">✓</div>
+                <h2>Appointment Confirmed!</h2>
+                <p>Your appointment has been successfully booked. You will receive a confirmation email and SMS shortly.</p>
+                <div class="ap-success-details" id="successDetails">
+                    <!-- Filled by JS -->
+                </div>
+                <button class="ap-btn-done" id="btnDone">Go to Dashboard</button>
+            </div>
+        </div>
+
+        <!-- Confetti Container -->
+        <div class="ap-confetti-container" id="confettiContainer" aria-hidden="true"></div>
+    </div>
+
+    <script>
+        (function() {
+            // ===== STATE =====
+            let currentStep = 1;
+            const totalSteps = 4;
+            const selections = {
+                department: null,
+                departmentName: null,
+                doctor: null,
+                doctorName: null,
+                date: null,
+                time: null,
+            };
+
+            // ===== DOCTOR DATABASE =====
+            const doctorsDB = {
+                cardiology: [
+                    { id: 'dr-sarah', name: 'Dr. Sarah Johnson', spec: 'Interventional Cardiologist',
+                        exp: '18+ yrs experience', rating: 4.9, img: 'img/testimonial-1.jpg',
+                        availability: 'available' },
+                    { id: 'dr-james', name: 'Dr. James Okonkwo', spec: 'Cardiac Electrophysiologist',
+                        exp: '14+ yrs experience', rating: 4.8, img: 'img/testimonial-2.jpg',
+                        availability: 'available' },
+                    { id: 'dr-aminah', name: 'Dr. Aminah Bello', spec: 'General Cardiologist', exp: '10+ yrs experience',
+                        rating: 4.7, img: 'img/testimonial-3.jpg', availability: 'limited' },
+                ],
+                neurology: [
+                    { id: 'dr-michael', name: 'Dr. Michael Chen', spec: 'Neurologist', exp: '20+ yrs experience',
+                        rating: 4.9, img: 'img/testimonial-2.jpg', availability: 'available' },
+                    { id: 'dr-fatima', name: 'Dr. Fatima Ibrahim', spec: 'Neurosurgeon', exp: '16+ yrs experience',
+                        rating: 4.8, img: 'img/testimonial-1.jpg', availability: 'available' },
+                ],
+                pulmonary: [
+                    { id: 'dr-emily', name: 'Dr. Emily Davis', spec: 'Pulmonologist', exp: '15+ yrs experience',
+                        rating: 4.7, img: 'img/testimonial-3.jpg', availability: 'available' },
+                    { id: 'dr-david', name: 'Dr. David Okafor', spec: 'Respiratory Specialist',
+                        exp: '12+ yrs experience', rating: 4.6, img: 'img/testimonial-2.jpg',
+                        availability: 'limited' },
+                ],
+                orthopedics: [
+                    { id: 'dr-robert', name: 'Dr. Robert Kim', spec: 'Orthopedic Surgeon', exp: '22+ yrs experience',
+                        rating: 4.9, img: 'img/testimonial-1.jpg', availability: 'available' },
+                    { id: 'dr-grace', name: 'Dr. Grace Adeyemi', spec: 'Sports Medicine', exp: '11+ yrs experience',
+                        rating: 4.7, img: 'img/testimonial-3.jpg', availability: 'available' },
+                ],
+                dermatology: [
+                    { id: 'dr-linda', name: 'Dr. Linda Nakamura', spec: 'Dermatologist', exp: '13+ yrs experience',
+                        rating: 4.8, img: 'img/testimonial-2.jpg', availability: 'available' },
+                ],
+                pediatrics: [
+                    { id: 'dr-paul', name: 'Dr. Paul Eze', spec: 'Pediatrician', exp: '19+ yrs experience',
+                        rating: 4.9, img: 'img/testimonial-1.jpg', availability: 'available' },
+                    { id: 'dr-ngozi', name: 'Dr. Ngozi Chukwu', spec: 'Child Specialist', exp: '14+ yrs experience',
+                        rating: 4.8, img: 'img/testimonial-3.jpg', availability: 'available' },
+                ],
+            };
+
+            // ===== DOM REFS =====
+            const progressDots = document.querySelectorAll('.ap-progress-dot');
+            const progressLines = document.querySelectorAll('.ap-progress-line');
+            const stepPanels = document.querySelectorAll('.ap-step-panel');
+            const deptGrid = document.getElementById('deptGrid');
+            const doctorGrid = document.getElementById('doctorGrid');
+            const btnStep1Next = document.getElementById('btnStep1Next');
+            const btnStep2Prev = document.getElementById('btnStep2Prev');
+            const btnStep2Next = document.getElementById('btnStep2Next');
+            const btnStep3Prev = document.getElementById('btnStep3Prev');
+            const btnStep3Next = document.getElementById('btnStep3Next');
+            const btnStep4Prev = document.getElementById('btnStep4Prev');
+            const btnConfirm = document.getElementById('btnConfirm');
+            const successOverlay = document.getElementById('successOverlay');
+            const btnDone = document.getElementById('btnDone');
+            const confettiContainer = document.getElementById('confettiContainer');
+            const step2DeptLabel = document.getElementById('step2DeptLabel');
+
+            // ===== NAVIGATION =====
+            function goToStep(step) {
+                currentStep = step;
+                // Update panels
+                stepPanels.forEach(p => p.classList.remove('active'));
+                const targetPanel = document.getElementById('step' + step);
+                if (targetPanel) targetPanel.classList.add('active');
+
+                // Update progress dots
+                progressDots.forEach(d => {
+                    const dStep = parseInt(d.dataset.step);
+                    d.classList.remove('active', 'completed');
+                    if (dStep < step) d.classList.add('completed');
+                    if (dStep === step) d.classList.add('active');
+                });
+
+                // Update progress lines
+                progressLines.forEach(l => {
+                    const lStep = parseInt(l.dataset.line);
+                    l.classList.remove('completed');
+                    if (lStep < step) l.classList.add('completed');
+                });
+
+                // Scroll to top of card
+                document.querySelector('.ap-main-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // ===== STEP 1: DEPARTMENT SELECTION =====
+            deptGrid.addEventListener('click', function(e) {
+                const card = e.target.closest('.ap-dept-card');
+                if (!card) return;
+
+                // Remove all selections
+                deptGrid.querySelectorAll('.ap-dept-card').forEach(c => c.classList.remove(
+                'selected'));
+                // Select clicked
+                card.classList.add('selected');
+                selections.department = card.dataset.dept;
+                selections.departmentName = card.dataset.deptName;
+                btnStep1Next.disabled = false;
+            });
+
+            btnStep1Next.addEventListener('click', function() {
+                if (!selections.department) return;
+                populateDoctors(selections.department);
+                step2DeptLabel.textContent = 'Available specialists in ' + selections.departmentName;
+                selections.doctor = null;
+                selections.doctorName = null;
+                btnStep2Next.disabled = true;
+                goToStep(2);
+            });
+
+            // ===== STEP 2: DOCTOR SELECTION =====
+            function populateDoctors(dept) {
+                const doctors = doctorsDB[dept] || [];
+                doctorGrid.innerHTML = '';
+                doctors.forEach(doc => {
+                    const availClass = doc.availability === 'available' ? 'ap-avail-available' :
+                        'ap-avail-limited';
+                    const availText = doc.availability === 'available' ? '● Available' : '● Limited Slots';
+                    const card = document.createElement('div');
+                    card.className = 'ap-doctor-card';
+                    card.dataset.doctorId = doc.id;
+                    card.dataset.doctorName = doc.name;
+                    card.innerHTML = `
+                            <img src="${doc.img}" alt="${doc.name}" class="ap-doctor-avatar" onerror="this.src='img/testimonial-1.jpg'" />
+                            <div class="ap-doctor-info">
+                                <h4>${doc.name}</h4>
+                                <span class="ap-doctor-spec">${doc.spec}</span>
+                                <span class="ap-doctor-exp">${doc.exp}</span>
+                                <div class="ap-doctor-rating">
+                                    ${'<i class="fa fa-star"></i>'.repeat(Math.floor(doc.rating))}
+                                    ${doc.rating % 1 >= 0.5 ? '<i class="fa fa-star-half-alt"></i>' : ''}
+                                    <span>${doc.rating}</span>
+                                </div>
+                                <span class="ap-doctor-availability ${availClass}">${availText}</span>
+                            </div>
+                        `;
+                    card.addEventListener('click', function() {
+                        doctorGrid.querySelectorAll('.ap-doctor-card').forEach(c => c.classList
+                            .remove('selected'));
+                        card.classList.add('selected');
+                        selections.doctor = doc.id;
+                        selections.doctorName = doc.name;
+                        btnStep2Next.disabled = false;
+                    });
+                    doctorGrid.appendChild(card);
+                });
+            }
+
+            btnStep2Prev.addEventListener('click', function() { goToStep(1); });
+            btnStep2Next.addEventListener('click', function() {
+                if (!selections.doctor) return;
+                selections.date = null;
+                selections.time = null;
+                btnStep3Next.disabled = true;
+                document.getElementById('selectedDateLabel').textContent = 'Select a date first';
+                clearTimeSlots();
+                renderCalendar();
+                goToStep(3);
+            });
+
+            // ===== STEP 3: CALENDAR & TIME SLOTS =====
+            let calYear, calMonth;
+            const today = new Date();
+            calYear = today.getFullYear();
+            calMonth = today.getMonth();
+
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                'October', 'November', 'December'
+            ];
+
+            function renderCalendar() {
+                document.getElementById('calMonthYear').textContent = monthNames[calMonth] + ' ' + calYear;
+                const grid = document.getElementById('calGrid');
+                grid.innerHTML = '';
+
+                const firstDay = new Date(calYear, calMonth, 1).getDay();
+                const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+                const todayDate = today.getDate();
+                const todayMonth = today.getMonth();
+                const todayYear = today.getFullYear();
+
+                // Empty cells
+                for (let i = 0; i < firstDay; i++) {
+                    const empty = document.createElement('button');
+                    empty.className = 'ap-calendar-day empty';
+                    empty.disabled = true;
+                    empty.tabIndex = -1;
+                    grid.appendChild(empty);
+                }
+
+                // Day cells
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const dayBtn = document.createElement('button');
+                    dayBtn.className = 'ap-calendar-day';
+                    dayBtn.textContent = d;
+                    dayBtn.dataset.day = d;
+
+                    const thisDate = new Date(calYear, calMonth, d);
+                    const isPast = thisDate < new Date(todayYear, todayMonth, todayDate);
+                    const isWeekend = thisDate.getDay() === 0 || thisDate.getDay() === 6;
+
+                    if (isPast) {
+                        dayBtn.classList.add('disabled');
+                        dayBtn.tabIndex = -1;
+                    } else {
+                        dayBtn.classList.add('has-slots');
+                        if (d === todayDate && calMonth === todayMonth && calYear === todayYear) {
+                            dayBtn.classList.add('today');
+                        }
+                        dayBtn.addEventListener('click', function() {
+                            grid.querySelectorAll('.ap-calendar-day').forEach(b => b.classList
+                                .remove('selected'));
+                            dayBtn.classList.add('selected');
+                            selections.date = {
+                                day: d,
+                                month: calMonth,
+                                year: calYear,
+                                label: monthNames[calMonth] + ' ' + d + ', ' + calYear,
+                            };
+                            document.getElementById('selectedDateLabel').textContent =
+                                'Available slots for ' + selections.date.label;
+                            populateTimeSlots(d, calMonth, calYear);
+                            checkStep3Complete();
+                        });
+                    }
+
+                    grid.appendChild(dayBtn);
+                }
+
+                // Restore selection if exists
+                if (selections.date && selections.date.month === calMonth && selections.date.year === calYear) {
+                    const allDays = grid.querySelectorAll('.ap-calendar-day:not(.empty):not(.disabled)');
+                    allDays.forEach(b => {
+                        if (parseInt(b.dataset.day) === selections.date.day) {
+                            b.classList.add('selected');
+                        }
+                    });
+                    populateTimeSlots(selections.date.day, selections.date.month, selections.date.year);
+                    document.getElementById('selectedDateLabel').textContent = 'Available slots for ' + selections
+                        .date.label;
+                }
+            }
+
+            function clearTimeSlots() {
+                document.getElementById('morningSlots').innerHTML = '';
+                document.getElementById('afternoonSlots').innerHTML = '';
+                document.getElementById('eveningSlots').innerHTML = '';
+                selections.time = null;
+            }
+
+            function populateTimeSlots(day, month, year) {
+                clearTimeSlots();
+                const selectedDate = new Date(year, month, day);
+                const dayOfWeek = selectedDate.getDay();
+                const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+
+                const morningSlots = isWeekend ? ['9:00 AM', '9:30 AM', '10:00 AM'] : ['8:00 AM', '8:30 AM', '9:00 AM',
+                    '9:30 AM', '10:00 AM', '10:30 AM'
+                ];
+                const afternoonSlots = ['12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM'];
+                const eveningSlots = isWeekend ? [] : ['4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM'];
+
+                // Randomly mark some as unavailable for realism
+                function renderSlotGroup(containerId, slots) {
+                    const container = document.getElementById(containerId);
+                    container.innerHTML = '';
+                    slots.forEach(slot => {
+                        const chip = document.createElement('button');
+                        chip.className = 'ap-timeslot-chip';
+                        chip.textContent = slot;
+                        chip.dataset.time = slot;
+                        const isUnavailable = Math.random() < 0.15;
+                        if (isUnavailable) {
+                            chip.classList.add('unavailable');
+                            chip.tabIndex = -1;
+                        } else {
+                            chip.addEventListener('click', function() {
+                                container.querySelectorAll('.ap-timeslot-chip').forEach(c => c
+                                    .classList.remove('selected'));
+                                chip.classList.add('selected');
+                                selections.time = slot;
+                                checkStep3Complete();
+                            });
+                        }
+                        container.appendChild(chip);
+                    });
+
+                    // Restore selection if exists
+                    if (selections.time) {
+                        const allChips = container.querySelectorAll('.ap-timeslot-chip:not(.unavailable)');
+                        allChips.forEach(c => {
+                            if (c.dataset.time === selections.time) c.classList.add('selected');
+                        });
+                    }
+                }
+
+                renderSlotGroup('morningSlots', morningSlots);
+                renderSlotGroup('afternoonSlots', afternoonSlots);
+                renderSlotGroup('eveningSlots', eveningSlots);
+            }
+
+            function checkStep3Complete() {
+                btnStep3Next.disabled = !(selections.date && selections.time);
+            }
+
+            document.getElementById('calPrev').addEventListener('click', function() {
+                if (calMonth === today.getMonth() && calYear === today.getFullYear()) return;
+                calMonth--;
+                if (calMonth < 0) { calMonth = 11;
+                    calYear--; }
+                renderCalendar();
+                clearTimeSlots();
+                selections.date = null;
+                selections.time = null;
+                btnStep3Next.disabled = true;
+                document.getElementById('selectedDateLabel').textContent = 'Select a date first';
+            });
+
+            document.getElementById('calNext').addEventListener('click', function() {
+                const maxMonth = today.getMonth() + 3;
+                const maxDate = new Date(today.getFullYear(), maxMonth, 1);
+                const nextDate = new Date(calYear, calMonth + 1, 1);
+                if (nextDate > maxDate) return;
+                calMonth++;
+                if (calMonth > 11) { calMonth = 0;
+                    calYear++; }
+                renderCalendar();
+                clearTimeSlots();
+                selections.date = null;
+                selections.time = null;
+                btnStep3Next.disabled = true;
+                document.getElementById('selectedDateLabel').textContent = 'Select a date first';
+            });
+
+            btnStep3Prev.addEventListener('click', function() { goToStep(2); });
+            btnStep3Next.addEventListener('click', function() {
+                if (!selections.date || !selections.time) return;
+                updateSummary();
+                goToStep(4);
+            });
+
+            // ===== STEP 4: CONFIRM =====
+            function updateSummary() {
+                document.getElementById('summaryDept').textContent = selections.departmentName || '-';
+                document.getElementById('summaryDoctor').textContent = selections.doctorName || '-';
+                document.getElementById('summaryDate').textContent = selections.date ? selections.date.label : '-';
+                document.getElementById('summaryTime').textContent = selections.time || '-';
+            }
+
+            btnStep4Prev.addEventListener('click', function() { goToStep(3); });
+
+            // Load user data if available
+            const storedUser = localStorage.getItem('alphaClinicUser');
+            if (storedUser) {
+                try {
+                    const user = JSON.parse(storedUser);
+                    if (user.name) document.getElementById('patientName').value = user.name;
+                    if (user.email) document.getElementById('patientEmail').value = user.email;
+                } catch (e) {}
+            }
+
+            // ===== CONFIRM BOOKING =====
+            btnConfirm.addEventListener('click', function() {
+                const patientName = document.getElementById('patientName').value.trim();
+                const patientPhone = document.getElementById('patientPhone').value.trim();
+
+                if (!patientName) {
+                    alert('Please enter your full name.');
+                    document.getElementById('patientName').focus();
+                    return;
+                }
+                if (!patientPhone) {
+                    alert('Please enter your phone number.');
+                    document.getElementById('patientPhone').focus();
+                    return;
+                }
+
+                // Build success details
+                const successDetails = document.getElementById('successDetails');
+                successDetails.innerHTML = `
+                        <span><i class="fa fa-user"></i> <strong>Patient:</strong> ${patientName}</span>
+                        <span><i class="fa fa-hospital"></i> <strong>Department:</strong> ${selections.departmentName}</span>
+                        <span><i class="fa fa-user-md"></i> <strong>Doctor:</strong> ${selections.doctorName}</span>
+                        <span><i class="fa fa-calendar"></i> <strong>Date:</strong> ${selections.date.label}</span>
+                        <span><i class="fa fa-clock"></i> <strong>Time:</strong> ${selections.time}</span>
+                        <span><i class="fa fa-check-circle" style="color:#10B981;"></i> <strong>Status:</strong> Confirmed</span>
+                    `;
+
+                // Show success overlay
+                successOverlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+
+                // Launch confetti
+                launchConfetti();
+
+                // Save to localStorage
+                const appointmentData = {
+                    ...selections,
+                    patientName,
+                    patientPhone,
+                    patientEmail: document.getElementById('patientEmail').value,
+                    appointmentType: document.getElementById('appointmentType').value,
+                    notes: document.getElementById('patientNotes').value,
+                    bookedAt: new Date().toISOString(),
+                };
+                const existingAppointments = JSON.parse(localStorage.getItem('alphaClinicAppointments') || '[]');
+                existingAppointments.push(appointmentData);
+                localStorage.setItem('alphaClinicAppointments', JSON.stringify(existingAppointments));
+            });
+
+            btnDone.addEventListener('click', function() {
+                window.location.href = 'profile.html';
+            });
+
+            // Close overlay on Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && successOverlay.classList.contains('show')) {
+                    successOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // ===== CONFETTI =====
+            function launchConfetti() {
+                const colors = ['#0D9B4D', '#2EE6A5', '#7C3AED', '#F59E0B', '#EF4444', '#3B82F6', '#EC4899',
+                '#10B981'];
+                const container = confettiContainer;
+                container.innerHTML = '';
+
+                for (let i = 0; i < 120; i++) {
+                    const piece = document.createElement('div');
+                    piece.className = 'ap-confetti-piece';
+                    piece.style.left = Math.random() * 100 + '%';
+                    piece.style.top = -(Math.random() * 40 + 10) + 'px';
+                    piece.style.width = (Math.random() * 10 + 6) + 'px';
+                    piece.style.height = (Math.random() * 10 + 6) + 'px';
+                    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    piece.style.animationDuration = (Math.random() * 2.5 + 2) + 's';
+                    piece.style.animationDelay = Math.random() * 1.5 + 's';
+                    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                    container.appendChild(piece);
+                }
+
+                // Clean up after animation
+                setTimeout(() => {
+                    container.innerHTML = '';
+                }, 4500);
+            }
+
+            // ===== INITIALIZE =====
+            renderCalendar();
+            goToStep(1);
+
+            console.log('✅ Appointment booking page initialized');
+        })();
+    </script>
+</body>
+</html>

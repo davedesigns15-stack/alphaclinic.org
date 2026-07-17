@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Billing & Payments | Alpha Clinic</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Manage your billing, invoices, and payment methods at Alpha Clinic" name="description" />
+    <link href="img/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="css/framework.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --bl-green: #0D9B4D;
+            --bl-green-dark: #087A38;
+            --bl-green-light: #E8F5EE;
+            --bl-green-surface: #F4FAF6;
+            --bl-accent: #2EE6A5;
+            --bl-dark: #1A3D2B;
+            --bl-text: #1E293B;
+            --bl-text-secondary: #64748B;
+            --bl-border: #E2E8F0;
+            --bl-white: #FFFFFF;
+            --bl-danger: #EF4444;
+            --bl-warning: #F59E0B;
+            --bl-success: #10B981;
+            --bl-info: #3B82F6;
+            --bl-purple: #7C3AED;
+            --bl-radius-sm: 0.65rem;
+            --bl-radius: 1rem;
+            --bl-radius-lg: 1.5rem;
+            --bl-radius-xl: 2rem;
+            --bl-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+            --bl-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --bl-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+            --bl-shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.10);
+            --bl-shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.14);
+            --bl-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --bl-transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .billing-page {
+            background: #F7FAF8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* ===== FLOATING ORBS ===== */
+        .bl-bg-orbs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bl-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            animation: bl-orbFloat 20s ease-in-out infinite;
+        }
+        .bl-orb--1 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(13, 155, 77, 0.25) 0%, transparent 70%);
+            top: -100px;
+            right: -120px;
+            animation-delay: 0s;
+        }
+        .bl-orb--2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(46, 230, 165, 0.2) 0%, transparent 70%);
+            bottom: -80px;
+            left: -100px;
+            animation-delay: -8s;
+        }
+        .bl-orb--3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+            top: 40%;
+            left: 50%;
+            animation-delay: -16s;
+        }
+        @keyframes bl-orbFloat {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(45px, -35px) scale(1.1);
+            }
+            50% {
+                transform: translate(-25px, 25px) scale(0.94);
+            }
+            75% {
+                transform: translate(-40px, -15px) scale(1.05);
+            }
+        }
+
+        .bl-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== TOP BAR ===== */
+        .bl-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .bl-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--bl-text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 3rem;
+            background: var(--bl-white);
+            border: 1px solid var(--bl-border);
+            transition: all var(--bl-transition);
+            box-shadow: var(--bl-shadow-xs);
+        }
+        .bl-back-link:hover {
+            color: var(--bl-green);
+            border-color: var(--bl-green);
+            transform: translateX(-3px);
+            box-shadow: var(--bl-shadow-sm);
+        }
+        .bl-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--bl-green);
+            text-decoration: none;
+        }
+        .bl-brand i {
+            font-size: 1.3rem;
+        }
+        .bl-emergency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #FEF2F2;
+            color: #DC2626;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 3rem;
+            border: 1px solid #FECACA;
+            animation: bl-emergencyPulse 2s ease-in-out infinite;
+        }
+        @keyframes bl-emergencyPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+            }
+        }
+
+        /* ===== MAIN CARD ===== */
+        .bl-main-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(13, 155, 77, 0.08);
+            border-radius: var(--bl-radius-xl);
+            box-shadow: var(--bl-shadow-lg);
+            overflow: hidden;
+            transition: all var(--bl-transition);
+        }
+        .bl-main-card:hover {
+            box-shadow: var(--bl-shadow-xl);
+        }
+        .bl-card-inner {
+            padding: 2.5rem 2.5rem 3rem;
+            position: relative;
+        }
+
+        /* ===== OVERVIEW CARDS ===== */
+        .bl-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .bl-overview-card {
+            background: var(--bl-white);
+            border-radius: var(--bl-radius-lg);
+            padding: 1.5rem 1.75rem;
+            border: 1px solid var(--bl-border);
+            box-shadow: var(--bl-shadow-xs);
+            transition: all var(--bl-transition);
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            cursor: default;
+        }
+        .bl-overview-card:hover {
+            box-shadow: var(--bl-shadow);
+            transform: translateY(-3px);
+            border-color: rgba(13, 155, 77, 0.2);
+        }
+        .bl-overview-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--bl-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        .bl-icon-balance {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        .bl-icon-due {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+        .bl-icon-insurance {
+            background: #DBEAFE;
+            color: #1D4ED8;
+        }
+        .bl-icon-invoices {
+            background: #EDE9FE;
+            color: #5B21B6;
+        }
+        .bl-overview-info span {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--bl-text-secondary);
+            font-weight: 600;
+        }
+        .bl-overview-info strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--bl-dark);
+        }
+
+        /* ===== TABS ===== */
+        .bl-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 2rem;
+            background: var(--bl-white);
+            padding: 0.4rem;
+            border-radius: var(--bl-radius);
+            border: 1px solid var(--bl-border);
+            box-shadow: var(--bl-shadow-xs);
+        }
+        .bl-tab {
+            flex: 1;
+            min-width: fit-content;
+            padding: 0.65rem 1.3rem;
+            border-radius: calc(var(--bl-radius) - 0.3rem);
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--bl-text-secondary);
+            cursor: pointer;
+            transition: all var(--bl-transition);
+            white-space: nowrap;
+            font-family: inherit;
+            text-align: center;
+        }
+        .bl-tab:hover {
+            background: var(--bl-green-light);
+            color: var(--bl-green);
+        }
+        .bl-tab.active {
+            background: var(--bl-green);
+            color: #fff;
+            box-shadow: 0 3px 10px rgba(13, 155, 77, 0.3);
+        }
+        .bl-tab .bl-tab-icon {
+            display: none;
+        }
+
+        /* ===== TAB CONTENT ===== */
+        .bl-tab-content {
+            display: none;
+            animation: bl-fadeSlideIn 0.4s ease;
+        }
+        .bl-tab-content.active {
+            display: block;
+        }
+        @keyframes bl-fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== TABLE ===== */
+        .bl-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -0.5rem;
+            padding: 0 0.5rem;
+        }
+        .bl-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            min-width: 650px;
+        }
+        .bl-table thead th {
+            text-align: left;
+            padding: 0.85rem 1rem;
+            font-weight: 700;
+            font-size: 0.73rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--bl-text-secondary);
+            border-bottom: 2px solid var(--bl-border);
+            background: var(--bl-green-surface);
+            white-space: nowrap;
+        }
+        .bl-table tbody td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--bl-dark);
+            white-space: nowrap;
+        }
+        .bl-table tbody tr {
+            transition: background var(--bl-transition);
+        }
+        .bl-table tbody tr:hover {
+            background: #f9fdfb;
+        }
+        .bl-status-pill {
+            display: inline-block;
+            padding: 0.25rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .bl-status-paid {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        .bl-status-pending {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+        .bl-status-overdue {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+        .bl-action-btn {
+            background: none;
+            border: none;
+            color: var(--bl-green);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: color var(--bl-transition);
+            font-family: inherit;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.5rem;
+        }
+        .bl-action-btn:hover {
+            color: var(--bl-green-dark);
+            background: var(--bl-green-light);
+            text-decoration: underline;
+        }
+
+        /* ===== PAYMENT METHODS ===== */
+        .bl-payment-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .bl-card-item {
+            background: var(--bl-white);
+            border: 1.5px solid var(--bl-border);
+            border-radius: var(--bl-radius-lg);
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all var(--bl-transition);
+            box-shadow: var(--bl-shadow-xs);
+        }
+        .bl-card-item:hover {
+            border-color: rgba(13, 155, 77, 0.3);
+            box-shadow: var(--bl-shadow);
+            transform: translateY(-2px);
+        }
+        .bl-card-icon {
+            font-size: 2rem;
+            width: 50px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .bl-card-details {
+            flex: 1;
+            min-width: 0;
+        }
+        .bl-card-details strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--bl-dark);
+        }
+        .bl-card-details span {
+            font-size: 0.75rem;
+            color: var(--bl-text-secondary);
+        }
+        .bl-card-default {
+            background: var(--bl-green-light);
+            color: var(--bl-green);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.6rem;
+            border-radius: 2rem;
+            margin-left: 0.5rem;
+        }
+        .bl-card-actions {
+            display: flex;
+            gap: 0.3rem;
+        }
+        .bl-icon-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid var(--bl-border);
+            background: var(--bl-white);
+            color: var(--bl-text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: all var(--bl-transition);
+        }
+        .bl-icon-btn:hover {
+            background: var(--bl-green-light);
+            color: var(--bl-green);
+            border-color: var(--bl-green);
+        }
+        .bl-btn-add-card {
+            background: var(--bl-green-light);
+            color: var(--bl-green);
+            border: 2px dashed var(--bl-green);
+            border-radius: var(--bl-radius-lg);
+            padding: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--bl-transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+        .bl-btn-add-card:hover {
+            background: var(--bl-green);
+            color: #fff;
+            border-style: solid;
+            box-shadow: var(--bl-shadow);
+            transform: translateY(-2px);
+        }
+
+        /* ===== MAKE PAYMENT SECTION ===== */
+        .bl-payment-form {
+            background: var(--bl-green-surface);
+            border-radius: var(--bl-radius-lg);
+            padding: 1.8rem;
+            border: 1px solid rgba(13, 155, 77, 0.1);
+        }
+        .bl-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .bl-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .bl-form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .bl-form-group label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--bl-dark);
+        }
+        .bl-form-input {
+            width: 100%;
+            height: 46px;
+            padding: 0 1rem;
+            border: 1.5px solid var(--bl-border);
+            border-radius: var(--bl-radius);
+            font-size: 0.9rem;
+            background: var(--bl-white);
+            transition: all var(--bl-transition);
+            outline: none;
+            box-shadow: var(--bl-shadow-xs);
+            font-family: inherit;
+        }
+        .bl-form-input:focus {
+            border-color: var(--bl-green);
+            box-shadow: 0 0 0 4px rgba(13, 155, 77, 0.08);
+        }
+        .bl-btn-pay {
+            background: linear-gradient(135deg, #0D9B4D, #087A38);
+            color: #fff;
+            border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--bl-transition);
+            box-shadow: 0 8px 24px rgba(13, 155, 77, 0.3);
+            font-family: inherit;
+        }
+        .bl-btn-pay:hover {
+            background: linear-gradient(135deg, #087A38, #056B2B);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(13, 155, 77, 0.45);
+        }
+
+        /* ===== SUCCESS MODAL ===== */
+        .bl-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .bl-modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .bl-modal {
+            background: #fff;
+            border-radius: var(--bl-radius-xl);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            max-width: 440px;
+            width: 90%;
+            box-shadow: var(--bl-shadow-xl);
+            animation: bl-modalPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes bl-modalPop {
+            from {
+                transform: scale(0.85);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .bl-modal-icon {
+            font-size: 3rem;
+            color: var(--bl-success);
+            margin-bottom: 1rem;
+        }
+        .bl-modal h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--bl-dark);
+        }
+        .bl-modal p {
+            color: var(--bl-text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        .bl-btn-close-modal {
+            background: var(--bl-green);
+            color: #fff;
+            border: none;
+            padding: 0.7rem 2rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--bl-transition);
+            font-family: inherit;
+            box-shadow: 0 4px 14px rgba(13, 155, 77, 0.25);
+        }
+        .bl-btn-close-modal:hover {
+            background: var(--bl-green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ===== SEARCH BOX ===== */
+        .bl-search-box {
+            position: relative;
+            width: 260px;
+            max-width: 100%;
+        }
+        .bl-search-box input {
+            width: 100%;
+            height: 42px;
+            padding: 0 2.5rem 0 1.1rem;
+            border-radius: 3rem;
+            border: 1.5px solid var(--bl-border);
+            background: var(--bl-white);
+            font-size: 0.85rem;
+            transition: all var(--bl-transition);
+            outline: none;
+            box-shadow: var(--bl-shadow-xs);
+        }
+        .bl-search-box input:focus {
+            border-color: var(--bl-green);
+            box-shadow: 0 0 0 4px rgba(13, 155, 77, 0.08);
+        }
+        .bl-search-box i {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--bl-text-secondary);
+            pointer-events: none;
+            font-size: 0.85rem;
+        }
+
+        .bl-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .bl-section-header h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--bl-dark);
+            margin: 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 991px) {
+            .bl-card-inner {
+                padding: 1.75rem 1.5rem 2.5rem;
+            }
+            .bl-overview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bl-form-row {
+                grid-template-columns: 1fr;
+            }
+            .bl-payment-methods-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 767px) {
+            .bl-container {
+                padding: 1rem 0.75rem 2rem;
+            }
+            .bl-card-inner {
+                padding: 1.25rem 1rem 2rem;
+            }
+            .bl-overview-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .bl-overview-card {
+                padding: 1.2rem 1.5rem;
+            }
+            .bl-tab {
+                font-size: 0.78rem;
+                padding: 0.55rem 0.8rem;
+            }
+            .bl-tab .bl-tab-icon {
+                display: inline;
+                margin-right: 0.3rem;
+            }
+            .bl-table {
+                min-width: 500px;
+                font-size: 0.8rem;
+            }
+            .bl-table thead th,
+            .bl-table tbody td {
+                padding: 0.65rem 0.65rem;
+            }
+            .bl-btn-pay {
+                font-size: 0.85rem;
+                padding: 0.7rem 1.5rem;
+            }
+            .bl-modal {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="billing-page">
+        <div class="bl-bg-orbs" aria-hidden="true">
+            <div class="bl-orb bl-orb--1"></div>
+            <div class="bl-orb bl-orb--2"></div>
+            <div class="bl-orb bl-orb--3"></div>
+        </div>
+
+        <div class="bl-container">
+            <div class="bl-topbar">
+                <a href="profile.html" class="bl-back-link">
+                    <i class="fa fa-arrow-left"></i> Back to Dashboard
+                </a>
+                <a href="index.html" class="bl-brand">
+                    <i class="fa fa-heartbeat"></i> Alpha Clinic
+                </a>
+                <div class="bl-emergency-badge">
+                    <i class="fa fa-phone-alt"></i> Emergency: 911
+                </div>
+            </div>
+
+            <div class="bl-main-card">
+                <div class="bl-card-inner">
+                    <!-- Overview Grid -->
+                    <div class="bl-overview-grid">
+                        <div class="bl-overview-card">
+                            <div class="bl-overview-icon bl-icon-balance">
+                                <i class="fa fa-wallet"></i>
+                            </div>
+                            <div class="bl-overview-info">
+                                <span>Current Balance</span>
+                                <strong>$245.00</strong>
+                            </div>
+                        </div>
+                        <div class="bl-overview-card">
+                            <div class="bl-overview-icon bl-icon-due">
+                                <i class="fa fa-exclamation-circle"></i>
+                            </div>
+                            <div class="bl-overview-info">
+                                <span>Payment Due</span>
+                                <strong>$75.00</strong>
+                            </div>
+                        </div>
+                        <div class="bl-overview-card">
+                            <div class="bl-overview-icon bl-icon-insurance">
+                                <i class="fa fa-shield-alt"></i>
+                            </div>
+                            <div class="bl-overview-info">
+                                <span>Insurance Claims</span>
+                                <strong>2 Active</strong>
+                            </div>
+                        </div>
+                        <div class="bl-overview-card">
+                            <div class="bl-overview-icon bl-icon-invoices">
+                                <i class="fa fa-file-invoice"></i>
+                            </div>
+                            <div class="bl-overview-info">
+                                <span>Total Invoices</span>
+                                <strong>8</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="bl-tabs" role="tablist">
+                        <button class="bl-tab active" data-bl-tab="transactions" role="tab" aria-selected="true">
+                            <span class="bl-tab-icon">💳</span> Transactions
+                        </button>
+                        <button class="bl-tab" data-bl-tab="methods" role="tab" aria-selected="false">
+                            <span class="bl-tab-icon">💳</span> Payment Methods
+                        </button>
+                        <button class="bl-tab" data-bl-tab="pay" role="tab" aria-selected="false">
+                            <span class="bl-tab-icon">💰</span> Make a Payment
+                        </button>
+                    </div>
+
+                    <!-- Tab: Transactions -->
+                    <div class="bl-tab-content active" id="bl-tab-transactions">
+                        <div class="bl-section-header">
+                            <h3><i class="fa fa-history" style="color:var(--bl-green);"></i> Billing History</h3>
+                            <div class="bl-search-box">
+                                <input type="text" id="transactionSearch" placeholder="Search transactions..." />
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </div>
+                        <div class="bl-table-wrap">
+                            <table class="bl-table" id="transactionsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Invoice #</th>
+                                        <th>Description</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transactionsBody"></tbody>
+                            </table>
+                        </div>
+                        <div class="bl-empty-state" id="transactionsEmpty" style="display:none; text-align:center; padding:2rem; color:var(--bl-text-secondary);">
+                            <i class="fa fa-receipt" style="font-size:2rem; opacity:0.5;"></i>
+                            <p>No transactions found.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Payment Methods -->
+                    <div class="bl-tab-content" id="bl-tab-methods">
+                        <div class="bl-section-header">
+                            <h3><i class="fa fa-credit-card" style="color:var(--bl-green);"></i> Saved Cards</h3>
+                        </div>
+                        <div class="bl-payment-methods-grid" id="methodsGrid"></div>
+                        <button class="bl-btn-add-card" id="addCardBtn">
+                            <i class="fa fa-plus-circle"></i> Add New Card
+                        </button>
+                        <div class="bl-empty-state" id="methodsEmpty" style="display:none; text-align:center; padding:2rem; color:var(--bl-text-secondary);">
+                            <i class="fa fa-credit-card" style="font-size:2rem; opacity:0.5;"></i>
+                            <p>No saved payment methods.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Make a Payment -->
+                    <div class="bl-tab-content" id="bl-tab-pay">
+                        <div class="bl-section-header">
+                            <h3><i class="fa fa-cash-register" style="color:var(--bl-green);"></i> Pay Your Bill</h3>
+                        </div>
+                        <div class="bl-payment-form">
+                            <div class="bl-form-row">
+                                <div class="bl-form-group">
+                                    <label>Amount to Pay *</label>
+                                    <input type="number" class="bl-form-input" id="payAmount" placeholder="0.00" min="1" step="0.01" />
+                                </div>
+                                <div class="bl-form-group">
+                                    <label>Payment Method</label>
+                                    <select class="bl-form-input" id="payMethod">
+                                        <option>Visa ending in 4242</option>
+                                        <option>Mastercard ending in 8888</option>
+                                        <option>New Card</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="bl-form-row">
+                                <div class="bl-form-group">
+                                    <label>Cardholder Name</label>
+                                    <input type="text" class="bl-form-input" id="cardName" placeholder="John Doe" />
+                                </div>
+                                <div class="bl-form-group">
+                                    <label>Card Number</label>
+                                    <input type="text" class="bl-form-input" id="cardNumber" placeholder="•••• •••• •••• ••••" />
+                                </div>
+                            </div>
+                            <div class="bl-form-row">
+                                <div class="bl-form-group">
+                                    <label>Expiry Date</label>
+                                    <input type="text" class="bl-form-input" id="cardExpiry" placeholder="MM/YY" />
+                                </div>
+                                <div class="bl-form-group">
+                                    <label>CVC</label>
+                                    <input type="text" class="bl-form-input" id="cardCvc" placeholder="•••" />
+                                </div>
+                            </div>
+                            <button class="bl-btn-pay" id="submitPayment">
+                                <i class="fa fa-lock"></i> Pay Securely
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Success Modal -->
+        <div class="bl-modal-overlay" id="successModal">
+            <div class="bl-modal">
+                <div class="bl-modal-icon">✅</div>
+                <h3>Payment Successful!</h3>
+                <p>Your payment of <strong id="paidAmountDisplay">$0.00</strong> has been processed. A confirmation receipt will be sent to your email.</p>
+                <button class="bl-btn-close-modal" id="closeModalBtn">Back to Billing</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ===== DATA =====
+            const transactions = [
+                { invoice: '#INV-2025-0342', desc: 'Cardiology Consultation', date: '2025-06-28', amount: '$150.00',
+                    status: 'paid' },
+                { invoice: '#INV-2025-0281', desc: 'Lab Work (Blood Panel)', date: '2025-06-15', amount: '$75.00',
+                    status: 'paid' },
+                { invoice: '#INV-2025-0195', desc: 'ECG Test', date: '2025-05-30', amount: '$200.00',
+                status: 'pending' },
+                { invoice: '#INV-2025-0102', desc: 'Annual Check-up', date: '2025-05-10', amount: '$300.00',
+                    status: 'paid' },
+                { invoice: '#INV-2025-0078', desc: 'MRI Scan', date: '2025-04-22', amount: '$450.00',
+                status: 'overdue' },
+                { invoice: '#INV-2025-0044', desc: 'Dermatology Consult', date: '2025-04-05', amount: '$120.00',
+                    status: 'paid' },
+            ];
+
+            const paymentMethods = [
+                { brand: 'Visa', last4: '4242', expiry: '12/26', isDefault: true },
+                { brand: 'Mastercard', last4: '8888', expiry: '08/25', isDefault: false },
+            ];
+
+            // ===== RENDER FUNCTIONS =====
+            const transactionsBody = document.getElementById('transactionsBody');
+            const transactionsEmpty = document.getElementById('transactionsEmpty');
+            const methodsGrid = document.getElementById('methodsGrid');
+            const methodsEmpty = document.getElementById('methodsEmpty');
+            const transactionSearch = document.getElementById('transactionSearch');
+
+            function renderTransactions(filter = '') {
+                const filtered = transactions.filter(t =>
+                    t.invoice.toLowerCase().includes(filter.toLowerCase()) ||
+                    t.desc.toLowerCase().includes(filter.toLowerCase()) ||
+                    t.status.toLowerCase().includes(filter.toLowerCase())
+                );
+                transactionsBody.innerHTML = '';
+                if (filtered.length === 0) {
+                    transactionsEmpty.style.display = 'block';
+                } else {
+                    transactionsEmpty.style.display = 'none';
+                    filtered.forEach(t => {
+                        const statusClass = t.status === 'paid' ? 'bl-status-paid' : t.status ===
+                            'pending' ? 'bl-status-pending' : 'bl-status-overdue';
+                        const statusText = t.status.charAt(0).toUpperCase() + t.status.slice(1);
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                                <td><strong>${t.invoice}</strong></td>
+                                <td>${t.desc}</td>
+                                <td>${t.date}</td>
+                                <td>${t.amount}</td>
+                                <td><span class="bl-status-pill ${statusClass}">${statusText}</span></td>
+                                <td>
+                                    <button class="bl-action-btn" onclick="alert('Downloading invoice ${t.invoice}')"><i class="fa fa-download"></i> Receipt</button>
+                                    ${t.status === 'pending' ? `<button class="bl-action-btn" style="margin-left:0.5rem;" onclick="document.querySelector('[data-bl-tab=pay]').click()">Pay Now</button>` : ''}
+                                </td>
+                            `;
+                        transactionsBody.appendChild(row);
+                    });
+                }
+            }
+
+            function renderMethods() {
+                methodsGrid.innerHTML = '';
+                if (paymentMethods.length === 0) {
+                    methodsEmpty.style.display = 'block';
+                } else {
+                    methodsEmpty.style.display = 'none';
+                    paymentMethods.forEach((m, index) => {
+                        const cardIcon = m.brand === 'Visa' ? 'fab fa-cc-visa' :
+                            'fab fa-cc-mastercard';
+                        const cardColor = m.brand === 'Visa' ? '#1A1F71' : '#EB001B';
+                        const div = document.createElement('div');
+                        div.className = 'bl-card-item';
+                        div.innerHTML = `
+                                <div class="bl-card-icon" style="color:${cardColor}"><i class="${cardIcon}"></i></div>
+                                <div class="bl-card-details">
+                                    <strong>${m.brand} •••• ${m.last4} ${m.isDefault ? '<span class="bl-card-default">Default</span>' : ''}</strong>
+                                    <span>Expires ${m.expiry}</span>
+                                </div>
+                                <div class="bl-card-actions">
+                                    ${!m.isDefault ? `<button class="bl-icon-btn" title="Set as default" onclick="alert('Default card updated')"><i class="fa fa-star"></i></button>` : ''}
+                                    <button class="bl-icon-btn" title="Remove" onclick="alert('Card removal simulated')"><i class="fa fa-trash-alt"></i></button>
+                                </div>
+                            `;
+                        methodsGrid.appendChild(div);
+                    });
+                }
+            }
+
+            // ===== TAB SWITCHING =====
+            const tabs = document.querySelectorAll('.bl-tab');
+            const tabContents = document.querySelectorAll('.bl-tab-content');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.dataset.blTab;
+                    tabs.forEach(t => { t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false'); });
+                    this.classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    document.getElementById('bl-tab-' + target).classList.add('active');
+                });
+            });
+
+            // ===== SEARCH =====
+            transactionSearch.addEventListener('input', function() {
+                renderTransactions(this.value.trim());
+            });
+
+            // ===== PAYMENT SUBMISSION =====
+            document.getElementById('submitPayment').addEventListener('click', function() {
+                const amount = document.getElementById('payAmount').value;
+                if (!amount || parseFloat(amount) <= 0) {
+                    alert('Please enter a valid payment amount.');
+                    return;
+                }
+                // Show success modal
+                document.getElementById('paidAmountDisplay').textContent = '$' + parseFloat(amount).toFixed(
+                    2);
+                document.getElementById('successModal').classList.add('show');
+            });
+
+            document.getElementById('closeModalBtn').addEventListener('click', function() {
+                document.getElementById('successModal').classList.remove('show');
+            });
+
+            // ===== ADD CARD (demo) =====
+            document.getElementById('addCardBtn').addEventListener('click', function() {
+                alert('Add new card form would open here.');
+            });
+
+            // ===== INIT =====
+            renderTransactions();
+            renderMethods();
+        })();
+    </script>
+</body>
+</html>

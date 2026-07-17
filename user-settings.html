@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Settings | Alpha Clinic</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Manage your Alpha Clinic account settings, profile, and security" name="description" />
+    <link href="img/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="css/framework.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --st-green: #0D9B4D;
+            --st-green-dark: #087A38;
+            --st-green-light: #E8F5EE;
+            --st-green-surface: #F4FAF6;
+            --st-accent: #2EE6A5;
+            --st-dark: #1A3D2B;
+            --st-text: #1E293B;
+            --st-text-secondary: #64748B;
+            --st-border: #E2E8F0;
+            --st-white: #FFFFFF;
+            --st-danger: #EF4444;
+            --st-warning: #F59E0B;
+            --st-success: #10B981;
+            --st-info: #3B82F6;
+            --st-purple: #7C3AED;
+            --st-radius-sm: 0.65rem;
+            --st-radius: 1rem;
+            --st-radius-lg: 1.5rem;
+            --st-radius-xl: 2rem;
+            --st-shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
+            --st-shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --st-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            --st-shadow-lg: 0 12px 36px rgba(0,0,0,0.10);
+            --st-shadow-xl: 0 24px 56px rgba(0,0,0,0.14);
+            --st-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --st-transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .settings-page {
+            background: #F7FAF8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .st-bg-orbs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .st-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.32;
+            animation: st-orbFloat 22s ease-in-out infinite;
+        }
+        .st-orb--1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(13,155,77,0.28) 0%, transparent 70%);
+            top: -120px;
+            right: -130px;
+            animation-delay: 0s;
+        }
+        .st-orb--2 {
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(46,230,165,0.22) 0%, transparent 70%);
+            bottom: -90px;
+            left: -110px;
+            animation-delay: -9s;
+        }
+        .st-orb--3 {
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(124,58,237,0.14) 0%, transparent 70%);
+            top: 45%;
+            left: 55%;
+            animation-delay: -18s;
+        }
+        @keyframes st-orbFloat {
+            0%,100%{transform:translate(0,0) scale(1)}
+            25%{transform:translate(50px,-40px) scale(1.1)}
+            50%{transform:translate(-30px,25px) scale(0.93)}
+            75%{transform:translate(-45px,-20px) scale(1.05)}
+        }
+
+        .st-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .st-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .st-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--st-text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 3rem;
+            background: var(--st-white);
+            border: 1px solid var(--st-border);
+            transition: all var(--st-transition);
+            box-shadow: var(--st-shadow-xs);
+        }
+        .st-back-link:hover {
+            color: var(--st-green);
+            border-color: var(--st-green);
+            transform: translateX(-3px);
+            box-shadow: var(--st-shadow-sm);
+        }
+        .st-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--st-green);
+            text-decoration: none;
+        }
+        .st-emergency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #FEF2F2;
+            color: #DC2626;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 3rem;
+            border: 1px solid #FECACA;
+            animation: st-emergencyPulse 2s ease-in-out infinite;
+        }
+        @keyframes st-emergencyPulse {
+            0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0.3)}
+            50%{box-shadow:0 0 0 12px rgba(239,68,68,0)}
+        }
+
+        .st-main-card {
+            background: rgba(255,255,255,0.82);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(13,155,77,0.08);
+            border-radius: var(--st-radius-xl);
+            box-shadow: var(--st-shadow-lg);
+            overflow: hidden;
+            transition: all var(--st-transition);
+        }
+        .st-main-card:hover {
+            box-shadow: var(--st-shadow-xl);
+        }
+        .st-card-inner {
+            padding: 2.5rem 2.5rem 3rem;
+        }
+
+        .st-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 2rem;
+            background: var(--st-white);
+            padding: 0.4rem;
+            border-radius: var(--st-radius);
+            border: 1px solid var(--st-border);
+            box-shadow: var(--st-shadow-xs);
+        }
+        .st-tab {
+            flex: 1;
+            min-width: fit-content;
+            padding: 0.65rem 1.3rem;
+            border-radius: calc(var(--st-radius) - 0.3rem);
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--st-text-secondary);
+            cursor: pointer;
+            transition: all var(--st-transition);
+            white-space: nowrap;
+            font-family: inherit;
+            text-align: center;
+        }
+        .st-tab:hover {
+            background: var(--st-green-light);
+            color: var(--st-green);
+        }
+        .st-tab.active {
+            background: var(--st-green);
+            color: #fff;
+            box-shadow: 0 3px 10px rgba(13,155,77,0.3);
+        }
+        .st-tab .st-tab-icon {
+            display: none;
+        }
+
+        .st-tab-content {
+            display: none;
+            animation: st-fadeSlide 0.4s ease;
+        }
+        .st-tab-content.active {
+            display: block;
+        }
+        @keyframes st-fadeSlide {
+            from{opacity:0;transform:translateY(12px)}
+            to{opacity:1;transform:translateY(0)}
+        }
+
+        .st-section-title {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--st-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .st-section-title i {
+            color: var(--st-green);
+        }
+
+        .st-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .st-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .st-form-group.full {
+            grid-column: 1 / -1;
+        }
+        .st-form-group label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--st-dark);
+        }
+        .st-form-input {
+            width: 100%;
+            height: 46px;
+            padding: 0 1rem;
+            border: 1.5px solid var(--st-border);
+            border-radius: var(--st-radius);
+            font-size: 0.9rem;
+            background: var(--st-white);
+            transition: all var(--st-transition);
+            outline: none;
+            box-shadow: var(--st-shadow-xs);
+            font-family: inherit;
+        }
+        .st-form-input:focus {
+            border-color: var(--st-green);
+            box-shadow: 0 0 0 4px rgba(13,155,77,0.08);
+        }
+        .st-form-textarea {
+            height: 80px;
+            padding: 0.8rem 1rem;
+            resize: vertical;
+        }
+
+        .st-btn-save {
+            background: linear-gradient(135deg, #0D9B4D, #087A38);
+            color: #fff;
+            border: none;
+            padding: 0.85rem 2.2rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--st-transition);
+            box-shadow: 0 8px 24px rgba(13,155,77,0.3);
+            font-family: inherit;
+            margin-top: 0.5rem;
+        }
+        .st-btn-save:hover {
+            background: linear-gradient(135deg, #087A38, #056B2B);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(13,155,77,0.45);
+        }
+
+        /* Password Strength */
+        .st-password-strength {
+            height: 5px;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            background: #eee;
+            transition: all var(--st-transition);
+            width: 100%;
+        }
+        .st-strength-fill {
+            height: 100%;
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.4s ease, background 0.4s ease;
+        }
+        .st-strength-text {
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+            color: var(--st-text-secondary);
+        }
+
+        .st-toggle-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1.25rem;
+            background: var(--st-white);
+            border: 1px solid var(--st-border);
+            border-radius: var(--st-radius);
+            margin-bottom: 0.75rem;
+            transition: all var(--st-transition);
+            box-shadow: var(--st-shadow-xs);
+        }
+        .st-toggle-group:hover {
+            border-color: rgba(13,155,77,0.2);
+        }
+        .st-toggle-label {
+            font-weight: 500;
+            color: var(--st-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .st-toggle-label i {
+            font-size: 1rem;
+            color: var(--st-green);
+            width: 20px;
+            text-align: center;
+        }
+        .st-toggle {
+            position: relative;
+            width: 48px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+        .st-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .st-slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background: #ccc;
+            border-radius: 26px;
+            transition: var(--st-transition);
+        }
+        .st-slider:before {
+            content: "";
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: var(--st-transition);
+        }
+        input:checked + .st-slider {
+            background: var(--st-green);
+        }
+        input:checked + .st-slider:before {
+            transform: translateX(22px);
+        }
+
+        /* Toast notification */
+        .st-toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1E293B;
+            color: #fff;
+            padding: 0.9rem 1.8rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+            z-index: 9999;
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .st-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .st-toast.success i { color: #4ade80; }
+        .st-toast.error i { color: #f87171; }
+
+        @media (max-width: 767px) {
+            .st-card-inner {
+                padding: 1.5rem 1.25rem 2rem;
+            }
+            .st-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .st-tab {
+                font-size: 0.78rem;
+                padding: 0.55rem 0.8rem;
+            }
+            .st-tab .st-tab-icon {
+                display: inline;
+                margin-right: 0.3rem;
+            }
+            .st-btn-save {
+                width: 100%;
+                justify-content: center;
+            }
+            .st-toast {
+                right: 15px;
+                bottom: 20px;
+                left: 15px;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-page">
+        <div class="st-bg-orbs" aria-hidden="true">
+            <div class="st-orb st-orb--1"></div>
+            <div class="st-orb st-orb--2"></div>
+            <div class="st-orb st-orb--3"></div>
+        </div>
+
+        <div class="st-container">
+            <div class="st-topbar">
+                <a href="profile.html" class="st-back-link">
+                    <i class="fa fa-arrow-left"></i> Back to Dashboard
+                </a>
+                <a href="index.html" class="st-brand">
+                    <i class="fa fa-heartbeat"></i> Alpha Clinic
+                </a>
+                <div class="st-emergency-badge">
+                    <i class="fa fa-phone-alt"></i> Emergency: 911
+                </div>
+            </div>
+
+            <div class="st-main-card">
+                <div class="st-card-inner">
+                    <div class="st-tabs" role="tablist">
+                        <button class="st-tab active" data-st-tab="profile" role="tab" aria-selected="true">
+                            <span class="st-tab-icon">👤</span> Profile
+                        </button>
+                        <button class="st-tab" data-st-tab="password" role="tab" aria-selected="false">
+                            <span class="st-tab-icon">🔒</span> Password
+                        </button>
+                        <button class="st-tab" data-st-tab="notifications" role="tab" aria-selected="false">
+                            <span class="st-tab-icon">🔔</span> Notifications
+                        </button>
+                        <button class="st-tab" data-st-tab="preferences" role="tab" aria-selected="false">
+                            <span class="st-tab-icon">⚙️</span> Preferences
+                        </button>
+                    </div>
+
+                    <!-- Tab: Profile Information -->
+                    <div class="st-tab-content active" id="st-tab-profile">
+                        <h3 class="st-section-title"><i class="fa fa-user-circle"></i> Personal Information</h3>
+                        <div class="st-form-grid">
+                            <div class="st-form-group">
+                                <label>First Name</label>
+                                <input type="text" class="st-form-input" id="firstName" value="James" />
+                            </div>
+                            <div class="st-form-group">
+                                <label>Last Name</label>
+                                <input type="text" class="st-form-input" id="lastName" value="Anderson" />
+                            </div>
+                            <div class="st-form-group">
+                                <label>Email Address</label>
+                                <input type="email" class="st-form-input" id="email" value="james.anderson@email.com" />
+                            </div>
+                            <div class="st-form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" class="st-form-input" id="phone" value="+234 905 110 6189" />
+                            </div>
+                            <div class="st-form-group">
+                                <label>Date of Birth</label>
+                                <input type="date" class="st-form-input" id="dob" value="1987-04-15" />
+                            </div>
+                            <div class="st-form-group">
+                                <label>Gender</label>
+                                <select class="st-form-input" id="gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="st-form-group full">
+                                <label>Address</label>
+                                <input type="text" class="st-form-input" id="address" value="10 Lagos Street, Ikeja" />
+                            </div>
+                            <div class="st-form-group">
+                                <label>City</label>
+                                <input type="text" class="st-form-input" id="city" value="Lagos" />
+                            </div>
+                            <div class="st-form-group">
+                                <label>State</label>
+                                <input type="text" class="st-form-input" id="state" value="Lagos State" />
+                            </div>
+                        </div>
+                        <button class="st-btn-save" id="saveProfileBtn"><i class="fa fa-save"></i> Save Changes</button>
+                    </div>
+
+                    <!-- Tab: Change Password -->
+                    <div class="st-tab-content" id="st-tab-password">
+                        <h3 class="st-section-title"><i class="fa fa-lock"></i> Change Password</h3>
+                        <div class="st-form-grid" style="max-width:500px;">
+                            <div class="st-form-group full">
+                                <label>Current Password</label>
+                                <input type="password" class="st-form-input" id="currentPassword" placeholder="••••••••" />
+                            </div>
+                            <div class="st-form-group full">
+                                <label>New Password</label>
+                                <input type="password" class="st-form-input" id="newPassword" placeholder="Enter new password" />
+                                <div class="st-password-strength" id="passwordStrengthBar">
+                                    <div class="st-strength-fill" id="strengthFill"></div>
+                                </div>
+                                <span class="st-strength-text" id="strengthText"></span>
+                            </div>
+                            <div class="st-form-group full">
+                                <label>Confirm New Password</label>
+                                <input type="password" class="st-form-input" id="confirmPassword" placeholder="Re-enter new password" />
+                                <span id="confirmMatchMsg" style="font-size:0.75rem; color:var(--st-danger); display:none;">Passwords do not match</span>
+                            </div>
+                        </div>
+                        <button class="st-btn-save" id="updatePasswordBtn"><i class="fa fa-shield-alt"></i> Update Password</button>
+                    </div>
+
+                    <!-- Tab: Notifications -->
+                    <div class="st-tab-content" id="st-tab-notifications">
+                        <h3 class="st-section-title"><i class="fa fa-bell"></i> Notification Preferences</h3>
+                        <div class="st-toggle-group">
+                            <span class="st-toggle-label"><i class="fa fa-envelope"></i> Email Notifications</span>
+                            <label class="st-toggle">
+                                <input type="checkbox" id="emailNotif" checked />
+                                <span class="st-slider"></span>
+                            </label>
+                        </div>
+                        <div class="st-toggle-group">
+                            <span class="st-toggle-label"><i class="fa fa-sms"></i> SMS Alerts</span>
+                            <label class="st-toggle">
+                                <input type="checkbox" id="smsNotif" checked />
+                                <span class="st-slider"></span>
+                            </label>
+                        </div>
+                        <div class="st-toggle-group">
+                            <span class="st-toggle-label"><i class="fa fa-calendar-check"></i> Appointment Reminders</span>
+                            <label class="st-toggle">
+                                <input type="checkbox" id="apptReminder" checked />
+                                <span class="st-slider"></span>
+                            </label>
+                        </div>
+                        <div class="st-toggle-group">
+                            <span class="st-toggle-label"><i class="fa fa-flask"></i> Lab Results Alerts</span>
+                            <label class="st-toggle">
+                                <input type="checkbox" id="labNotif" checked />
+                                <span class="st-slider"></span>
+                            </label>
+                        </div>
+                        <button class="st-btn-save" id="saveNotifBtn"><i class="fa fa-save"></i> Save Preferences</button>
+                    </div>
+
+                    <!-- Tab: Preferences -->
+                    <div class="st-tab-content" id="st-tab-preferences">
+                        <h3 class="st-section-title"><i class="fa fa-cog"></i> Account Preferences</h3>
+                        <div class="st-form-grid" style="max-width:500px;">
+                            <div class="st-form-group full">
+                                <label>Language</label>
+                                <select class="st-form-input" id="language">
+                                    <option>English</option>
+                                    <option>French</option>
+                                    <option>Spanish</option>
+                                    <option>Yoruba</option>
+                                    <option>Hausa</option>
+                                </select>
+                            </div>
+                            <div class="st-form-group full">
+                                <label>Time Zone</label>
+                                <select class="st-form-input" id="timezone">
+                                    <option>West Africa Time (WAT) - Lagos</option>
+                                    <option>Eastern Time (US)</option>
+                                    <option>Central European Time</option>
+                                </select>
+                            </div>
+                            <div class="st-form-group full">
+                                <label>Date Format</label>
+                                <select class="st-form-input" id="dateFormat">
+                                    <option>MM/DD/YYYY</option>
+                                    <option>DD/MM/YYYY</option>
+                                    <option>YYYY-MM-DD</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="st-btn-save" id="savePrefsBtn"><i class="fa fa-save"></i> Save Preferences</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast -->
+        <div class="st-toast" id="toast"><i class="fa fa-check-circle"></i> <span id="toastMsg">Settings saved!</span></div>
+    </div>
+
+    <script>
+        (function() {
+            // Tab switching
+            const tabs = document.querySelectorAll('.st-tab');
+            const contents = document.querySelectorAll('.st-tab-content');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.stTab;
+                    tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+                    contents.forEach(c => c.classList.remove('active'));
+                    document.getElementById('st-tab-' + target).classList.add('active');
+                });
+            });
+
+            // Toast function
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            function showToast(message, type = 'success') {
+                toastMsg.textContent = message;
+                toast.className = 'st-toast ' + type + ' show';
+                toast.querySelector('i').className = type === 'success' ? 'fa fa-check-circle' : 'fa fa-exclamation-circle';
+                clearTimeout(window.toastTimer);
+                window.toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            // Save profile
+            document.getElementById('saveProfileBtn').addEventListener('click', () => {
+                // In real app, send data to server. For demo, save to localStorage.
+                const profile = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    dob: document.getElementById('dob').value,
+                    gender: document.getElementById('gender').value,
+                    address: document.getElementById('address').value,
+                    city: document.getElementById('city').value,
+                    state: document.getElementById('state').value,
+                };
+                localStorage.setItem('alphaClinicProfile', JSON.stringify(profile));
+                showToast('Profile updated successfully!', 'success');
+            });
+
+            // Password strength checker
+            const newPassInput = document.getElementById('newPassword');
+            const strengthFill = document.getElementById('strengthFill');
+            const strengthText = document.getElementById('strengthText');
+            const confirmPassInput = document.getElementById('confirmPassword');
+            const confirmMsg = document.getElementById('confirmMatchMsg');
+
+            function evaluateStrength(pw) {
+                let score = 0;
+                if (pw.length >= 8) score++;
+                if (/[A-Z]/.test(pw)) score++;
+                if (/[0-9]/.test(pw)) score++;
+                if (/[^A-Za-z0-9]/.test(pw)) score++;
+                return score;
+            }
+
+            newPassInput.addEventListener('input', () => {
+                const pw = newPassInput.value;
+                const score = evaluateStrength(pw);
+                const percent = (score / 4) * 100;
+                strengthFill.style.width = percent + '%';
+                if (score <= 1) {
+                    strengthFill.style.background = '#EF4444';
+                    strengthText.textContent = 'Weak password';
+                } else if (score === 2) {
+                    strengthFill.style.background = '#F59E0B';
+                    strengthText.textContent = 'Fair password';
+                } else if (score === 3) {
+                    strengthFill.style.background = '#3B82F6';
+                    strengthText.textContent = 'Good password';
+                } else {
+                    strengthFill.style.background = '#10B981';
+                    strengthText.textContent = 'Strong password';
+                }
+                if (pw === '') {
+                    strengthFill.style.width = '0%';
+                    strengthText.textContent = '';
+                }
+                // Check match
+                checkPasswordMatch();
+            });
+
+            confirmPassInput.addEventListener('input', checkPasswordMatch);
+
+            function checkPasswordMatch() {
+                if (confirmPassInput.value && confirmPassInput.value !== newPassInput.value) {
+                    confirmMsg.style.display = 'block';
+                } else {
+                    confirmMsg.style.display = 'none';
+                }
+            }
+
+            document.getElementById('updatePasswordBtn').addEventListener('click', () => {
+                const current = document.getElementById('currentPassword').value;
+                const newPw = document.getElementById('newPassword').value;
+                const confirm = document.getElementById('confirmPassword').value;
+                if (!current || !newPw || !confirm) {
+                    showToast('Please fill all password fields.', 'error');
+                    return;
+                }
+                if (newPw !== confirm) {
+                    showToast('Passwords do not match.', 'error');
+                    return;
+                }
+                if (evaluateStrength(newPw) < 3) {
+                    showToast('Password is too weak. Please choose a stronger password.', 'error');
+                    return;
+                }
+                // Simulate API call
+                showToast('Password changed successfully!', 'success');
+                document.getElementById('currentPassword').value = '';
+                document.getElementById('newPassword').value = '';
+                document.getElementById('confirmPassword').value = '';
+                strengthFill.style.width = '0%';
+                strengthText.textContent = '';
+            });
+
+            // Save notifications
+            document.getElementById('saveNotifBtn').addEventListener('click', () => {
+                const notifSettings = {
+                    email: document.getElementById('emailNotif').checked,
+                    sms: document.getElementById('smsNotif').checked,
+                    appointment: document.getElementById('apptReminder').checked,
+                    lab: document.getElementById('labNotif').checked,
+                };
+                localStorage.setItem('alphaClinicNotif', JSON.stringify(notifSettings));
+                showToast('Notification preferences saved!', 'success');
+            });
+
+            // Save preferences
+            document.getElementById('savePrefsBtn').addEventListener('click', () => {
+                const prefs = {
+                    language: document.getElementById('language').value,
+                    timezone: document.getElementById('timezone').value,
+                    dateFormat: document.getElementById('dateFormat').value,
+                };
+                localStorage.setItem('alphaClinicPrefs', JSON.stringify(prefs));
+                showToast('Preferences updated!', 'success');
+            });
+
+            // Load stored data on page load
+            function loadStoredData() {
+                const storedProfile = localStorage.getItem('alphaClinicProfile');
+                if (storedProfile) {
+                    const p = JSON.parse(storedProfile);
+                    if (p.firstName) document.getElementById('firstName').value = p.firstName;
+                    if (p.lastName) document.getElementById('lastName').value = p.lastName;
+                    if (p.email) document.getElementById('email').value = p.email;
+                    if (p.phone) document.getElementById('phone').value = p.phone;
+                    if (p.dob) document.getElementById('dob').value = p.dob;
+                    if (p.gender) document.getElementById('gender').value = p.gender;
+                    if (p.address) document.getElementById('address').value = p.address;
+                    if (p.city) document.getElementById('city').value = p.city;
+                    if (p.state) document.getElementById('state').value = p.state;
+                }
+                const storedNotif = localStorage.getItem('alphaClinicNotif');
+                if (storedNotif) {
+                    const n = JSON.parse(storedNotif);
+                    document.getElementById('emailNotif').checked = n.email !== false;
+                    document.getElementById('smsNotif').checked = n.sms !== false;
+                    document.getElementById('apptReminder').checked = n.appointment !== false;
+                    document.getElementById('labNotif').checked = n.lab !== false;
+                }
+                const storedPrefs = localStorage.getItem('alphaClinicPrefs');
+                if (storedPrefs) {
+                    const pr = JSON.parse(storedPrefs);
+                    if (pr.language) document.getElementById('language').value = pr.language;
+                    if (pr.timezone) document.getElementById('timezone').value = pr.timezone;
+                    if (pr.dateFormat) document.getElementById('dateFormat').value = pr.dateFormat;
+                }
+            }
+            loadStoredData();
+        })();
+    </script>
+</body>
+</html>
